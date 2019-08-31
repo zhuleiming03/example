@@ -18,10 +18,4 @@ public class Bicycle extends Traffic {
                 + this.pay + ",\"calorie\":" + this.calorie + "}";
     }
 
-    @Override
-    public Bicycle clone() throws CloneNotSupportedException {
-        Bicycle bicycle = (Bicycle) super.clone();
-        return bicycle;
-    }
-
 }

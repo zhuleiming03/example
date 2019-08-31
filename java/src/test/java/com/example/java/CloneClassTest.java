@@ -1,9 +1,6 @@
 package com.example.java;
 
-import com.example.java.domain.Bicycle;
-import com.example.java.domain.Car;
-import com.example.java.domain.Customer;
-import com.example.java.domain.Traffic;
+import com.example.java.domain.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -58,7 +55,10 @@ public class CloneClassTest {
     }
 
     /**
-     * 浅克隆测试
+     * 克隆测试
+     * 字段 单独开辟空间 eg: CustomerID
+     * 对象 浅克隆 复制引用的值 eg: Traffic
+     * 对象 深克隆 克隆对象 在堆中单独开辟空间 eg: Wallet
      */
     @Test
     public void CustomerCloneTest() {
@@ -68,19 +68,25 @@ public class CloneClassTest {
         ((Bicycle) bicycleC).setCalorie(18.5f);
         bicycleC.setPay(199.99f);
         bicycleC.setType("Bicycle");
+        Wallet walletC = new Wallet();
+        walletC.setPayCount(9);
         customerC.setTraffic(bicycleC);
+        customerC.setWallet(walletC);
 
         try {
+            System.out.println("customerD 为 customerC 的克隆体");
             Customer customerD = customerC.clone();
             System.out.println("customerC:" + customerC);
             System.out.println("customerD:" + customerD);
 
-            System.out.println("alter customerD value:");
-            customerD.setCustomerID("X00782");
-            //customerD.getTraffic().setPay(156.61f);
-
+            System.out.println("customerC 分别修改对象Traffic、Wallet和字段CustomerID");
+            customerC.setCustomerID("X00650");
+            customerC.getTraffic().setPay(99.80f);
+            customerC.getWallet().setPayCount(1);
             System.out.println("customerC:" + customerC);
             System.out.println("customerD:" + customerD);
+            System.out.println("customerD：Wallet和字段CustomerID 为克隆部分 不改变，Traffic 为引用 跟随改变");
+
         } catch (Exception e) {
             System.out.println(e);
         }

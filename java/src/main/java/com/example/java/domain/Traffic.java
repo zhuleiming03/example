@@ -27,9 +27,4 @@ public abstract class Traffic {
         return "{\"type\":\"" + this.type + "\",\"pay\":" + this.pay + "}";
     }
 
-    @Override
-    public Traffic clone() throws CloneNotSupportedException {
-        Traffic traffic = (Traffic) super.clone();
-        return traffic;
-    }
 }

@@ -1,6 +1,6 @@
 package com.example.java.domain;
 
-public class Customer {
+public class Customer implements Cloneable {
 
     public Customer(String customerID) {
         this.customerID = customerID;
@@ -9,6 +9,8 @@ public class Customer {
     private String customerID;
 
     private Traffic traffic;
+
+    private Wallet wallet;
 
     public String getCustomerID() {
         return this.customerID;
@@ -26,15 +28,25 @@ public class Customer {
         this.traffic = traffic;
     }
 
+    public Wallet getWallet(){
+        return this.wallet;
+    }
+
+    public void setWallet(Wallet wallet){
+        this.wallet=wallet;
+    }
+
     @Override
     public String toString() {
-        return "{\"CustomerID\":\"" + this.customerID + "\",\"Traffic\":" + this.traffic + "}";
+        return "{\"CustomerID\":\"" + this.customerID
+                + "\",\"Wallet:\": " + this.wallet
+                + ",\"Traffic\":" + this.traffic + "}";
     }
 
     @Override
     public Customer clone() throws CloneNotSupportedException {
         Customer customer = (Customer) super.clone();
-        customer.setTraffic(this.traffic.clone());
+        customer.wallet = this.wallet.clone();
         return customer;
     }
 
