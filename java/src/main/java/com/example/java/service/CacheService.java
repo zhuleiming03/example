@@ -14,4 +14,6 @@ public interface CacheService {
     Integer getCacheQueryCount(String type, Integer... ids);
 
     Integer getAddUpResult(Integer... ids);
+
+    Integer getTryCatchException(Integer id);
 }

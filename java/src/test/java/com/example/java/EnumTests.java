@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class EnumTests {
 
     @Test
-    public void WeekEnumTest() {
+    public void weekEnumTest() {
 
         if (WeekEnum.MONDAY.equals("MONDAY")) {
             System.out.println("WeekEnum.MONDAY.equals(\"MONDAY\") result: true ");
@@ -36,7 +36,7 @@ public class EnumTests {
     }
 
     @Test
-    public void MonthEnumTest() {
+    public void monthEnumTest() {
 
         System.out.println("get enum value: " + MonthEnum.JANUARRY);
         System.out.println("get enum code: " + MonthEnum.FEBRUARY.getCode());

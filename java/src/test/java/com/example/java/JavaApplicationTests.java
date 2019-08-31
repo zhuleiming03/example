@@ -14,6 +14,9 @@ public class JavaApplicationTests {
     @Test
     public void contextLoads() {
         System.out.println("This is a test!");
+        //final static 区别
+        //list
+        //并发
     }
 
 }

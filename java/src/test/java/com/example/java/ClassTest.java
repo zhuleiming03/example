@@ -8,13 +8,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CloneClassTest {
+public class ClassTest {
 
     /**
      * 继承测试
      */
     @Test
-    public void CustomerTest() {
+    public void customerTest() {
 
         Customer customerA = new Customer("X00515");
         System.out.println(customerA);
@@ -40,7 +40,7 @@ public class CloneClassTest {
      * 引用传递测试
      */
     @Test
-    public void BicycleTest() {
+    public void bicycleTest() {
 
         Traffic bicycleA = new Bicycle();
         ((Bicycle) bicycleA).setCalorie(105.2f);
@@ -61,7 +61,7 @@ public class CloneClassTest {
      * 对象 深克隆 克隆对象 在堆中单独开辟空间 eg: Wallet
      */
     @Test
-    public void CustomerCloneTest() {
+    public void customerCloneTest() {
 
         Customer customerC = new Customer("X00651");
         Traffic bicycleC = new Bicycle();

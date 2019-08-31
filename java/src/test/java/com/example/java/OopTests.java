@@ -6,6 +6,10 @@ import org.junit.Test;
 
 public class OopTests {
 
+    /**
+     * 可变参数方法调用
+     * 过时方法注释
+     */
     @Test
     public void variableArgumentsTest() {
         CacheService cacheService = new CacheServiceImpl();
@@ -13,6 +17,9 @@ public class OopTests {
         System.out.println("累计合计：" + cacheService.getAddUpResult(1, 2, 3, 4, 5));
     }
 
+    /**
+     * Object Equals 写法规范
+     */
     @Test
     public void objectEqualsTest() {
         Object object = "test";
@@ -50,6 +57,10 @@ public class OopTests {
         }
     }
 
+    /**
+     * Integer Equals 测试
+     * 值在-128至127 时可以用= 超出该范围只能用 Equals
+     */
     @Test
     public void integerEqualsTest() {
         Integer a1 = 15;
@@ -76,6 +87,9 @@ public class OopTests {
         }
     }
 
+    /**
+     * String Split 出的数组会自动过滤空格
+     */
     @Test
     public void stringSplit() {
         String stringArry = "a,b,c,,,";
