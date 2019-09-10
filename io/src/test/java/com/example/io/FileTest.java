@@ -1,8 +1,10 @@
-package com.example.java;
+package com.example.io;
 
-import com.example.java.implement.IOServiceImpl;
+import com.example.io.service.FileService;
+import com.example.io.serviceImpl.FileServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -12,10 +14,13 @@ import java.io.OutputStream;
 @SpringBootTest
 public class FileTest {
 
+    @Autowired
+    private FileServiceImpl service;
+
     @Test
     public void mkDirectoryTest() {
         String path = "";
-        if (IOServiceImpl.mkDirectory(path)) {
+        if (service.mkDirectory(path)) {
             System.out.println("创建目录成功");
         } else {
             System.out.println("创建目录失败，目录：" + path);
@@ -27,7 +32,7 @@ public class FileTest {
         String path = "D:/FTP/aa/cc";
         String fileName = "fdsa42";
         try {
-            OutputStream outputStream = IOServiceImpl.createFile(path, fileName);
+            OutputStream outputStream = service.createFile(path, fileName);
             if (outputStream == null) {
                 System.out.println("创建文件失败");
             } else {

@@ -1,6 +1,8 @@
-package com.example.java.implement;
+package com.example.io.serviceImpl;
 
+import com.example.io.service.FileService;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.File;
@@ -8,11 +10,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-public final class IOServiceImpl {
-
+@Service
+public class FileServiceImpl implements FileService {
 
     @Nullable
-    public static boolean mkDirectory(String path) {
+    public Boolean mkDirectory(String path) {
         File dir = new File(path);
         if (dir.isDirectory()) {
             return true;
@@ -22,7 +24,7 @@ public final class IOServiceImpl {
     }
 
     @Nullable
-    public static OutputStream createFile(String path, String fileName) throws FileNotFoundException {
+    public OutputStream createFile(String path, String fileName) throws FileNotFoundException {
         if (StringUtils.isEmpty(path)) {
             return null;
         }
