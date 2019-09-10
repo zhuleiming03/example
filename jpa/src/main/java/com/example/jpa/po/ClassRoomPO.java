@@ -18,6 +18,6 @@ public class ClassRoomPO {
     private Integer capacity;
 
     @Embedded
-    private BlackboardPO blackboardPO;
+    private BlackboardPO blackboard;
 
 }
