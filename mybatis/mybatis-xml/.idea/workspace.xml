@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="daafe788-29c7-495b-a9bc-5a6fb458d210" name="Default Changelist" comment="补充建表SQL">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="daafe788-29c7-495b-a9bc-5a6fb458d210" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -131,7 +129,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568699075117" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568699106688" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../IdeaSpace/insureorder" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -265,7 +263,7 @@
       <updated>1568604918261</updated>
       <workItem from="1568604922987" duration="4214000" />
       <workItem from="1568615988803" duration="8474000" />
-      <workItem from="1568698817740" duration="258000" />
+      <workItem from="1568698817740" duration="474000" />
     </task>
     <task id="LOCAL-00001" summary="xml 增删改查">
       <created>1568623498776</created>
@@ -281,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568623578783</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="补充建表SQL">
+      <created>1568699090803</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1568699090803</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -317,7 +322,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12946000" />
+    <option name="totallyTimeSpent" value="13162000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="157" y="0" width="1420" height="1040" extended-state="0" />
