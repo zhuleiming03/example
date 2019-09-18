@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.frame.dao.mapper.UserMapper" >
+    <resultMap id="BaseResultMap" type="com.example.frame.domain.po.UserPO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="pass_word" property="passWord" jdbcType="VARCHAR" />
+        <result column="user_sex" property="userSex" javaType="com.example.frame.domain.enums.UserSexEnum"/>
+        <result column="is_valid" property="valid" jdbcType="TINYINT" />
+        <result column="gmt_create" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="gmt_modified" property="modifiedTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT
+        id,<include refid="Base_Column_List" />,is_valid,gmt_create,gmt_modified
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <sql id="Base_Column_List" >
+        user_name,pass_word,user_sex
+    </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM users
+    </select>
+
+    <insert id="insert" parameterType="com.example.frame.domain.po.UserPO" useGeneratedKeys="true" keyProperty="id" >
+       INSERT INTO
+       		users
+       		(user_name,pass_word,user_sex,is_valid)
+       	VALUES
+       		(#{userName}, #{passWord}, #{userSex}, #{valid})
+    </insert>
+
+    <update id="update" parameterType="com.example.frame.domain.po.UserPO" >
+        UPDATE
+        users
+        SET
+        <if test="passWord != null">pass_word = #{passWord},</if>
+        gmt_modified = now()
+        WHERE
+        id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Long" >
+       DELETE FROM
+       		 users
+       WHERE
+       		 id =#{id}
+    </delete>
+
+</mapper>
