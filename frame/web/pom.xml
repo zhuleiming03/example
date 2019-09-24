@@ -9,13 +9,13 @@
         <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
         <groupId>com.example</groupId>
         <artifactId>frame</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0</version>
         <relativePath>../</relativePath>
 
     </parent>
     <groupId>com.example</groupId>
     <artifactId>web</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>web</name>
     <description>Demo project for Spring Boot</description>
 
@@ -27,14 +27,14 @@
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>domain</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
 
@@ -52,6 +52,7 @@
     </dependencies>
 
     <build>
+        <finalName>web</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
