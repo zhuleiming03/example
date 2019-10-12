@@ -1,5 +1,15 @@
 package com.example.frame.domain.enums;
 
+/**
+ * 用户性别
+ */
 public enum UserSexEnum {
-    MALE,FEMALE
+    /**
+     * 男
+     */
+    MALE,
+    /**
+     * 女
+     */
+    FEMALE
 }
