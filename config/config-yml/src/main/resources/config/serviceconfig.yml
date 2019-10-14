@@ -1,0 +1,4 @@
+serviceconfig:
+  serverRootUrl: https://www.demo.com
+  version: 4.0.0.0
+
