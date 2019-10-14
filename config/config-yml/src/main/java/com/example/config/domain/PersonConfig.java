@@ -1,5 +1,6 @@
-package com.example.config.domain.po;
+package com.example.config.domain;
 
+import com.example.config.domain.po.TrafficPO;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.Map;
 @Data
 @Component
 @ConfigurationProperties(prefix = "person")
-public class PersonPO {
+public class PersonConfig {
 
     private String lastName;
 
