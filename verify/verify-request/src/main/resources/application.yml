@@ -1,0 +1,17 @@
+server:
+  port: 8070
+
+mapping-items:
+  MappingItems:
+    - source: id
+      target: ID
+      defaultValue:
+      required: true
+    - source: name
+      target: Name
+      defaultValue:
+      required: true
+    - source: amount
+      target: Amount
+      defaultValue: 0.0
+      required: false
