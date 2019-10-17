@@ -25,8 +25,8 @@ public class HomeController {
 
         ResponseDTO response = new ResponseDTO();
         response.setStatus(1);
-        response.setCode(200);
-        response.setMessage("ID:" + request.getId());
+        response.setCode(Integer.parseInt(requestMap.get("code").toString()));
+        response.setMessage("name:" + requestMap.get("message").toString());
         return response;
     }
 }

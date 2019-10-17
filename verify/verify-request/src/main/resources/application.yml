@@ -4,14 +4,14 @@ server:
 mapping-items:
   MappingItems:
     - source: id
-      target: ID
+      target: code
       defaultValue:
       required: true
     - source: name
-      target: Name
+      target: message
       defaultValue:
       required: true
     - source: amount
-      target: Amount
+      target: amount
       defaultValue: 0.0
       required: false
