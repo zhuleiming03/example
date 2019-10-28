@@ -24,14 +24,14 @@ public class XxlJobConfig {
     @Value("${xxl.job.executor.appname}")
     private String appName;
 
-    //@Value("${xxl.job.executor.ip}")
+    @Value("${xxl.job.executor.ip}")
     private String ip = null;
 
     @Value("${xxl.job.executor.port}")
     private int port;
 
-    //@Value("${xxl.job.accessToken}")
-    private String accessToken = null ;
+    @Value("${xxl.job.accessToken}")
+    private String accessToken = null;
 
     @Value("${xxl.job.executor.logpath}")
     private String logPath;
@@ -39,11 +39,11 @@ public class XxlJobConfig {
     @Value("${xxl.job.executor.logretentiondays}")
     private int logRetentionDays;
 
-    @Value("${xxl.job.executor.prefer-ip-address}")
-    private Boolean preferIpAddress;
-
-    @Value("${xxl.job.executor.preferred-networks}")
-    private String preferredNetworks;
+//    @Value("${xxl.job.executor.prefer-ip-address}")
+//    private Boolean preferIpAddress;
+//
+//    @Value("${xxl.job.executor.preferred-networks}")
+//    private String preferredNetworks;
 
     @Bean(initMethod = "start", destroyMethod = "destroy")
     public XxlJobSpringExecutor xxlJobExecutor() {
@@ -54,7 +54,7 @@ public class XxlJobConfig {
 //        if (preferIpAddress != null && preferIpAddress) {
 //            ip = (ip == null) ? getLocalHostLANAddress(preferredNetworks) : ip;
 //        }
-//        log.info(">>>>>>>>>>> xxl-job executor ip:{}", ip);
+        log.info(">>>>>>>>>>> xxl-job executor ip:{}", ip);
         xxlJobSpringExecutor.setIp(ip);
         xxlJobSpringExecutor.setPort(port);
         xxlJobSpringExecutor.setAccessToken(accessToken);
@@ -84,5 +84,4 @@ public class XxlJobConfig {
         }
         return null;
     }
-
 }

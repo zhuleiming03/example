@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.WeekFields;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -110,6 +111,22 @@ public class DateTest {
         LocalDateTime tagDateTime = LocalDateTime.parse(tagDateTimeString, fmt);
         int days = (int) Duration.between(tagDateTime, currentDate).toDays();
         System.out.println("当前时间与2019-01-25 12:00:01 相差日（不忽略时间）：" + days);
+    }
+
+    /**
+     * 星期计算
+     */
+    @Test
+    public void weekTest() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime date = LocalDateTime.parse("2019-10-20 00:00:00", fmt);
+        WeekFields weekFields = WeekFields.of(DayOfWeek.MONDAY, 1);
+
+        System.out.println("当前第" + date.get(weekFields.weekOfYear()) + "周");
+        System.out.println("星期：" + date.getDayOfWeek().getValue());
+        System.out.println("开始：" + date.minusDays(date.getDayOfWeek().getValue() - 1));
+        System.out.println("结束：" + date.minusDays(date.getDayOfWeek().getValue() - 7));
+
     }
 
 }

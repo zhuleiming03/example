@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * 4、执行日志：需要通过 "XxlJobLogger.log" 打印执行日志；
  *
  */
-@JobHandler(value="demoJobHandler")
+@JobHandler(value="ynTrustFlowsSaveJob")
 @Component
 @Slf4j
 public class DemoJobHandler extends IJobHandler {
@@ -27,12 +27,12 @@ public class DemoJobHandler extends IJobHandler {
     @Override
     public ReturnT<String> execute(String param) throws Exception {
         XxlJobLogger.log("XXL-JOB, Hello World.");
-        System.out.println(System.currentTimeMillis());
-        for (int i = 0; i < 5; i++) {
-            XxlJobLogger.log("beat at:" + i);
-            log.info("beat at:" + i);
-            TimeUnit.SECONDS.sleep(2);
-        }
+//        System.out.println(System.currentTimeMillis());
+//        for (int i = 0; i < 5; i++) {
+//            XxlJobLogger.log("beat at:" + i);
+//            log.info("beat at:" + i);
+//            TimeUnit.SECONDS.sleep(2);
+//        }
         return SUCCESS;
     }
 
