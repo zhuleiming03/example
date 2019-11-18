@@ -1,0 +1,25 @@
+server:
+  port: 8071
+
+spring:
+  rabbitmq:
+    host: 10.138.30.9
+    port: 5672
+    username: sa
+    password: 123456
+  cloud.stream:
+      bindings:
+        inputFromQueues:
+          destination: example
+          group: queue
+        outputToQueues:
+          destination: example
+          group: test
+      rabbit.bindings:
+          inputFromQueues.consumer:
+              bindingRoutingKey: queue
+          outputToQueues.producer:
+              routing-key-expression: '''queue'''
+
+
+
