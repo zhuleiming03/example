@@ -28,7 +28,10 @@ public class ConsumerRepeatServlet {
         MessageDTO dto = message.getPayload();
         log.info(">>queues[example.extend.queue.repeat] get msg：{}",
                 objectMapper.writeValueAsString(dto));
-        throw new Exception("BusinessId:" + dto.getBusinessId());
-        //channel.basicAck(deliveryTag, false); //数据操作完需要确认
+        //存在异常可能操作
+        Integer result = 10 / (dto.getOperation() - 10);
+        log.info(">>result：{}", result);
+        //数据操作完需要确认
+        channel.basicAck(deliveryTag, false);
     }
 }
