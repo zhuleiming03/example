@@ -1,15 +1,13 @@
 package com.example.io;
 
-import com.example.io.serviceImpl.FileServiceImpl;
+import com.example.io.service.impl.FileServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URL;
 
 @RunWith(SpringRunner.class)
@@ -52,7 +50,6 @@ public class FileTest {
         System.out.println(">>5：" + System.getProperty("java.class.path"));
     }
 
-
     /**
      * 创建目录
      */
@@ -72,15 +69,40 @@ public class FileTest {
     @Test
     public void createFileTest() {
         String path = System.getProperty("user.dir") + "\\testDir";
-        String fileName = "fdsa42";
-        try {
-            OutputStream outputStream = service.createFile(path, fileName);
+        String fileName = "fdsa42.txt";
+        try (OutputStream outputStream = service.createFile(path, fileName)) {
             if (outputStream == null) {
                 System.out.println("创建文件失败");
             } else {
+                byte[] txtContent = "This is a Test".getBytes();
+                outputStream.write(txtContent);
                 System.out.println("创建文件成功");
-                outputStream.close();
             }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    @Test
+    public void readFileTest() {
+        String path = System.getProperty("user.dir") + "\\testDir";
+        String fileName = path + "\\fdsa42.txt";
+
+
+        try (InputStream inputStream = service.readFileByBytes(fileName)) {
+
+            final int bufferSize = 1024;
+            final char[] buffer = new char[bufferSize];
+            final StringBuilder out = new StringBuilder();
+            Reader in = new InputStreamReader(inputStream, "UTF-8");
+            for (; ; ) {
+                int rsz = in.read(buffer, 0, buffer.length);
+                if (rsz < 0)
+                    break;
+                out.append(buffer, 0, rsz);
+            }
+            System.out.println(out.toString());
+
         } catch (Exception e) {
             System.out.println(e.toString());
         }
