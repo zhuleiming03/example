@@ -10,6 +10,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Data
 @TableName(value = "dbo.UserInfo")
@@ -37,7 +38,7 @@ public class UserInfoPO {
     private BigDecimal balance;
 
     @TableField(value = "Birthday")
-    private Date birthday;
+    private LocalDate birthday;
 
     @TableField(value = "CreateTime")
     private Timestamp createTime;

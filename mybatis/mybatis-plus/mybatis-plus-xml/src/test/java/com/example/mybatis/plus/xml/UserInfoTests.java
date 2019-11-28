@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @SpringBootTest
 class UserInfoTests {
@@ -38,7 +39,7 @@ class UserInfoTests {
         po_1.setAge(age);
         po_1.setCheapRate(0.95d);
         po_1.setBalance(balance);
-        po_1.setBirthday(new Date(System.currentTimeMillis()));
+        po_1.setBirthday(LocalDate.of(1995, 3, 5));
         po_1.setCreateTime(new Timestamp(System.currentTimeMillis()));
         po_1.setVaild(true);
         mapper.insert(po_1);
