@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mybatis.plus.xml.mapper.UserInfoMapper" >
+
+    <resultMap id="BaseResultMap" type="com.example.mybatis.plus.xml.po.UserInfoPO" >
+        <result column="ID" property="id" jdbcType="INTEGER" />
+        <result column="CardNo" property="cardNo" jdbcType="BIGINT" />
+        <result column="Name" property="name" jdbcType="NVARCHAR" />
+        <result column="Sex" property="sex" javaType="com.example.mybatis.plus.xml.enums.UserSexEnum" />
+        <result column="Age" property="age" jdbcType="SMALLINT" />
+        <result column="CheapRate" property="cheapRate" jdbcType="DOUBLE" />
+        <result column="Balance" property="balance" jdbcType="DECIMAL" />
+        <result column="Birthday" property="birthday" jdbcType="DATE" />
+        <result column="CreateTime" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="IsVaild" property="vaild" jdbcType="BIT" />
+    </resultMap>
+
+    <select id="crateTable">
+
+IF OBJECT_ID(N'Demo.dbo.UserInfo',N'U') IS NOT NULL
+	DROP TABLE dbo.UserInfo
+
+CREATE TABLE [dbo].[UserInfo](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[CardNo] [bigint] NULL,
+	[Name] [nvarchar](10) NULL,
+	[Sex] [varchar](10) NULL,
+	[Age] [smallint] NULL,
+	[CheapRate] [float] NULL,
+	[Balance] [decimal](10, 2) NULL,
+	[Birthday] [date] NULL,
+	[CreateTime] [datetime] NULL,
+	[IsVaild] [bit] NULL,
+ CONSTRAINT [PK_UserInfo] PRIMARY KEY CLUSTERED
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+    </select>
+    
+    <select id="selectAl" resultMap="BaseResultMap">
+        SELECT * FROM dbo.UserInfo WHERE IsVaild=1
+    </select>
+
+</mapper>
