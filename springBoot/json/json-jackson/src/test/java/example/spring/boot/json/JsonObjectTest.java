@@ -1,12 +1,12 @@
 package example.spring.boot.json;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import example.spring.boot.json.domain.LocalDateTimeSerializer;
 import example.spring.boot.json.po.SubjectPO;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -16,13 +16,12 @@ import java.time.LocalTime;
 @SpringBootTest
 class JsonObjectTest {
 
-    @Test
-    void objectToString() throws Exception {
+    @Resource
+    private ObjectMapper objectMapper;
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        JavaTimeModule timeModule = new JavaTimeModule();
-        timeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer());
-        objectMapper.registerModule(timeModule);
+
+    @Test
+    void objectToString() throws JsonProcessingException {
 
         SubjectPO po = new SubjectPO();
         po.setBillItemId(15981564321L);
@@ -42,14 +41,11 @@ class JsonObjectTest {
     }
 
     @Test
-    void stringToObject() throws Exception {
+    void stringToObject() throws JsonProcessingException {
 
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        String json = "{\"billItemId\":11,\"billId\":1,\"amount\":15.56,\"name\":\"八神太一\"}";
+        String json = "{\"billId\":26,\"ID\":15981564321,\"dueAmount\":15.569,\"receiveAmount\":9.2140000000000004121147867408581078052520751953125,\"name\":\"本金\",\"billDay\":\"2019-06-12\",\"deductTime\":\"15:30\",\"createTime\":\"2019-10-05 11:25:51\",\"updateTime\":\"2019-12-05 10:25:30\",\"vaild\":true}";
 
         SubjectPO subjectPO = objectMapper.readValue(json, SubjectPO.class);
-
         System.out.println(subjectPO);
     }
 }
