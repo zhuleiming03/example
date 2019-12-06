@@ -4,7 +4,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum BillTypeEnum {
 
+    /**
+     * 普通
+     */
     Normal(1,"Normal"),
+    /**
+     * 提前结清
+     */
     Advance(3,"Advance");
 
     private Integer code;
