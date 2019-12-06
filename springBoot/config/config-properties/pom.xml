@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>eaxmple.spring.boot</groupId>
-    <artifactId>config</artifactId>
+    <artifactId>config-properties</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>config-properties</name>
     <description>Demo project for Spring Boot</description>
