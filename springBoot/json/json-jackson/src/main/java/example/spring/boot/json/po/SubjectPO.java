@@ -1,8 +1,6 @@
 package example.spring.boot.json.po;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import example.spring.boot.json.json.serializer.BigDecimalSerializer;
 import lombok.Data;
@@ -14,7 +12,25 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Data
+//反序列化时会忽略所有没有Getter和Setter的属性
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SubjectPO {
+
+    public SubjectPO(){}
+
+    public SubjectPO(Integer billId,Double dueAmount,String name) {
+        this.billItemId = System.currentTimeMillis();
+        this.billId = billId;
+        this.dueAmount = new BigDecimal(dueAmount);
+        this.receiveAmount = new BigDecimal(0);
+        this.name = name;
+        this.describe = name;
+        this.billDay = LocalDate.now();
+        this.deductTime = LocalTime.now();
+        this.createTime = new Timestamp(System.currentTimeMillis());
+        this.updateTime = LocalDateTime.now();
+        this.vaild = true;
+    }
 
     /**
      * JsonProperty 重命名

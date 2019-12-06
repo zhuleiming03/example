@@ -43,7 +43,7 @@ class JsonObjectTest {
     @Test
     void stringToObject() throws JsonProcessingException {
 
-        String json = "{\"billId\":26,\"ID\":15981564321,\"dueAmount\":15.569,\"receiveAmount\":9.2140000000000004121147867408581078052520751953125,\"name\":\"本金\",\"billDay\":\"2019-06-12\",\"deductTime\":\"15:30\",\"createTime\":\"2019-10-05 11:25:51\",\"updateTime\":\"2019-12-05 10:25:30\",\"vaild\":true}";
+        String json = "{\"billId\":26,\"ID\":15981564321,\"type\":12,\"dueAmount\":15.569,\"receiveAmount\":9.2140000000000004121147867408581078052520751953125,\"name\":\"本金\",\"billDay\":\"2019-06-12\",\"deductTime\":\"15:30\",\"createTime\":\"2019-10-05 11:25:51\",\"updateTime\":\"2019-12-05 10:25:30\",\"vaild\":true}";
 
         SubjectPO subjectPO = objectMapper.readValue(json, SubjectPO.class);
         System.out.println(subjectPO);
