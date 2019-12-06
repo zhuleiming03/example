@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>example.spring.boot</groupId>
-    <artifactId>json</artifactId>
+    <artifactId>json-jackson</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>json-jackson</name>
     <description>Demo project for Spring Boot</description>
