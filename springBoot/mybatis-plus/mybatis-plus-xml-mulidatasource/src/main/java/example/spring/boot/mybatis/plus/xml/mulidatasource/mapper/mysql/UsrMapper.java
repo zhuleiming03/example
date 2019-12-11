@@ -1,20 +1,14 @@
 package example.spring.boot.mybatis.plus.xml.mulidatasource.mapper.mysql;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import example.spring.boot.mybatis.plus.xml.mulidatasource.po.mysql.UserPO;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Service;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+@Mapper
+@Repository
+public interface UsrMapper extends BaseMapper<UserPO> {
 
-@Service
-public interface UsrMapper {
+    void crateTable();
 
-    @Select("SELECT user_name,pass_word,user_sex FROM users ")
-    @Results({
-            @Result(property = "userName", column = "user_name"),
-            @Result(property = "passWord", column = "pass_word")
-    })
-    List<UserPO> getAll();
 }

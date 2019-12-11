@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="example.spring.boot.mybatis.plus.xml.mulidatasource.mapper.mysql.UsrMapper" >
+
+    <resultMap id="BaseResultMap" type="example.spring.boot.mybatis.plus.xml.mulidatasource.po.mysql.UserPO" >
+        <result column="id" property="id" jdbcType="INTEGER" />
+        <result column="card_no" property="cardNo" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="sex" property="sex" javaType="example.spring.boot.mybatis.plus.xml.mulidatasource.enums.UserSexEnum" />
+        <result column="age" property="age" jdbcType="SMALLINT" />
+        <result column="cheap_rate" property="cheapRate" jdbcType="DOUBLE" />
+        <result column="balance" property="balance" jdbcType="FLOAT" />
+        <result column="birthday" property="birthday" jdbcType="DATE" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="is_vaild" property="vaild" jdbcType="BIT" />
+    </resultMap>
+
+    <select id="crateTable">
+DROP TABLE IF EXISTS `t_user`;
+CREATE TABLE `t_user`  (
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `card_no` bigint(20) NULL DEFAULT NULL,
+  `name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sex` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `age` smallint(6) NULL DEFAULT NULL,
+  `cheap_rate` float NULL DEFAULT NULL,
+  `balance` decimal(10, 2) NULL DEFAULT NULL,
+  `birthday` date NULL DEFAULT NULL,
+  `create_time` timestamp(0) NULL DEFAULT NULL,
+  `is_vaild` bit(1) NULL DEFAULT NULL,
+   KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic
+    </select>
+
+    <insert id="insert" parameterType="example.spring.boot.mybatis.plus.xml.mulidatasource.po.mysql.UserPO" useGeneratedKeys="true" keyProperty="id" >
+        INSERT t_user ( card_no, name, sex, age, cheap_rate, balance,
+                            birthday, create_time, is_vaild )
+        VALUES  ( #{cardNo}, -- CardNo - bigint
+          #{name}, -- Name - nvarchar(10)
+          #{sex}, -- Sex - varchar(10)
+          #{age}, -- Age - smallint
+          #{cheapRate}, -- CheapRate - float
+          #{balance}, -- Balance - decimal
+          #{birthday}, -- Birthday - date
+          #{createTime}, -- CreateTime - datetime
+          #{vaild}  -- IsVaild - bit
+          )
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Integer" >
+       DELETE FROM t_user WHERE id =#{id}
+    </delete>
+
+    <update id="updateById"  >
+        UPDATE
+        t_user
+        SET cheap_rate = #{et.cheapRate}
+        WHERE id = #{et.id}
+    </update>
+
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+         SELECT * FROM t_user WHERE id =#{id}
+    </select>
+
+</mapper>

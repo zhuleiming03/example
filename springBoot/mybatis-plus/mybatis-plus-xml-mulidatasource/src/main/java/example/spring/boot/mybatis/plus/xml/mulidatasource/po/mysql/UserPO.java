@@ -37,7 +37,4 @@ public class UserPO {
 
     @TableField(value = "is_vaild")
     private Boolean vaild;
-
-    @Version
-    private BigInteger version;
 }
