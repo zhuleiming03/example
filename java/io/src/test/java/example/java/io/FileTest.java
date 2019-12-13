@@ -38,7 +38,7 @@ public class FileTest {
         String path = System.getProperty("user.dir") + "\\localFileDir\\write\\txt";
 
         StringBuilder contentStringBuilder = new StringBuilder();
-        for (int i = 0; i < 5000000; i++) {
+        for (int i = 0; i < 3000000; i++) {
             contentStringBuilder.append("I Want to Eat Your Pancreas|君の膵臓をたべたい|我想吃掉你的胰脏|");
             contentStringBuilder.append(i);
             contentStringBuilder.append("\r\n");
