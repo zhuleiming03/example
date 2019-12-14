@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <context-param>
+        <param-name>dateBase</param-name>
+        <param-value>localhost:1433</param-value>
+    </context-param>
+
+
+    <servlet>
+        <servlet-name>firstServlet</servlet-name>
+        <servlet-class>example.jsp.servlet.XmlServlet</servlet-class>
+        <!--web容器在应用程序启动后立即启动servlet，顺序有小到大-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>secondServlet</servlet-name>
+        <servlet-class>example.jsp.servlet.XmlServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>firstServlet</servlet-name>
+        <url-pattern>/first</url-pattern>
+        <url-pattern>/one</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>secondServlet</servlet-name>
+        <url-pattern>/second</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>configXmlServlet</servlet-name>
+        <servlet-class>example.jsp.servlet.ConfigXmlServlet</servlet-class>
+        <init-param>
+            <param-name>maxCount</param-name>
+            <param-value>85</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>configXmlServlet</servlet-name>
+        <url-pattern>/config/xml</url-pattern>
+    </servlet-mapping>
+</web-app>
