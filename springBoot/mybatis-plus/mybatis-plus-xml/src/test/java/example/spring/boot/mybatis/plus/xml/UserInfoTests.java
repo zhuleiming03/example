@@ -3,13 +3,17 @@ package example.spring.boot.mybatis.plus.xml;
 import example.spring.boot.mybatis.plus.xml.enums.UserSexEnum;
 import example.spring.boot.mybatis.plus.xml.mapper.UserInfoMapper;
 import example.spring.boot.mybatis.plus.xml.po.UserInfoPO;
+import example.spring.boot.mybatis.plus.xml.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.StopWatch;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 @SpringBootTest
 class UserInfoTests {
@@ -17,6 +21,8 @@ class UserInfoTests {
     @Autowired
     UserInfoMapper mapper;
 
+    @Autowired
+    UserService userService;
 
     /**
      * 增删改查测试
@@ -56,6 +62,46 @@ class UserInfoTests {
         //查询所有记录
         System.out.println(">>:现存数据库记录如下 --------------- ");
         System.out.println(">>:" + mapper.selectAl());
+    }
+
+    @Test
+    void capabilityTest() {
+        List<UserInfoPO> userPOList = new LinkedList<>();
+        for (int i = 0; i < 10000; i++) {
+            UserInfoPO po = initUserPO();
+            po.setCardNo(po.getCardNo() + i);
+            userPOList.add(po);
+        }
+
+        //批量插入数据
+        StopWatch stopwatch = new StopWatch();
+
+        stopwatch.start();
+        mapper.batchInsert(userPOList);
+        stopwatch.stop();
+        System.out.println(">>method 1:"+ stopwatch.getTotalTimeSeconds());
+
+        stopwatch.start();
+        userService.saveBatch(userPOList);
+        stopwatch.stop();
+        System.out.println(">>method 2:"+ stopwatch.getTotalTimeSeconds());
+    }
+
+    private UserInfoPO initUserPO() {
+        //新增记录
+        short age = 18;
+        BigDecimal balance = new BigDecimal(1582.62f);
+        UserInfoPO po = new UserInfoPO();
+        po.setCardNo(100200201911280018L);
+        po.setName("漩涡鸣人");
+        po.setSex(UserSexEnum.MALE);
+        po.setAge(age);
+        po.setCheapRate(0.95d);
+        po.setBalance(balance);
+        po.setBirthday(LocalDate.of(2000, 10, 10));
+        po.setCreateTime(new Timestamp(System.currentTimeMillis()));
+        po.setVaild(true);
+        return po;
     }
 
 }

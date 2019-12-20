@@ -44,4 +44,22 @@ CREATE TABLE [dbo].[UserInfo](
         SELECT * FROM dbo.UserInfo WHERE IsVaild=1
     </select>
 
+    <insert id="batchInsert">
+        INSERT dbo.UserInfo ( CardNo, Name, Sex, Age, CheapRate, Balance,
+        Birthday, CreateTime, IsVaild )
+        VALUES
+        <foreach collection="list" item="user" separator=",">
+            ( #{user.cardNo}, -- CardNo - bigint
+            #{user.name}, -- Name - nvarchar(10)
+            #{user.sex}, -- Sex - varchar(10)
+            #{user.age}, -- Age - smallint
+            #{user.cheapRate}, -- CheapRate - float
+            #{user.balance}, -- Balance - decimal
+            #{user.birthday}, -- Birthday - date
+            GETDATE(), -- CreateTime - datetime
+            #{user.vaild}  -- IsVaild - bit
+            )
+        </foreach>
+    </insert>
+
 </mapper>
