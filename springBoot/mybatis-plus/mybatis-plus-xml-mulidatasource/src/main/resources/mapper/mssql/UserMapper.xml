@@ -59,6 +59,24 @@ CREATE TABLE [dbo].[UserInfo](
           )
     </insert>
 
+    <insert id="batchInsert">
+        INSERT dbo.UserInfo ( CardNo, Name, Sex, Age, CheapRate, Balance,
+                            Birthday, CreateTime, IsVaild )
+        VALUES
+        <foreach collection="list" item="user" separator=",">
+         ( #{user.cardNo}, -- CardNo - bigint
+          #{user.name}, -- Name - nvarchar(10)
+          #{user.sex}, -- Sex - varchar(10)
+          #{user.age}, -- Age - smallint
+          #{user.cheapRate}, -- CheapRate - float
+          #{user.balance}, -- Balance - decimal
+          #{user.birthday}, -- Birthday - date
+          GETDATE(), -- CreateTime - datetime
+          #{user.vaild}  -- IsVaild - bit
+          )
+        </foreach>
+    </insert>
+
     <delete id="deleteById" parameterType="java.lang.Integer" >
        DELETE FROM dbo.UserInfo WHERE id =#{id}
     </delete>
@@ -68,6 +86,23 @@ CREATE TABLE [dbo].[UserInfo](
         dbo.UserInfo
         SET CheapRate = #{et.cheapRate}
         WHERE id = #{et.id}
+    </update>
+
+    <update id="batchUpdate">
+        UPDATE
+        dbo.UserInfo
+        SET Balance =
+        <foreach collection="list" item="user" separator=" " open="case id" close="end ,">
+            when #{user.id} then #{user.balance}
+        </foreach>
+        CheapRate =
+        <foreach collection="list" item="user" separator=" " open="case id" close="end">
+            when #{user.id} then #{user.cheapRate}
+        </foreach>
+        WHERE ID in
+        <foreach collection="list" item="user" separator="," open="(" close=")">
+            #{user.id}
+        </foreach>
     </update>
 
     <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
