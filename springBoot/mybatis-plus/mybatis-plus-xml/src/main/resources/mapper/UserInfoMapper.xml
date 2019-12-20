@@ -22,7 +22,7 @@ IF OBJECT_ID(N'Demo.dbo.UserInfo',N'U') IS NOT NULL
 	DROP TABLE dbo.UserInfo
 
 CREATE TABLE [dbo].[UserInfo](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ID] [bigint] NOT NULL,
 	[CardNo] [bigint] NULL,
 	[Name] [nvarchar](10) NULL,
 	[Sex] [varchar](10) NULL,
@@ -40,16 +40,17 @@ CREATE TABLE [dbo].[UserInfo](
 
     </select>
 
-    <select id="selectAl" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
         SELECT * FROM dbo.UserInfo WHERE IsVaild=1
     </select>
 
     <insert id="batchInsert">
-        INSERT dbo.UserInfo ( CardNo, Name, Sex, Age, CheapRate, Balance,
+        INSERT dbo.UserInfo ( ID, CardNo, Name, Sex, Age, CheapRate, Balance,
         Birthday, CreateTime, IsVaild )
         VALUES
         <foreach collection="list" item="user" separator=",">
-            ( #{user.cardNo}, -- CardNo - bigint
+            ( #{user.id}, -- ID - bigint
+            #{user.cardNo}, -- CardNo - bigint
             #{user.name}, -- Name - nvarchar(10)
             #{user.sex}, -- Sex - varchar(10)
             #{user.age}, -- Age - smallint

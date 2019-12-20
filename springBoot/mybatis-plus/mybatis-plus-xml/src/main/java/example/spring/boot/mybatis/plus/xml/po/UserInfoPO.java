@@ -15,8 +15,8 @@ import java.time.LocalDate;
 @TableName(value = "dbo.UserInfo")
 public class UserInfoPO {
 
-    @TableId(value = "ID", type = IdType.AUTO)
-    private Integer id;
+    @TableId(value = "ID", type = IdType.ID_WORKER)
+    private Long id;
 
     @TableField(value = "CardNo")
     private Long cardNo;

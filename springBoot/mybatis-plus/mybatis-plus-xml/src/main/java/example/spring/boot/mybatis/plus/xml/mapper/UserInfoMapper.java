@@ -14,7 +14,7 @@ public interface UserInfoMapper extends BaseMapper<UserInfoPO> {
 
     void crateTable();
 
-    List<UserInfoPO> selectAl();
+    List<UserInfoPO> selectAll();
 
     void batchInsert(@Param("list") List<UserInfoPO> list);
 }

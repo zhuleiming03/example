@@ -4,6 +4,7 @@ import example.spring.boot.mybatis.plus.xml.enums.UserSexEnum;
 import example.spring.boot.mybatis.plus.xml.mapper.UserInfoMapper;
 import example.spring.boot.mybatis.plus.xml.po.UserInfoPO;
 import example.spring.boot.mybatis.plus.xml.service.UserService;
+import example.spring.boot.mybatis.plus.xml.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +23,7 @@ class UserInfoTests {
     UserInfoMapper mapper;
 
     @Autowired
-    UserService userService;
+    UserServiceImpl userService;
 
     /**
      * 增删改查测试
@@ -35,56 +36,56 @@ class UserInfoTests {
         System.out.println(">>:初始化数据库完成");
 
         //新增记录
-        short age = 16;
-        BigDecimal balance = new BigDecimal(1582.62f);
-        UserInfoPO po_1 = new UserInfoPO();
-        po_1.setCardNo(100200201911280018L);
-        po_1.setName("漩涡鸣人");
-        po_1.setSex(UserSexEnum.MALE);
-        po_1.setAge(age);
-        po_1.setCheapRate(0.95d);
-        po_1.setBalance(balance);
-        po_1.setBirthday(LocalDate.of(1995, 3, 5));
-        po_1.setCreateTime(new Timestamp(System.currentTimeMillis()));
-        po_1.setVaild(true);
-        mapper.insert(po_1);
-        System.out.println(">>:新增记录 " + po_1);
+        UserInfoPO po = initUserPO();
+        mapper.insert(po);
+        System.out.println(">>:新增记录 " + po);
 
         //修改记录
-        po_1.setCheapRate(0.85d);
-        mapper.updateById(po_1);
-        System.out.println(">>:修改记录 " + po_1);
+        po.setCheapRate(0.85d);
+        mapper.updateById(po);
+        System.out.println(">>:修改记录 " + po);
 
         //删除记录
-        System.out.println(">>:删除记录ID " + po_1.getId());
-        mapper.deleteById(po_1.getId());
+        System.out.println(">>:删除记录ID " + po.getId());
+        mapper.deleteById(po.getId());
+
+        //两种批量插入测试
+        batchInsert();
 
         //查询所有记录
         System.out.println(">>:现存数据库记录如下 --------------- ");
-        System.out.println(">>:" + mapper.selectAl());
+        System.out.println(">>:" + mapper.selectAll());
     }
 
-    @Test
-    void capabilityTest() {
-        List<UserInfoPO> userPOList = new LinkedList<>();
-        for (int i = 0; i < 10000; i++) {
+    void batchInsert() {
+        List<UserInfoPO> userPOListA = new LinkedList<>();
+        for (int i = 0; i < 233; i++) {
             UserInfoPO po = initUserPO();
             po.setCardNo(po.getCardNo() + i);
-            userPOList.add(po);
+            userPOListA.add(po);
+        }
+
+        List<UserInfoPO> userPOListB = new LinkedList<>();
+        for (int i = 0; i < 233; i++) {
+            UserInfoPO po = initUserPO();
+            po.setCardNo(po.getCardNo() + i);
+            userPOListB.add(po);
         }
 
         //批量插入数据
         StopWatch stopwatch = new StopWatch();
 
-        stopwatch.start();
-        mapper.batchInsert(userPOList);
+        System.out.println(">>method 1 最大可输入2100个参数，只支持262个UserInfoPO");
+        stopwatch.start("method-1:");
+        mapper.batchInsert(userPOListA);
         stopwatch.stop();
-        System.out.println(">>method 1:"+ stopwatch.getTotalTimeSeconds());
 
-        stopwatch.start();
-        userService.saveBatch(userPOList);
+        System.out.println(">>method 2 不支持自增长表 ( Error:type = IdType.AUTO)");
+        stopwatch.start("method-2:");
+        userService.saveBatch(userPOListB);
         stopwatch.stop();
-        System.out.println(">>method 2:"+ stopwatch.getTotalTimeSeconds());
+
+        System.out.println(stopwatch.prettyPrint());
     }
 
     private UserInfoPO initUserPO() {
