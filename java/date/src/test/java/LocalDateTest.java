@@ -41,7 +41,11 @@ public class LocalDateTest {
         System.out.println(">>月尾:" + lastDayOfThisMonth);
 
         // 取下一天：
-        LocalDate firstDayOfNextMonth = lastDayOfThisMonth.plusDays(1);
-        System.out.println(">>" + lastDayOfThisMonth + " 后一天：" + firstDayOfNextMonth);
+        LocalDate addDay = lastDayOfThisMonth.plusDays(1);
+        System.out.println(">>" + lastDayOfThisMonth + " 后一天：" + addDay);
+
+        // 取上一个月：
+        LocalDate subductionMonth = lastDayOfThisMonth.minusMonths(1);
+        System.out.println(">>" + lastDayOfThisMonth + " 前一月：" + subductionMonth);
     }
 }
