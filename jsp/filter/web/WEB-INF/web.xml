@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <filter>
+        <filter-name>xml</filter-name>
+        <filter-class>example.jsp.filter.XmlFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>xml</filter-name>
+        <!--通过servlet访问-->
+        <servlet-name>ArticleServlet</servlet-name>
+        <url-pattern>/article</url-pattern>
+    </filter-mapping>
+
+    <!--log 测试-->
+    <filter>
+        <filter-name>log</filter-name>
+        <filter-class>example.jsp.filter.LogFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>log</filter-name>
+        <servlet-name>LogServlet</servlet-name>
+        <url-pattern>/log</url-pattern>
+    </filter-mapping>
+
+    <!--async 异步过滤器测试-->
+    <filter>
+        <filter-name>async</filter-name>
+        <filter-class>example.jsp.filter.AnyRequestFilter</filter-class>
+        <async-supported>true</async-supported>
+    </filter>
+    <filter-mapping>
+        <filter-name>async</filter-name>
+        <servlet-name>AsyncServlet</servlet-name>
+        <url-pattern>/async</url-pattern>
+        <dispatcher>ASYNC</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <!--filter加载顺序测试-->
+    <filter>
+        <filter-name>first</filter-name>
+        <filter-class>example.jsp.filter.FirstFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>first</filter-name>
+        <url-pattern>/order/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>second</filter-name>
+        <filter-class>example.jsp.filter.SecondFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>second</filter-name>
+        <url-pattern>/order/test/*</url-pattern>
+    </filter-mapping>
+
+</web-app>
