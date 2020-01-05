@@ -34,7 +34,7 @@
         包含其他JSP<br>
         <%@include file="subpage.jsp"%>
     </li>
-    <li>包含标签库</li>
+    <li>包含标签库（taglib）</li>
 </ul>
 </body>
 </html>

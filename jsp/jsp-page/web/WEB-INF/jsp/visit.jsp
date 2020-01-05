@@ -12,7 +12,7 @@
 </head>
 <body>
 jsp页面访问方式<br/>
-WEB-INF下的文件不能直接访问
+WEB-INF下的文件不能通过客户端直接访问， 只能通过Servlet访问
 <ul>
     <li>通过配置web.xml来访问</li>
     <li>1、在web中新增 servlet 节点，分别配置 servlet-name 和 jsp-file</li>
