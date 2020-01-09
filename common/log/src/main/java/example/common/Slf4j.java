@@ -11,7 +11,7 @@ final class Slf4j {
         logger.trace("simple TRACE test");
         logger.debug("simple DEBUG test");
         logger.info("simple {} test", "INFO");
-        logger.warn("simple WARN test");
+        logger.warn("simple {} {}","WARN","test");
         logger.error("simple ERROR test");
     }
 }
