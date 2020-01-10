@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: sa
+    password: sasa
+    url: jdbc:sqlserver://localhost:1433;database=Demo;
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: example.spring.boot.mybatis.xml.po
