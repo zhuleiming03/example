@@ -1,0 +1,321 @@
+﻿@using DocumentManageModel
+@model InterfaceProgramModel
+
+@{
+    ViewBag.Title = "Arbitrary";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+@section Header{
+    <link href="~/plugins/jsoneditor/jsoneditor.min.css?v=1" rel="stylesheet" />
+    <style type="text/css">
+        .text-title {
+            margin: 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        caption {
+            margin: 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+        .tab-content > .tab-pane {
+            margin: 10px;
+        }
+    </style>
+    <script src="~/plugins/jsoneditor/jsoneditor.min.js"></script>
+    <script src="~/plugins/common.js"></script>
+    <script>
+
+        
+
+        var codeEditor = null, json = {}, interfaceProgram = null;
+
+        //var programID = '@ViewBag.ProgramID';
+        var programID = 1048;
+
+        $(function () {
+
+            reloadPage();      
+            //loadAllCodeEditor();
+
+            //$("textarea").each(function () {
+            //    $(this).attr("readonly", "readonly");
+            //    //var i = $(this).scrollHeight;
+            //    $(this).height(200);
+            //})
+
+            //$('#myTab a:first').tab('show');
+        });
+
+        function showPage(tabId) {
+            $('#maintab a[href="#' + tabId + '"]').tab('show'); // 显示点击的tab页面 
+        }
+
+        function reloadPage() {
+            $.ajax({
+                type: "post",
+                url: "/DocumentInterface/QueryDocumentInterfaceProgram",
+                data: { programID: programID },
+                success: function (data) {
+                    interfaceProgram = null;
+                    interfaceProgram = eval("(" + data + ")");
+                    initPage();
+                }
+            });
+        }
+
+        function initPage() {
+
+            var ul = document.getElementById('maintab');
+            var tabcontent = document.getElementsByClassName('tab-content')[0];
+
+            for (j = 0, len = interfaceProgram.InterfaceItemList.length; j < len; j++) {
+
+                var obj = interfaceProgram.InterfaceItemList[j];
+
+                //动态加载节点
+                var li = createTabHead(obj);
+                ul.appendChild(li);
+
+                //动态加载节点内容
+                var div = createTabContent(obj);
+                tabcontent.appendChild(div);
+            };
+
+        }
+
+        function createTabHead(obj) {
+            var a = document.createElement('a');
+            a.innerHTML = obj.Title;
+            a.href = '#' + obj.Code;
+            a.name = obj.Code;
+            a.onclick = function () {
+                showPage(this.name);
+            }
+
+            var li = document.createElement('li');
+            if (j == 0) {
+                li.className = "active";
+            }
+            li.appendChild(a);
+
+            return li;
+        }
+
+        function createTabContent(obj) {
+            //创建面板块
+            var panel = document.createElement('div');
+            panel.id = obj.Code;
+            panel.className = 'tab-pane';
+            if (j == 0) {
+                panel.classList.add('active');
+            }
+
+            //文本信息
+            var row = document.createElement('div');
+            row.className = 'row';
+
+            var divTxt = document.createElement('div');
+            divTxt.className = 'text-title';
+
+            var p = document.createElement('p');
+            p.innerHTML = obj.Info;
+            divTxt.appendChild(p);
+
+            p = document.createElement('p');
+            p.innerHTML = '路径：' + obj.Path;
+            divTxt.appendChild(p);
+
+            p = document.createElement('p');
+            p.innerHTML = '方式：' + obj.Method;
+            divTxt.appendChild(p);
+
+            row.appendChild(divTxt);
+            panel.appendChild(row);
+
+            //输入参数
+            row = document.createElement('div');
+            row.className = 'row';
+            var tableInput = createTableNode(obj.InputParameter);
+            row.appendChild(tableInput);
+            panel.appendChild(row);
+
+            //输出参数
+            row = document.createElement('div');
+            row.className = 'row';
+            var tableOutput = createTableNode(obj.OutputParameter);
+            row.appendChild(tableOutput);
+            panel.appendChild(row);
+
+            return panel;
+        }
+
+        function createTableNode(obj) {
+
+            var table = document.createElement('table');
+            table.className = 'table';
+            table.classList.add('table-striped');
+
+            //构建表头
+            var thead = document.createElement('thead');
+            var th = document.createElement('th');
+            th.innerHTML = '参数';
+            thead.appendChild(th);
+            th = document.createElement('th');
+            th.innerHTML = '名称';
+            thead.appendChild(th);
+            th = document.createElement('th');
+            th.innerHTML = '类型';
+            thead.appendChild(th);
+            th = document.createElement('th');
+            th.innerHTML = '约束';
+            thead.appendChild(th);
+            th = document.createElement('th');
+            th.innerHTML = '说明';
+            thead.appendChild(th);
+            table.appendChild(thead);
+
+            //构建表内容
+            var tbody = document.createElement('tbody');
+            for (k = 0; k < obj.length; k++) {
+                try {
+                    var tr = document.createElement('tr');
+
+                    var td = document.createElement('td');
+                    td.innerHTML = obj[k].ParameterCode;
+                    tr.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerHTML = obj[k].ParameterName;
+                    tr.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerHTML = obj[k].DataType;
+                    tr.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerHTML = obj[k].CheckContent;
+                    tr.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.innerHTML = obj[k].Remark;
+                    tr.appendChild(td);
+
+                    tbody.appendChild(tr);
+                } catch (err) {
+
+                }
+            }
+            table.appendChild(tbody);           
+
+            return table;
+        }
+
+        function initPage_e(data) {
+            var obj = eval("(" + data + ")");
+            var tab = $("#myTab");
+            var tabContent = $("#myTabContent");
+
+            $.each(obj.InterfaceItemList, function (i, item) {
+                tab.append('<li><a href="' + item.Title + '" data-toggle="tab">' + item.Title + '</a></li>');
+
+                var inputParamter = $('<tbody>');
+                $.each(item.InputParameter, function (k, para) {
+                    inputParamter.append('<tr><td>' + para.ParameterCode + '</td>');
+                    inputParamter.append('<td>' + para.ParameterName + '</td>');
+                    inputParamter.append('<td>' + para.DataType + '</td>');
+                    inputParamter.append('<td>' + para.CheckContent + '</td>');
+                    inputParamter.append('<td>' + para.Remark + '</td></tr>');
+                })
+                inputParamter.append('/<tbody>');
+
+                var outputParameter = $('<tbody>');
+                $.each(item.OutputParameter, function (j, para) {
+                    outputParameter.append('<tr><td>' + para.ParameterCode + '</td>');
+                    outputParameter.append('<td>' + para.ParameterName + '</td>');
+                    outputParameter.append('<td>' + para.DataType + '</td>');
+                    outputParameter.append('<td>' + para.CheckContent + '</td>');
+                    outputParameter.append('<td>' + para.Remark + '</td></tr>');
+                })
+                outputParameter.append('/<tbody>');
+
+                var content = '<div class="tab-pane fade in active" id="' + item.Title + '">'
+                + '<div class="row"><div class="text-title"><p>' + item.Info + '</p><p>路径：' + item.Path + '</p><p>方式：' + item.Method + '</p></div></div>'
+                + '<div class="row"><table class="table table-striped"><caption><strong>输入参数：</strong></caption><thead><tr><th>参数</th><th>名称</th><th>类型</th><th>约束</th><th>说明</th></tr></thead>'
+                + inputParamter + '</table></div>'
+                + '<div class="row"><div class="text-title"><strong>输入实例：</strong></div><div id="input_' + item.Title + '"></div></div>'
+                + '<div class="row"><table class="table table-striped"><caption><strong>输出参数：</strong></caption><thead><tr><th>参数</th><th>名称</th><th>类型</th><th>约束</th><th>说明</th></tr></thead>'
+                + outputParameter + '</table></div>'
+                + '<div class="row"><div class="text-title"><strong>输出实例：</strong></div><div id="output_' + item.Title + '"></div></div>'
+                + '<div><label>更新时间</label></div></div>';
+
+                tabContent.append(content);
+            });            
+        }
+
+        function loadAllCodeEditor(data) {
+            var jsonStr = escape2Html(data);
+
+            var jsonAry = eval('(' + jsonStr + ')');
+
+            for (var i = 0; i < jsonAry.length; i++) {
+                var input = "input_" + jsonAry[i].Title;
+                var inputID = document.getElementById(input);
+                var output = "output_" + jsonAry[i].Title;
+                var outputID = document.getElementById(output);
+
+                //输入实例
+                if (jsonAry[i].Method == "GET") {
+                    var newObj = $(inputID);
+                    newObj.append("<p>" + jsonAry[i].InputParameterJSON + "</p>");
+
+                    //var newObj = document.createElement('p');
+                    //newObj.innerText = jsonAry[i].InputParameterJSON;
+                    //inputID.appendChild(newObj);
+                }
+                else {
+                    json.load(jsonAry[i].InputParameterJSON, inputID);
+                }
+                //输出实例
+                json.load(jsonAry[i].OutputParameterJSON, outputID);
+            }
+        }
+
+        json.load = function (str, obj) {
+            try {
+                json.lastChanged = void 0;
+                codeEditor = new JSONEditor(obj, {
+                    mode: "code",
+                    change: function () {
+                        json.lastChanged = codeEditor
+                    },
+                    error: function (str) {
+                        alert("JSON格式有误");
+                    }
+                }),
+                codeEditor.set(str)
+            }
+            catch (p) {
+                try {
+                    alert(p);
+                }
+                catch (c) {
+                    console && console.log && console.log(p), alert(p)
+                }
+            }
+        }
+
+    </script>
+}
+
+
+<ul class="nav nav-tabs" role="tablist" id="maintab"></ul> 
+
+<div class="tab-content"></div> 
+
+
+
+
+

@@ -1,0 +1,9 @@
+D:\Demo2017\DocumentManage\Test\bin\Debug\App.config
+D:\Demo2017\DocumentManage\Test\bin\Debug\log4net.config
+D:\Demo2017\DocumentManage\Test\bin\Debug\Test.exe.config
+D:\Demo2017\DocumentManage\Test\bin\Debug\Test.exe
+D:\Demo2017\DocumentManage\Test\bin\Debug\Test.pdb
+D:\Demo2017\DocumentManage\Test\bin\Debug\log4net.dll
+D:\Demo2017\DocumentManage\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+D:\Demo2017\DocumentManage\Test\obj\Debug\Test.exe
+D:\Demo2017\DocumentManage\Test\obj\Debug\Test.pdb

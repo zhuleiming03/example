@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Button";
+    Layout = "~/Views/Shared/Page/_Page.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Button</h2>
+    </div>
+    <div class="row">
+        <button id="fat-btn" class="btn btn-primary" data-loading-text="Loading..."
+                type="button">
+            加载状态
+        </button>
+        <script>
+            $(function () {
+                $(".btn").click(function () {
+                    $(this).button('loading').delay(1000).queue(function () {
+                        // $(this).button('reset');
+                    });
+                });
+            });
+        </script>
+    </div>
+</div>

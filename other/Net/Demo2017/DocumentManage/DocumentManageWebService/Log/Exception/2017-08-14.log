@@ -1,0 +1,3 @@
+﻿[ERROR]:SQL:                 SELECT  COUNT(1) FROM ( SELECT ProgramID,ProgramName,OrderIndex,CreateTime++ FROM dbo.InterfaceProgram ) ObjectData;                  SELECT  *                 FROM    ( SELECT    ROW_NUMBER() OVER ( ORDER BY OrderIndex  DESC  ) AS ID , *                           FROM      ( SELECT ProgramID,ProgramName,OrderIndex,CreateTime++ FROM dbo.InterfaceProgram ) ObjectData                         ) PageTemp                 WHERE   PageTemp.ID BETWEEN 1 AND 5;
+   2017-08-14 14:48:00,568 DocumentManageDAL.DocumentInterfaceDAL
+   

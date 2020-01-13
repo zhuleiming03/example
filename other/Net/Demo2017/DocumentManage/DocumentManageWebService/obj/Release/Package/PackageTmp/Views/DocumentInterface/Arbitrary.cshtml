@@ -1,0 +1,199 @@
+﻿@using DocumentManageModel
+@model InterfaceProgramModel
+
+@{
+    ViewBag.Title = "Arbitrary";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+@section Header{
+    <link href="~/plugins/jsoneditor/jsoneditor.min.css?v=1" rel="stylesheet" />
+    <style type="text/css">
+        .text-title {
+            margin: 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        caption {
+            margin: 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+        .tab-content > .tab-pane {
+            margin: 10px;
+        }
+    </style>
+    <script src="~/plugins/jsoneditor/jsoneditor.min.js"></script>
+    <script src="~/plugins/common.js"></script>
+    <script>
+
+        var codeEditor = null, json = {};
+
+        $(function () {
+
+            loadAllCodeEditor();
+
+            $("textarea").each(function () {
+                $(this).attr("readonly", "readonly");
+                //var i = $(this).scrollHeight;
+                $(this).height(200);
+            })
+
+            $('#myTab a:first').tab('show');
+        });
+
+        function loadAllCodeEditor() {
+            var jsonStr = escape2Html('@ViewBag.Json');
+
+            var jsonAry = eval('(' + jsonStr + ')');
+
+            for (var i = 0; i < jsonAry.length; i++) {
+                var input = "input_" + jsonAry[i].Title;
+                var inputID = document.getElementById(input);
+                var output = "output_" + jsonAry[i].Title;
+                var outputID = document.getElementById(output);
+
+                //输入实例
+                if (jsonAry[i].Method == "GET") {
+                    var newObj = $(inputID);
+                    newObj.append("<p>" + jsonAry[i].InputParameterJSON + "</p>");
+
+                    //var newObj = document.createElement('p');
+                    //newObj.innerText = jsonAry[i].InputParameterJSON;
+                    //inputID.appendChild(newObj);
+                }
+                else {
+                    json.load(jsonAry[i].InputParameterJSON, inputID);
+                }
+                //输出实例
+                json.load(jsonAry[i].OutputParameterJSON, outputID);
+            }
+        }
+
+        json.load = function (str, obj) {
+            try {
+                json.lastChanged = void 0;
+                codeEditor = new JSONEditor(obj, {
+                    mode: "code",
+                    change: function () {
+                        json.lastChanged = codeEditor
+                    },
+                    error: function (str) {
+                        alert("JSON格式有误");
+                    }
+                }),
+                codeEditor.set(str)
+            }
+            catch (p) {
+                try {
+                    alert(p);
+                }
+                catch (c) {
+                    console && console.log && console.log(p), alert(p)
+                }
+            }
+        }
+
+    </script>
+}
+
+
+<ul id="myTab" class="nav nav-tabs">
+    @foreach (InterfaceItemModel Item in Model.InterfaceList)
+    {
+        <li><a href="#@Item.Title" data-toggle="tab">@Item.Title</a></li>
+    }
+</ul>
+
+
+<div id="myTabContent" class="tab-content">
+    @foreach (InterfaceItemModel Item in Model.InterfaceList)
+    {
+        <div class="tab-pane fade in active" id="@Item.Title">
+
+            <div class="row">
+                <div class="text-title">
+                    <p>@Item.Info</p>
+                    <p>路径：@Item.Path</p>
+                    <p>方式：@Item.Method</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <table class="table table-striped">
+                    <caption><strong>输入参数：</strong></caption>
+                    <thead>
+                        <tr>
+                            <th>参数</th>
+                            <th>名称</th>
+                            <th>类型</th>
+                            <th>约束</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (InterfaceParameterModel Paremter in Item.InputParameter)
+                        {
+                            <tr>
+                                <td>@Paremter.ParameterCode</td>
+                                <td>@Paremter.ParameterName</td>
+                                <td>@Paremter.DataType</td>
+                                <td>@Paremter.CheckContent</td>
+                                <td>@Paremter.Remark</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="text-title"><strong>输入实例：</strong></div>
+                <div id="input_@Item.Title"></div>
+            </div>
+
+            <div class="row">
+                <table class="table table-striped">
+                    <caption><strong>输出参数：</strong></caption>
+                    <thead>
+                        <tr>
+                            <th>参数</th>
+                            <th>名称</th>
+                            <th>类型</th>
+                            <th>约束</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (InterfaceParameterModel Paremter in Item.OutputParameter)
+                        {
+                            <tr>
+                                <td>@Paremter.ParameterCode</td>
+                                <td>@Paremter.ParameterName</td>
+                                <td>@Paremter.DataType</td>
+                                <td>@Paremter.CheckContent</td>
+                                <td>@Paremter.Remark</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="text-title"><strong>输出实例：</strong></div>
+                <div id="output_@Item.Title"></div>
+            </div>
+
+            <div>
+                <label>更新时间</label>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+
+
+

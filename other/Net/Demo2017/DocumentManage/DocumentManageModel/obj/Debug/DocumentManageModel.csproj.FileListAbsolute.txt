@@ -1,0 +1,13 @@
+D:\MyWork\Test\Doc\DocumentManageModel\bin\Debug\DocumentManageModel.dll
+D:\MyWork\Test\Doc\DocumentManageModel\bin\Debug\DocumentManageModel.pdb
+D:\MyWork\Test\Doc\DocumentManageModel\obj\Debug\DocumentManageModel.dll
+D:\MyWork\Test\Doc\DocumentManageModel\obj\Debug\DocumentManageModel.pdb
+D:\MyWork\Test\DocumentManage\DocumentManageModel\bin\Debug\DocumentManageModel.dll
+D:\MyWork\Test\DocumentManage\DocumentManageModel\bin\Debug\DocumentManageModel.pdb
+D:\MyWork\Test\DocumentManage\DocumentManageModel\obj\Debug\DocumentManageModel.dll
+D:\MyWork\Test\DocumentManage\DocumentManageModel\obj\Debug\DocumentManageModel.pdb
+D:\Demo2017\DocumentManage\DocumentManageModel\bin\Debug\DocumentManageModel.dll
+D:\Demo2017\DocumentManage\DocumentManageModel\bin\Debug\DocumentManageModel.pdb
+D:\Demo2017\DocumentManage\DocumentManageModel\obj\Debug\DocumentManageModel.csprojResolveAssemblyReference.cache
+D:\Demo2017\DocumentManage\DocumentManageModel\obj\Debug\DocumentManageModel.dll
+D:\Demo2017\DocumentManage\DocumentManageModel\obj\Debug\DocumentManageModel.pdb

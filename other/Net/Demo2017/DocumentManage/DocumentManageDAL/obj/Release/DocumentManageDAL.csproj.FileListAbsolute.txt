@@ -1,0 +1,9 @@
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\bin\Release\DocumentManageDAL.dll
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\bin\Release\DocumentManageDAL.pdb
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\bin\Release\Common.dll
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\bin\Release\DocumentManageModel.dll
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\bin\Release\Common.pdb
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\bin\Release\DocumentManageModel.pdb
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\obj\Release\DocumentManageDAL.csprojResolveAssemblyReference.cache
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\obj\Release\DocumentManageDAL.dll
+D:\MyWork\Test\DocumentManage\DocumentManageDAL\obj\Release\DocumentManageDAL.pdb

@@ -1,0 +1,10 @@
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 Server.ConvertManager.ModelToEntityServer 生成存根: 类型已密封。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 Server.ConvertManager.ToArrayListServer 生成存根: 类型已密封。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 Server.ConvertManager.ToDataTableServer 生成存根: 类型已密封。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 Server.ConvertManager.ToJsonServer 生成存根: 类型已密封。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 Server.ConvertManager.ToListServer 生成存根: 类型已密封。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 Server.DataBaseManager.DataBaseConfig 生成存根: 类型已密封。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 Server.DataBaseManager.SQLStringServer 生成存根: 类型已密封。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 <>f__AnonymousType0`4 生成存根: 类型已密封。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 Server.DataBaseManager.IDataBaseServer 生成填充码: 类型是一个接口。
+D:\Product\Demo2016\Logic\Logic\Fakes\Server.fakes : warning : 无法为 <>f__AnonymousType0`4 生成填充码: 类型不受支持，因为存在内部限制。

@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+@section Header{
+    <link href="~/plugins/jsoneditor/jsoneditor.min.css?v=1" rel="stylesheet" />
+    <style type="text/css">
+        .text-title {
+            margin: 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        caption {
+            margin: 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+    </style>
+    <script src="~/plugins/jsoneditor/jsoneditor.min.js"></script>
+    <script src="~/plugins/common.js"></script>
+    <script>
+
+        var codeEditor = null, json = {};
+
+        $(function () {
+
+            var str1 = '{ "array": [1, 2, 3], "boolean": true, "null": null, "number": 123, "object": { "a": "b", "c": "d", "e": "f" }, "string": "Hello World" }';
+
+            loadCodeEditor(str1, document.getElementById("codeEditor1"));
+
+            $("textarea").each(function () {
+                //$(this).attr("readonly", "readonly");
+                //var i = $(this).scrollHeight;
+                $(this).height(600);
+            })
+        });
+
+        function loadCodeEditor(str,obj) {
+
+            var strObj = {};
+
+            var newstr = escape2Html(str);
+
+            if (newstr.length > 0) {
+                strObj = eval('(' + newstr + ')');
+            }
+
+            json.load(strObj, obj);
+        }
+
+        json.load = function (str, obj) {
+            try {
+                json.lastChanged = void 0;
+                codeEditor = new JSONEditor(obj, {
+                    mode: "code",
+                    change: function () {
+                        json.lastChanged = codeEditor
+                    },
+                    error: function (str) {
+                        alert("JSON格式有误");
+                    }
+                }),
+                codeEditor.set(str)
+            }
+            catch (p) {
+                try {
+                    alert(p);
+                }
+                catch (c) {
+                    console && console.log && console.log(p), alert(p)
+                }
+            }
+        }
+
+    </script>
+}
+
+<div class="row">
+    <div class="text-title"><strong>输入实例：</strong></div>
+    <div id="codeEditor1"></div>
+</div>
+
+
+

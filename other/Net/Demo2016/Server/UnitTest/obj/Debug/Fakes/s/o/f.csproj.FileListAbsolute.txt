@@ -1,0 +1,11 @@
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\b\Server.Fakes.xml
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\b\Server.Fakes.dll
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\b\Server.Fakes.pdb
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\b\Microsoft.QualityTools.Testing.Fakes.dll
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\b\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\b\Server.dll
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\b\Server.pdb
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\b\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\o\f.csprojResolveAssemblyReference.cache
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\o\Server.Fakes.dll
+D:\MyWork\Demo2016\Server\UnitTest\obj\Debug\Fakes\s\o\Server.Fakes.pdb

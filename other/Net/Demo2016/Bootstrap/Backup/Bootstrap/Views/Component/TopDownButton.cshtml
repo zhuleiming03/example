@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "TopDownButton";
+    Layout = "~/Views/Shared/Page/_Page.cshtml";
+}
+
+@section Header{
+<script type="text/javascript">
+    $(function () {
+        //设置ICON图标的高度
+        $("#updown").css("top", window.screen.availHeight / 2 - 100 + "px");
+        //滚动条事件
+        //如果滚动偏移量scrollTop()大于100，则ICON图标显示
+        //如果滚动偏移量scrollTop()小于100，则ICON图标隐藏
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= 100) {
+                $('#updown').fadeIn(300);
+            } else {
+                $('#updown').fadeOut(300);
+            }
+        });
+        //页面置顶事件
+        $('#updown .up').click(function () {
+            $('html,body').animate({ scrollTop: '0px' }, 800);
+        });
+        //页面置底事件
+        $('#updown .down').click(function () {
+            $('html,body').animate({ scrollTop: document.body.clientHeight + 'px' }, 800);
+        });
+    });
+
+</script>
+
+<style type="text/css">
+    #updown .down:hover {
+        background: url(../../assets/icon/downhover.png) no-repeat;
+    }
+
+    #updown .down {
+        background: url(../../assets/icon/down.png) no-repeat;
+    }
+
+    #updown .up:hover {
+        background: url(../../assets/icon/uphover.png) no-repeat;
+    }
+
+    #updown .up {
+        background: url(../../assets/icon/up.png) no-repeat;
+    }
+
+    #updown span {
+        cursor: pointer;
+        width: 45px;
+        height: 45px;
+        display: block;
+        margin: 1px;
+    }
+
+    #updown {
+        position: fixed;
+        top: 200px;
+        right: 30px;
+        display: none;
+    }
+</style>
+}
+
+<div class="container">
+    <h1 class="text-center">请往下滚动</h1>
+    <div style="height:3000px"></div>
+    <h3 class="text-center">页面截止</h3>
+    <div id="updown"><span class="up"></span><span class="down"></span></div>
+</div>

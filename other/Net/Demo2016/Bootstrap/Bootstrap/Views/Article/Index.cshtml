@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+<div class="row">
+    <table class="table">
+        <caption>填帐接口</caption>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>名称</th>
+                <th>类型</th>
+                <th>约束</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="warning">
+                <td>BusinessList</td>
+                <td>订单号</td>
+                <td>string</td>
+                <td>！</td>
+                <td></td>
+            </tr>
+            <tr class="success">
+                <td>IsSuccess</td>
+                <td>是否成功</td>
+                <td>bool</td>
+                <td>！</td>
+                <td></td>
+            </tr>
+            <tr class="warning">
+                <td>Errorinfo</td>
+                <td>错误信息</td>
+                <td>string</td>
+                <td>！</td>
+                <td></td>
+            </tr>
+            <tr class="success">
+                <td>Content</td>
+                <td>成功内容</td>
+                <td>object</td>
+                <td>！</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

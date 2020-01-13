@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    <link href="~/assets/plugins/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/assets/script/jquery-1.11.0.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <link rel="icon" href="~/Assets/Icon/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="~/Assets/Icon/favicon.ico" type="image/x-icon" />
+    @RenderSection("Header", required: false)
+
+    <style>
+        ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
+            background: #eee;
+            border: 1px solid #eee;
+            color: #333;
+        }
+
+        ul.nav-tabs li a {
+            margin: 0;
+            color: #777;
+        }
+
+        ul.nav-tabs li:first-child {
+            border-top: none;
+        }
+
+        ul.nav-tabs li {
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        ul.nav-tabs {
+            width: 100px;
+            margin-top: 20px;
+            border-radius: 9px;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+            display: none;
+        }
+
+        li.up a {
+            background: url(../../assets/icon/up.png) no-repeat;
+            background-size: 99% 99%;
+            height: 42px;
+        }
+
+        li.up:hover a {
+            background: url(../../assets/icon/uphover.png) no-repeat;
+            background-size: 99% 99%;
+            height: 42px;
+        }
+
+        .tag {
+            padding: 20px 0 0 0;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            //滚动条显示事件
+            $(window).scroll(function () {
+                scrollEven();
+            });
+
+            //加载导航节点
+            loadNavList();
+
+        });
+
+        //加载导航节点
+        function loadNavList() {
+
+            //获取滚动块节点
+            var content = $("[data-spy='scroll']");
+
+            //获取导航ul节点
+            var ul = $('#ScrollspyNavList').find("ul").first();
+
+            //获取所有的锚点
+            var tags = content.find("font.tag");
+
+            //构造导航条目
+            tags.each(function (index, item) {
+
+                //获取id值
+                var id = $(item).attr("id");
+
+                //获取文本的值
+                var text = $(item).text();
+
+                //创建li对象
+                var a = document.createElement("a");
+                a.setAttribute("href", "#" + id);
+                a.text = text;
+                var li = document.createElement("li");
+                li.appendChild(a);
+
+                //将li对象加入到li列表中
+                ul.append(li);
+
+            });
+
+            //添加置顶按钮
+            ul.append('<li class="up"><a href="javascript:scrollUpEven()"></a></li>');
+        }
+
+        //滚动条显示事件
+        //如果滚动偏移量scrollTop()大于100，则导航显示
+        //如果滚动偏移量scrollTop()小于100，则导航隐藏
+        function scrollEven() {
+            if ($(window).scrollTop() >= 100) {
+                $('ul.nav-tabs').fadeIn(300);
+            } else {
+                $('ul.nav-tabs').fadeOut(300);
+            }
+        }
+
+        //置顶按钮事件
+        function scrollUpEven() {
+            $('html,body').animate({ scrollTop: '0px' }, 800);
+        }
+
+    </script>
+
+</head>
+
+<body data-spy="scroll" data-target="#ScrollspyNavList">
+
+    @*页眉 包含网站导航*@
+    <div class="page-header">
+        <div class="container">
+            @RenderPage("~/Views/Shared/Partial/_Menu.cshtml")
+        </div>
+    </div>
+
+    @*页面内容*@
+    <div class="page-container">
+        <div class="container">
+            <div class="row">
+                @*文章内容*@
+                <div class="col-xs-10">
+                    @RenderBody()
+                </div>
+                @*导航块*@
+                <div class="col-xs-2" id="ScrollspyNavList">
+                    <ul class="nav nav-tabs nav-stacked" data-spy="affix"></ul>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "InputGroup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>InputGroup</h2>
+    </div>
+    <div class="row">
+        <form class="bs-example bs-example-form" role="form">
+            <div class="col-lg-4">
+                <p>基本的输入框组</p>
+                <div class="input-group">
+                    <span class="input-group-addon">@@</span>
+                    <input type="text" class="form-control" placeholder="twitterhandle">
+                </div><br>
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon">.00</span>
+                </div><br>
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon">.00</span>
+                </div><br>
+
+                <p>输入框组的大小</p>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">@@</span>
+                    <input type="text" class="form-control" placeholder="Twitterhandle">
+                </div><br>
+                <div class="input-group">
+                    <span class="input-group-addon">@@</span>
+                    <input type="text" class="form-control" placeholder="Twitterhandle">
+                </div><br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">@@</span>
+                    <input type="text" class="form-control" placeholder="Twitterhandle">
+                </div><br>
+
+                <p>复选框和单选插件</p>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="checkbox">
+                    </span>
+                    <input type="text" class="form-control">
+                </div><br>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio">
+                    </span>
+                    <input type="text" class="form-control">
+                </div><br>
+
+                <p>按钮插件</p>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            Go!
+                        </button>
+                    </span>
+                    <input type="text" class="form-control">
+                </div><br>
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            Go!
+                        </button>
+                    </span>
+                </div><br>
+
+                <p>带有下拉菜单的按钮</p>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default
+                     dropdown-toggle" data-toggle="dropdown">
+                            下拉菜单
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">功能</a></li>
+                            <li><a href="#">另一个功能</a></li>
+                            <li><a href="#">其他</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" class="form-control">
+                </div><br>
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default
+                     dropdown-toggle" data-toggle="dropdown">
+                            下拉菜单
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#">功能</a></li>
+                            <li><a href="#">另一个功能</a></li>
+                            <li><a href="#">其他</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                        </ul>
+                    </div>
+                </div><br>
+
+                <p>分割的下拉菜单按钮</p>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default"
+                                tabindex="-1">
+                            下拉菜单
+                        </button>
+                        <button type="button" class="btn btn-default
+                     dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                            <span class="caret"></span>
+                            <span class="sr-only">切换下拉菜单</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">功能</a></li>
+                            <li><a href="#">另一个功能</a></li>
+                            <li><a href="#">其他</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+                    <input type="text" class="form-control">
+                </div><br>
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default"
+                                tabindex="-1">
+                            下拉菜单
+                        </button>
+                        <button type="button" class="btn btn-default
+                     dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                            <span class="caret"></span>
+                            <span class="sr-only">切换下拉菜单</span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#">功能</a></li>
+                            <li><a href="#">另一个功能</a></li>
+                            <li><a href="#">其他</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                        </ul>
+                    </div>
+                </div><br>        
+        </form>
+    </div>
+</div>
+

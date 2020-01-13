@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "InterfaceDoc";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+@section Header{
+    <link href="~/assets/plugins/jsoneditor/jsoneditor.min.css?v=1" rel="stylesheet" />
+    <style type="text/css">
+        .text-title {
+            margin: 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        caption {
+            margin: 0 8px;
+            color: #333;
+            font-size: 16px;
+        }
+    </style>
+    <script src="~/assets/plugins/jsoneditor/jsoneditor.min.js"></script>
+    <script>
+
+        var codeEditor = null, json = {};
+
+        $(function () {
+            var str1 = { "array": [1, 2, 3], "boolean": true, "null": null, "number": 123, "object": { "a": "b", "c": "d", "e": "f" }, "string": "Hello World" };
+            var str2 = { "IsSuccess": true, "ErrorInfo": null, "Content": null };
+            var obj1 = document.getElementById("codeEditor1");
+            var obj2 = document.getElementById("codeEditor2");
+            json.load(str1, obj1);
+            json.load(str2, obj2);
+
+            $("textarea").each(function () {
+                $(this).attr("readonly", "readonly");
+                //var i = $(this).scrollHeight;
+                $(this).height(200);
+            })
+        });
+
+        json.load = function (str, obj) {
+            try {
+                json.lastChanged = void 0;
+                codeEditor = new JSONEditor(obj, {
+                    mode: "code",
+                    change: function () {
+                        json.lastChanged = codeEditor
+                    },
+                    error: function (str) {
+                        alert("JSON格式有误");
+                    }
+                }),
+                codeEditor.set(str)
+            }
+            catch (p) {
+                try {
+                    alert(p);
+                }
+                catch (c) {
+                    console && console.log && console.log(p), alert(p)
+                }
+            }
+        }
+
+    </script>
+}
+
+
+<div class="row">
+    <div class="text-title">
+        <p>查询提前清贷账单（查询所有随意花订单对应的提前清贷账单和未还清账单）</p>
+        <p>路径：IP/QueryRepaySchedule/{BusinessID}</p>
+        <p>方式：GET</p>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-striped">
+        <caption><strong>输入参数：</strong></caption>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>名称</th>
+                <th>类型</th>
+                <th>约束</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>BusinessID</td>
+                <td>订单号</td>
+                <td>string</td>
+                <td>必填</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="text-title"><strong>输入实例：</strong></div>
+    <div id="codeEditor1"></div>
+</div>
+
+<div class="row">
+    <table class="table table-striped">
+        <caption><strong>输出参数：</strong></caption>
+        <thead>
+            <tr>
+                <th>参数</th>
+                <th>名称</th>
+                <th>类型</th>
+                <th>约束</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>IsSuccess</td>
+                <td>是否成功</td>
+                <td>bool</td>
+                <td>必填</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Errorinfo</td>
+                <td>错误信息</td>
+                <td>string</td>
+                <td>必填</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Content</td>
+                <td>成功内容</td>
+                <td>object</td>
+                <td>必填</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="text-title"><strong>输出实例：</strong></div>
+    <div id="codeEditor2"></div>
+</div>
+
+<div>
+    <label>更新时间</label>
+</div>

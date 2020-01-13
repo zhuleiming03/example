@@ -1,0 +1,11 @@
+D:\Demo2017\LogDemo\LogDemo\bin\Debug\LogDemo.exe.config
+D:\Demo2017\LogDemo\LogDemo\bin\Debug\LogDemo.exe
+D:\Demo2017\LogDemo\LogDemo\bin\Debug\LogDemo.pdb
+D:\Demo2017\LogDemo\LogDemo\obj\Debug\LogDemo.exe
+D:\Demo2017\LogDemo\LogDemo\obj\Debug\LogDemo.pdb
+D:\Demo2017\LogDemo\LogDemo\bin\Debug\Newtonsoft.Json.dll
+D:\Demo2017\LogDemo\LogDemo\bin\Debug\Newtonsoft.Json.xml
+D:\Demo2017\LogDemo\LogDemo\obj\Debug\LogDemo.csprojResolveAssemblyReference.cache
+D:\Demo\example\other\Net\Demo2017\LogDemo\LogDemo\bin\Debug\LogDemo.exe.config
+D:\Demo\example\other\Net\Demo2017\LogDemo\LogDemo\obj\Debug\LogDemo.exe
+D:\Demo\example\other\Net\Demo2017\LogDemo\LogDemo\obj\Debug\LogDemo.pdb

@@ -1,0 +1,11 @@
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.ToArrayListServer 生成存根: 类型已密封。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.ToDataTableServer 生成存根: 类型已密封。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.ToEntityServer 生成存根: 类型已密封。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.ToJsonServer 生成存根: 类型已密封。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.ToListServer 生成存根: 类型已密封。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.MSSQLDataBaseServer 生成存根: 类型已密封。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.MSSQLDBServer 生成存根: 类型已密封。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.PageEntity 生成存根: 类型已密封。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.ToArrayListServer 生成填充码: 类型对 exported or assembly(Server.Fakes) 不可见。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.IDataBaseServer 生成填充码: 类型是一个接口。
+D:\MyWork\Demo2016\Server\UnitTest\Fakes\Server.fakes : warning : 无法为 Server.MSSQLDBServer 生成填充码: 类型对 exported or assembly(Server.Fakes) 不可见。

@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "DocumentInterfaceProgramManage";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+@section Header{
+
+    <style type="text/css">
+        select {
+            width: 100px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        $(function () {
+            initGrid()
+        });
+
+        function initGrid() {
+            $("#jqGrid").jqGrid({
+                url: '/DocumentInterface/QueryDocumentInterfaceProgramList',
+                datatype: "json",
+                styleUI: 'Bootstrap',
+                mtype: 'POST',
+                colModel: [
+                     { name: 'ProgramID', label: "ID", key: true, hidden: true },
+                     { name: 'ProgramName', label: "产品名称", editable: true },
+                     { name: 'SvnUrl', label: "SVN路径", editable: true, width: 800 },
+                     { name: 'OrderIndex', label: "排序" },
+                     {
+                         name: 'EditOption', label: "操作", formatter: function (cellvalue, options, rowObject) {
+                             var editRows = "<a href='javascript:void(0)' onclick='editRows(" + options.rowId + ")' >编辑</a>&nbsp;&nbsp;";
+                             var deleteRows = "<a href='javascript:void(0)' onclick='deleteDate(" + options.rowId + ")' >删除</a>&nbsp;&nbsp;";
+                             var infoRows = "<a href='/DocumentInterface/DocumentInterfaceItemManage/" + options.rowId + "'  >详情</a>";
+                             return editRows + deleteRows + infoRows;
+                         }
+                     }
+                ],
+                rowNum: 10,
+                rowList: [10, 15, 20, 30],
+                pager: '#jqGridPager',
+                sortname: 'OrderIndex',
+                viewrecords: true,
+                sortorder: "asc",
+                height: '100%',
+                width: '100%',
+                autowidth: true
+            });
+        }
+
+        function editRows(rowId) {
+
+            $('#PanelEditInfo').modal('show');
+
+            var rowData = $("#jqGrid").jqGrid('getRowData', rowId);
+
+            var panel = $("#FormEditInfo");
+            var txtProgramID = panel.find(".form-control-static")[0];
+            var txtProgramName = panel.find("input[name='ProgramName']")[0];
+            var txtOrderIndex = panel.find("input[name='OrderIndex']")[0];
+            var txtSvnUrl = panel.find("input[name='SvnUrl']")[0];
+            var valProgramID = panel.find("input[name='ProgramID']")[0];
+
+            valProgramID.value = rowData.ProgramID;
+            txtProgramID.innerHTML = rowData.ProgramID;
+            txtProgramName.value = rowData.ProgramName;
+            txtOrderIndex.value = rowData.OrderIndex;
+            txtSvnUrl.value = rowData.SvnUrl;
+        }
+
+        function reloadGrid() {
+            $("#jqGrid").jqGrid('setGridParam', {
+                datatype: 'json',
+                postData: {}, //发送数据  
+                page: 1
+            }).trigger("reloadGrid"); //重新载入
+        }
+
+        function insertData() {
+            $.ajax({
+                type: "post",
+                url: "/DocumentInterface/InsertDocumentInterfaceProgram",
+                data: $("#FormAddInfo").serialize(),
+                success: function (data) {
+                    if (data == 'True') {
+                        $('#PanelAddInfo').modal('hide');
+                        reloadGrid();
+                    } else {
+                        alert("error!");
+                    }
+                }
+            });
+        }
+
+        function updateData() {
+            $.ajax({
+                type: "post",
+                url: "/DocumentInterface/UpdateDocumentInterfaceProgram",
+                data: $("#FormEditInfo").serialize(),
+                success: function (data) {
+                    if (data == 'True') {
+                        $('#PanelEditInfo').modal('hide');
+                        reloadGrid();
+                    } else {
+                        alert("error!");
+                    }
+                }
+            });
+        }
+        
+        function deleteDate(rowId) {
+            bootbox.confirm("是否删除", function (result) {
+                if (result) {
+                    $.ajax({
+                        type: "post",
+                        url: "/DocumentInterface/DeleteDocumentInterfaceProgram",
+                        data: { ProgramID: rowId },
+                        success: function (data) {
+                            if (data == 'True') {
+                                reloadGrid();
+                            } else {
+                                alert("error!");
+                            }
+                        }
+                    });
+                } else {
+                    return;
+                }
+            });          
+        }
+
+    </script>
+}
+
+
+<div class="row">
+    <!-- 按钮触发模态框 -->
+    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#PanelAddInfo">添加</button>
+</div>
+
+<div class="row">
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="PanelAddInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label for="name">请录入新产品信息</label>
+                </h4>
+            </div>
+            <!-- /.modal-header -->
+            <div class="modal-body">
+                <form id="FormAddInfo" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">接口程序名称</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="ProgramName" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">排序</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="OrderIndex" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">SVN路径</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="SvnUrl" type="text">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" onclick="insertData()">提交修改</button>
+            </div>
+            <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+
+
+<div class="modal fade" id="PanelEditInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label for="name">请变更产品信息</label>
+                </h4>
+            </div>
+            <!-- /.modal-header -->
+            <div class="modal-body">
+                <form id="FormEditInfo" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">接口程序ID</label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static">00</p>
+                            <input type="hidden" value="00" name="ProgramID" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">接口程序名称</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="ProgramName" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">排序</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="OrderIndex" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">SVN路径</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="SvnUrl" type="text">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" onclick="updateData()">提交修改</button>
+            </div>
+            <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>

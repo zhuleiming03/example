@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "DocumentInterfaceProgramManage";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+@section Header{
+
+    <style type="text/css">
+        select {
+            width: 100px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        $(function () {
+            initGrid()
+        });
+
+
+        function initGrid() {
+            $("#jqGrid").jqGrid({
+                url: '/Menu/GetList',
+                datatype: "json",
+                styleUI: 'Bootstrap',
+                mtype: 'POST',
+                colModel: [
+                     { name: 'MenuID', label: "MenuID", key: true },
+                     { name: 'MenuParentID', label: "MenuParentID" },
+                     { name: 'MenuLevel', label: "MenuLevel" },
+                     { name: 'MenuItem', label: "MenuItem" },
+                     { name: 'MenuOrder', label: "MenuOrder" },
+                     { name: 'IsEnable', label: "IsEnable" },
+                     { name: 'Url', label: "Url" }
+                ],
+                rowNum: 5,
+                rowList: [5, 10, 20, 30],
+                pager: '#jqGridPager',
+                sortname: 'MenuOrder',
+                viewrecords: true,
+                sortorder: "desc",
+                height: '100%'
+            });
+        }
+
+    </script>
+}
+
+<div class="row">
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+
+
+

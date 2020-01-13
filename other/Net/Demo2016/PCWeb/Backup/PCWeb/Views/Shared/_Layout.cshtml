@@ -1,0 +1,128 @@
+﻿@using Logic;
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/assets/plugins/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/jquery.jqgrid-5.1.1/css/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+
+    <script src="~/assets/jquery-1.11.0.min.js"></script>
+    <script src="~/assets/plugins/jquery.jqgrid-5.1.1/js/i18n/grid.locale-en.js"></script>
+    <script src="~/assets/plugins/jquery.jqgrid-5.1.1/js/jquery.jqgrid.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <a class="menu-toggler" href="javascript:;"></a>
+
+    <div class="page-header">
+        <div class="page-header-menu">
+            <div class="container-fluid" style=" padding-left: 0px; ">
+                <div class="hor-menu ">
+                    <ul class="nav navbar-nav">
+                        @if (Session["Menu"] != null)
+                        {
+                            List<MenuModel> MenuData = Session["Menu"] as List<MenuModel>;
+                            foreach (var item in MenuData.Where(i => i.MenuParentID == 0 && i.IsEnable).OrderBy(i => i.MenuOrder))
+                            {
+                                if (item.Url != "javascript:;")
+                                {
+                                    <li><a href="@item.Url">@item.MenuItem</a></li>
+                                }
+                                else
+                                {
+                                    //判断是否有三级菜单
+                                    Boolean isA3 = false;
+                                    var a2 = MenuData.Where(i => i.MenuParentID == item.MenuID).FirstOrDefault();
+                                    if (a2 != null)
+                                    {
+                                        if (a2.Url == "javascript:;")
+                                        {
+                                            isA3 = true;
+                                        }
+                                    }
+
+
+                                    @*普通两级菜单*@
+                                    if (!isA3)
+                                    {
+                                        <li class="menu-dropdown classic-menu-dropdown">
+                                            <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
+                                                @item.MenuItem <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu" style="min-width: 280px">
+                                                @foreach (var subMenu in (Session["Menu"] as List<MenuModel>).Where(i => i.IsEnable && i.MenuParentID == item.MenuID).OrderBy(i => i.MenuOrder))
+                                                {
+                                                    <li>
+                                                        <a href="@subMenu.Url">
+                                                            <i class="fa fa-angle-right"></i> @subMenu.MenuItem
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        //获取第二级菜单的个数，然后12/个数然后
+                                        var a2Count = MenuData.Where(i => i.MenuParentID == item.MenuID).Count();
+                                        var a2ColNum = 12 / a2Count;
+                                        var a2Width = (a2Count * 220) + "px";
+
+
+                                        <li class="menu-dropdown mega-menu-dropdown">
+                                            <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
+                                                @item.MenuItem <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu" style="min-width: @a2Width">
+                                                <li>
+                                                    <div class="mega-menu-content">
+                                                        <div class="row">
+                                                            @foreach (var subMenu in (Session["Menu"] as List<MenuModel>).Where(i => i.IsEnable && i.MenuParentID == item.MenuID).OrderBy(i => i.MenuOrder))
+                                                            {
+                                                                <div class="col-md-@a2ColNum">
+                                                                    <ul class="mega-menu-submenu">
+                                                                        <li>
+                                                                            <h3>@subMenu.MenuItem</h3>
+                                                                        </li>
+                                                                        @foreach (var leafMenu in (Session["Menu"] as List<MenuModel>).Where(i => i.IsEnable && i.MenuParentID == subMenu.MenuID).OrderBy(i => i.MenuOrder))
+                                                                        {
+                                                                            <li>
+                                                                                <a href="@leafMenu.Url"><i class="fa fa-angle-right"></i>@leafMenu.MenuItem</a>
+                                                                            </li>
+                                                                        }
+                                                                    </ul>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-container">
+        @RenderBody()
+    </div>
+
+    <div class="page-footer" style="position:fixed;bottom:0;width:100%;z-index:100"></div>
+    
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

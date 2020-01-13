@@ -1,0 +1,32 @@
+﻿[ERROR]:System.Data.SqlClient.SqlException (0x80131904): INSERT 语句中列的数目大于 VALUES 子句中指定的值的数目。VALUES 子句中值的数目必须与 INSERT 语句中指定的列的数目匹配。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Common.MSSQLDBServer.ExecuteNonQuery(String connectionstring, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 位置 D:\Demo2017\DocumentManage\Common\DataBaseManager\MSSQLDBServer.cs:行号 106
+   在 Common.MSSQLDataBaseServer.ExecuteNonQuery(String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 位置 D:\Demo2017\DocumentManage\Common\DataBaseManager\MSSQLDataBaseServer.cs:行号 35
+   在 DocumentManageDAL.DocumentInterfaceDAL.InsertSingleInterfaceItemModel(InterfaceItemModel model) 位置 D:\Demo2017\DocumentManage\DocumentManageDAL\DocumentInterfaceDAL.cs:行号 425
+   在 DocumentManageBLL.DocumentInterfaceBLL.InsertInterfaceItem(InterfaceItemModel model) 位置 D:\Demo2017\DocumentManage\DocumentManageBLL\DocumentInterfaceBLL.cs:行号 219
+ClientConnectionId:5a2a6dc8-9bcf-4cae-aef1-f570401b7f98
+Error Number:109,State:1,Class:15
+   2018-04-18 09:44:11,966 DocumentManageBLL.DocumentInterfaceBLL
+   
+[ERROR]:System.Data.SqlClient.SqlException (0x80131904): INSERT 语句中列的数目大于 VALUES 子句中指定的值的数目。VALUES 子句中值的数目必须与 INSERT 语句中指定的列的数目匹配。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Common.MSSQLDBServer.ExecuteNonQuery(String connectionstring, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 位置 D:\Demo2017\DocumentManage\Common\DataBaseManager\MSSQLDBServer.cs:行号 106
+   在 Common.MSSQLDataBaseServer.ExecuteNonQuery(String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 位置 D:\Demo2017\DocumentManage\Common\DataBaseManager\MSSQLDataBaseServer.cs:行号 35
+   在 DocumentManageDAL.DocumentInterfaceDAL.InsertSingleInterfaceItemModel(InterfaceItemModel model) 位置 D:\Demo2017\DocumentManage\DocumentManageDAL\DocumentInterfaceDAL.cs:行号 425
+   在 DocumentManageBLL.DocumentInterfaceBLL.InsertInterfaceItem(InterfaceItemModel model) 位置 D:\Demo2017\DocumentManage\DocumentManageBLL\DocumentInterfaceBLL.cs:行号 219
+ClientConnectionId:b0843b08-b3e1-4e6a-a387-cb2322d414e7
+Error Number:109,State:1,Class:15
+   2018-04-18 09:44:15,717 DocumentManageBLL.DocumentInterfaceBLL
+   

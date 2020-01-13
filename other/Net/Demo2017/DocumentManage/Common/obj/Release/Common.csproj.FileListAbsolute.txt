@@ -1,0 +1,4 @@
+D:\MyWork\Test\DocumentManage\Common\bin\Release\Common.dll
+D:\MyWork\Test\DocumentManage\Common\bin\Release\Common.pdb
+D:\MyWork\Test\DocumentManage\Common\obj\Release\Common.dll
+D:\MyWork\Test\DocumentManage\Common\obj\Release\Common.pdb

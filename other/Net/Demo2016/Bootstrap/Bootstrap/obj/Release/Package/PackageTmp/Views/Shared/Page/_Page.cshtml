@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    @RenderSection("Header", required: false)
+}
+
+@*页眉 包含网站导航*@
+<div class="page-header">
+    <div class="container">
+        @RenderPage("~/Views/Shared/Partial/_Menu.cshtml")
+    </div>
+</div>
+
+@*页面内容*@
+<div class="page-container">
+    @RenderBody()
+</div>
+
+@*页脚 包含网站备注*@
+<div class="page-footer"></div>
+
+

@@ -1,0 +1,9 @@
+D:\MyWork\Test\DocumentManage\Common\bin\Debug\Common.dll
+D:\MyWork\Test\DocumentManage\Common\bin\Debug\Common.pdb
+D:\MyWork\Test\DocumentManage\Common\obj\Debug\Common.dll
+D:\MyWork\Test\DocumentManage\Common\obj\Debug\Common.pdb
+D:\Demo2017\DocumentManage\Common\bin\Debug\Common.dll
+D:\Demo2017\DocumentManage\Common\bin\Debug\Common.pdb
+D:\Demo2017\DocumentManage\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\Demo2017\DocumentManage\Common\obj\Debug\Common.dll
+D:\Demo2017\DocumentManage\Common\obj\Debug\Common.pdb

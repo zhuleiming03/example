@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "JSON";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+@section Header{
+    <link href="~/assets/plugins/jsoneditor/jsoneditor.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .jsoneditor textarea.text {
+            height: 350px;
+        }
+    </style>
+
+    <script src="~/assets/plugins/jsoneditor/jsoneditor.min.js"></script>
+    <script>
+
+        var codeEditor = null, json = {};
+
+        $(function () {
+            var e = {
+                array: [1, 2, 3],
+                "boolean": !0,
+                "null": null,
+                number: 123,
+                object: { a: "b", c: "d", e: "f" },
+                string: "Hello World"
+            };
+            json.load(e);
+        });
+
+        json.load = function (str) {
+            try {
+                json.lastChanged = void 0;
+                var i = document.getElementById("codeEditor");
+                codeEditor = new JSONEditor(i, {
+                    mode: "code",
+                    change: function () {
+                        json.lastChanged = codeEditor
+                    },
+                    error: function (str) {
+                        alert("JSON格式有误");
+                    }
+                }),
+                codeEditor.set(str)
+            }
+            catch (p) {
+                try {
+                    alert(p);
+                }
+                catch (c) {
+                    console && console.log && console.log(p), alert(p)
+                }
+            }
+        }
+
+    </script>
+}
+
+<h2>JSON</h2>
+
+
+<div class="row">
+    <div id="codeEditor"></div>
+</div>
+
+
+

@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "VMwareNet";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+
+<div class="row">
+    <h1>访问VMware虚拟机的Web服务</h1>
+    <p>
+        如果你只有一台电脑，却想模拟用户访问服务器，这个时候伟大的VMware虚拟机就派上用途了，不要问我为啥不再搞
+        一台服务器，因为穷啦。。。甭提了，满满都是泪啦，首先我在主机上安装了VMware，VMware上安装了Linux或windows
+        虚拟机。然后虚拟机部署了向外Web服务，我这里是以(windows 7)为例，主机和虚拟机都是(windows 7)，纯粹图省事
+    </p>
+
+    <ul>
+        <li>实现原理</li>
+        <li>VMware的NAT设置</li>
+        <li>端口转发（Port Forwarding）</li>
+        <li>路由器和防火墙设置</li>
+        <li>网络测试</li>
+    </ul>
+</div>
+
+<div class="row">
+    <h2><font>实现原理</font></h2>
+    <p>首先，我们先来上上理论课，不喜的同学请直接跳过这节开始实操</p>
+    <p>网络拓扑有3种主要类型：家庭ADSL、公司局域网和托管机房公网。我属于第二种。</p>
+    <img src="~/assets/image/article/vmwarenet/1-1.png" class="img-thumbnail" title="网络拓扑图" />
+    <p>有了拓扑之后，需要了解 VMware的三种网络连接模式 ，桥接（bridged）、NAT和Host-only。</p>
+    <p>桥接模式，可以看成主机与虚拟机用Hub相连接。</p>
+    <p>
+        NAT是局域网的重要技术，详细解释可以看百科。NAT模式，可看成主机是关口，虚拟机在网络内部，
+        所有与虚拟机的通信均要经过关口。
+    </p>
+    <p>Host-only模式，看成主机与虚拟机是用双绞线相连的，它们可分别处于独立的网段。</p>
+    <p>我们公司局域网采用域管理，即虚拟机没有(申请)在域内，而主机在域内。所以我只能采用NAT模式，否则虚拟机没有访问网络（或被访问）的权限。</p>
+</div>
+
+<div class="row">
+    <h2><font>VMware的NAT设置</font></h2>
+
+    <ul>
+        <li>选择你要折腾的虚拟机，单击网络适配器，会弹出一个虚拟机设置界面</li>
+        <li>在左边栏的硬件选项卡内选择网络适配器</li>
+        <li>在右边栏的网络连接里选择NAT模式</li>
+        <li>不懂的看图</li>
+    </ul>
+    <img src="~/assets/image/article/vmwarenet/1-2.jpg" class="img-thumbnail" title="NAT设置" />
+
+    <p>设置好后你的虚拟机就能上网了，如果不能上网的话，呃，那你就该反省反省你是不是长得太丑，吓到电脑了</p>
+</div>
+
+<div class="row">
+    <h2><font>端口转发（Port Forwarding）</font></h2>
+    <p>
+        在完成NAT设置之后，虚拟机便可以访问外部网络（局域网其他用户和Internet）了。但是，从外部网络不能
+        访问虚拟机。这是因为NAT对外是屏蔽内部网络细节的。为了实现从外部访问虚拟机，则需要设置端口转发。
+    </p>
+
+    <p>设置之前先要查看虚拟机的IP地址，之后会用到</p>
+    <p>不会看IP地址？没事，点菜单，搜cmd,找命令提示符程序，然后再输入'ipconfig'，就可以看到IPv4的地址了</p>
+    <p>还不会？就看下图呗，先找命令提示符程序</p>
+    <img src="~/assets/image/article/vmwarenet/1-3.jpg" class="img-thumbnail" title="查找命令提示符程序" />
+    <p>再找IPv4地址</p>
+    <img src="~/assets/image/article/vmwarenet/1-4.jpg" class="img-thumbnail" title="查看IPv4地址" />
+
+    <p>记住IPv4地址后就可以设置端口了</p>
+    <p>在VMware的菜单项编辑下找到虚拟网络编辑器，单击弹出虚拟网络编辑器界面，然后更改设置</p>
+    <img src="~/assets/image/article/vmwarenet/1-5.jpg" class="img-thumbnail" title="查找虚拟网络编辑器界面" />
+    <p>
+        然后在上面的网络里选择VMnet8 NAT模式，在下面找到NAT设置，然后单击它，就会弹出一个NAT设置，
+        这个时候重头戏来了，在这里添加端口转发，单击添加，就会弹出一个映射传入端口界面，然后输入参数，
+        单击确认，就能成功添加端口转发条目了，看到这你是不是晕了，没事，看下图
+    </p>
+    <img src="~/assets/image/article/vmwarenet/1-6.jpg" class="img-thumbnail" title="设置端口转发" />
+    <ul>
+        <li>主机端口：就是从外网访问主机该端口的请求，均转发至虚拟机的指定端口</li>
+        <li>虚拟机端口：就是上面所说的接收请求的虚拟机指定端口</li>
+        <li>类型：指定传输协议，这里添加了TCP和UDP（Http一般只使用TCP）</li>
+        <li>虚拟机IP地址：这个时候前面要记得IPv4地址就派上用途了，这里就填刚刚虚拟机的本地IP</li>
+        <li>描述：可不填</li>
+    </ul>
+
+    <p>结果图就如下啦，剩下点确定就好啦</p>
+    <img src="~/assets/image/article/vmwarenet/1-7.jpg" class="img-thumbnail" title="端口转发结果" />
+</div>
+
+<div class="row">
+    <h2><font>路由器和防火墙设置</font></h2>
+
+    <p>在外部网络与主机间若有路由器，则需设置端口映射；我的情景下没有；</p>
+    <p>关闭主机上的防火墙，或者设置防火墙的端口允许规则；</p>
+</div>
+
+<div class="row">
+    <h2><font>网络测试</font></h2>
+    <p>TFS的IIS网站已经搭建好；</p>
+    <p>在局域网其他用户的计算机上打开浏览器，访问http://<host's IP address>:host port；</p>
+    <p>
+        假设主机的IP为10.1.1.1，则在浏览器访问http://10.1.1.1:8080。正常情况下，访问请求会转发至虚拟机，
+        即该请求实际访问的是http://192.168.75.134：8080。
+    </p>
+    <p>若正常打开Web网站，则测试通过。</p>
+</div>
+

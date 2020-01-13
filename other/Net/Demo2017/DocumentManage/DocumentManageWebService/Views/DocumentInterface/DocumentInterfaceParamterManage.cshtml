@@ -1,0 +1,534 @@
+﻿
+@{
+    ViewBag.Title = "DocumentInterfaceParamterManage";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+@section Header{
+<script type="text/javascript">
+
+    var interfaceID=@ViewBag.interfaceID;
+    //var interfaceID = 1;
+
+    $(function () {
+        Metronic.init();
+        reloadInterfaceItem();
+        initGrid();
+    });
+
+    function initInterfaceItem(data){
+        var obj = eval("(" + data + ")");
+
+        var labCode = $("#labCode");
+        var labTitle = $("#labTitle");
+        var labMethod = $("#labMethod");
+        var labPath = $("#labPath");
+        var labInfo = $("#labInfo");
+        var labInputParameterJSON = $("#labInputParameterJSON");
+        var labOutputParameterJSON = $("#labOutputParameterJSON");
+
+        labCode.html(obj.Code);
+        labTitle.html(obj.Title);
+        labMethod.html(obj.Method);
+        labPath.html(obj.Path);
+        labInfo.html(obj.Info);
+        labInputParameterJSON.html(obj.InputParameterJSON);
+        labOutputParameterJSON.html(obj.OutputParameterJSON);
+    }
+
+    function initPanelEditInterfaceItemInfo(data){
+        var obj = eval("(" + data + ")");
+
+        var panel = $("#PanelEditInterfaceItemInfo");
+        var txtInterfaceID = panel.find("input[name='InterfaceID']")[0];
+        var txtTitle = panel.find("input[name='Title']")[0];
+        var txtCode = panel.find("input[name='Code']")[0];
+        var txtMethod = panel.find("input[name='Method']")[0];
+        var txtPath = panel.find("input[name='Path']")[0];
+        var txtInfo = panel.find("textarea[name='Info']")[0];
+        var txtInputParameterJSON = panel.find("textarea[name='InputParameterJSON']")[0];
+        var txtOutputParameterJSON = panel.find("textarea[name='OutputParameterJSON']")[0];
+        var txtOrderIndex = panel.find("input[name='OrderIndex']")[0];
+
+        txtInterfaceID.value = obj.InterfaceID;
+        txtTitle.value = obj.Title;   
+        txtCode.value = obj.Code;  
+        txtMethod.value = obj.Method;
+        txtPath.value = obj.Path;
+        txtInfo.value = obj.Info;
+        txtInputParameterJSON.value = obj.InputParameterJSON;
+        txtOutputParameterJSON.value = obj.OutputParameterJSON;
+        txtOrderIndex.value = obj.OrderIndex;
+    }
+
+    function initPanelAddInterfaceParamterInfo(data) {
+        var obj = eval("(" + data + ")");
+
+        var panel = $("#PanelAddInterfaceParamterInfo");
+        var txtProgramID = panel.find("input[name='ProgramID']")[0];
+        var txtInterfaceID = panel.find("input[name='InterfaceID']")[0];
+
+        txtProgramID.value = obj.ProgramID;
+        txtInterfaceID.value = obj.InterfaceID;
+    }
+
+    function initPanelEditInterfaceParamterInfo(data) {
+        var obj = eval("(" + data + ")");
+
+        var panel = $("#PanelEditInterfaceParamterInfo");
+        var txtParameterID = panel.find("input[name='ParameterID']")[0];
+        var txtParameterType = panel.find("select[name='ParameterType']")[0];
+        var txtParameterCode = panel.find("input[name='ParameterCode']")[0];
+        var txtParameterName = panel.find("input[name='ParameterName']")[0];
+        var txtDataType = panel.find("select[name='DataType']")[0];
+        var txtCheckContent = panel.find("input[name='CheckContent']")[0];
+        var txtRemark = panel.find("input[name='Remark']")[0];
+        var txtOrderIndex = panel.find("input[name='OrderIndex']")[0];
+ 
+        txtParameterID.value = obj.ParameterID;
+        $(txtParameterType).val(obj.ParameterType).trigger("change");
+        txtParameterCode.value = obj.ParameterCode;
+        txtParameterName.value = obj.ParameterName;
+        $(txtDataType).val(obj.DataType).trigger("change");
+        txtCheckContent.value = obj.CheckContent;
+        txtRemark.value = obj.Remark;
+        txtOrderIndex.value = obj.OrderIndex;
+
+    }
+
+    function initGrid() {
+        $("#jqGrid").jqGrid({
+            url: '/DocumentInterface/QueryDocumentInterfaceParamterList',
+            datatype: "json",
+            styleUI: 'Bootstrap',
+            postData: { 'interfaceID': interfaceID },
+            mtype: 'POST',
+            colModel: [
+                 { name: 'ParameterID', label: "ID", key: true, hidden: true },
+                 {
+                     name: 'ParameterType', label: "参数类型", formatter: function (cellvalue, options, rowObject) {
+                         if (cellvalue == '1') {
+                             return '入参';
+                         } else {
+                             return '出参';
+                         }
+                     }
+                 },
+                 { name: 'ParameterName', label: "参数名称", editable: true },
+                 { name: 'ParameterCode', label: "参数代码", editable: true },
+                 { name: 'DataType', label: "参数数据类型", editable: true },
+                 { name: 'CheckContent', label: "约束", editable: true },
+                 { name: 'Remark', label: "备注说明", editable: true },
+                 { name: 'OrderIndex', label: "排序" },
+                 {
+                     name: 'EditOption', label: "操作", formatter: function (cellvalue, options, rowObject) {
+                         var editRows = "<a href='javascript:void(0)' onclick='editInterfaceParamterData(" + options.rowId + ")' >编辑</a>&nbsp;&nbsp;";
+                         var deleteRows = "<a href='javascript:void(0)' onclick='deleteInterfaceParamterData(" + options.rowId + ")' >删除</a>";
+                         return editRows + deleteRows;
+                     }
+                 }
+            ],
+            rowNum: 10,
+            rowList: [10, 15, 20, 30],
+            pager: '#jqGridPager',
+            sortname: 'OrderIndex',
+            viewrecords: true,
+            sortorder: "asc",
+            height: '100%',
+            width: '100%',
+            autowidth: true
+        });
+    }
+
+    function reloadInterfaceItem() {
+        $.ajax({
+            type: "post",
+            url: "/DocumentInterface/QueryDocumentInterfaceItem",
+            data: { interfaceID: interfaceID },
+            success: function (data) {
+                if (data != '') {
+                    initInterfaceItem(data);
+                    initPanelEditInterfaceItemInfo(data);
+                    initPanelAddInterfaceParamterInfo(data);
+                } else {
+                    alert("error!");
+                }
+            }
+        });
+    }
+
+    function reloadGrid() {
+        $("#jqGrid").jqGrid('setGridParam', {
+            datatype: 'json',
+            postData: {}, //发送数据
+            page: 1
+        }).trigger("reloadGrid"); //重新载入
+    }
+
+    function reloadPanelAddInterfaceParamterInfo() {
+        var panel = $("#PanelAddInterfaceParamterInfo");
+        var txtParameterType = panel.find("input[name='ParameterType']")[0];
+        var txtParameterCode = panel.find("input[name='ParameterCode']")[0];
+        var txtParameterName = panel.find("input[name='ParameterName']")[0];
+        var txtDataType = panel.find("input[name='DataType']")[0];
+        var txtCheckContent = panel.find("input[name='CheckContent']")[0];
+        var txtRemark = panel.find("input[name='Remark']")[0];
+        var txtOrderIndex = panel.find("input[name='OrderIndex']")[0];
+
+        txtParameterType.value = "";
+        txtParameterCode.value = "";
+        txtParameterName.value = "";
+        txtDataType.value = "";
+        txtCheckContent.value = "";
+        txtRemark.value = "";
+        txtOrderIndex.value = "";
+    }
+
+    function editInterfaceParamterData(parameterID) {
+        $.ajax({
+            type: "post",
+            url: "/DocumentInterface/QueryDocumentInterfaceParamter",
+            data: { parameterID: parameterID },
+            success: function (data) {
+                if (data != '') {
+                    initPanelEditInterfaceParamterInfo(data);
+                    $('#PanelEditInterfaceParamterInfo').modal('show');
+                } else {
+                    alert("error!");
+                }
+            }
+        });
+    }
+
+    function deleteInterfaceParamterData(parameterID) {
+        bootbox.confirm("是否删除", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "post",
+                    url: "/DocumentInterface/DeleteDocumentInterfaceParamter",
+                    data: { parameterID: parameterID },
+                    success: function (data) {
+                        if (data == 'True') {
+                            reloadGrid();
+                        } else {
+                            alert("error!");
+                        }
+                    }
+                });
+            } else {
+                return;
+            }
+        });     
+    }
+
+    function submitPanelEditInterfaceItemInfo() {
+        $.ajax({
+            type: "post",
+            url: "/DocumentInterface/UpdateDocumentInterfaceItem",
+            data: $("#FormEditInterfaceItemInfo").serialize(),
+            success: function (data) {
+                if (data == 'True') {
+                    $('#PanelEditInterfaceItemInfo').modal('hide');
+                    reloadInterfaceItem();
+                } else {
+                    alert("error!");
+                }
+            }
+        });
+    }
+
+    function subminPanelAddInterfaceParamterInfo() {
+        $.ajax({
+            type: "post",
+            url: "/DocumentInterface/InsertDocumentInterfaceParamter",
+            data: $("#FormAddInfo").serialize(),
+            success: function (data) {
+                if (data == 'True') {
+                    $('#PanelAddInterfaceParamterInfo').modal('hide');
+                    reloadGrid();
+                    reloadPanelAddInterfaceParamterInfo();
+                } else {
+                    alert("error!");
+                }
+            }
+        });
+    }
+
+    function subminPanelEditInterfaceParamterInfo() {
+        $.ajax({
+            type: "post",
+            url: "/DocumentInterface/UpdateDocumentInterfaceParamter",
+            data: $("#FormEditInterfaceParamterInfo").serialize(),
+            success: function (data) {
+                if (data == 'True') {
+                    $('#PanelEditInterfaceParamterInfo').modal('hide');
+                    reloadGrid();
+                } else {
+                    alert("error!");
+                }
+            }
+        });
+    }
+
+</script>
+
+}
+
+<h2>DocumentInterfaceParamterManage</h2>
+
+<div class="row">
+    <!-- 按钮触发模态框 -->
+    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#PanelEditInterfaceItemInfo">编辑文本</button>
+    <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#PanelAddInterfaceParamterInfo">新增参数</button>
+</div>
+
+<div class="row">
+    <div class="text-title">
+
+        <p>接口名称：<span id="labTitle"></span></p>
+        <p>接口编码：<span id="labCode"></span></p>
+        <p>调用方式：<span id="labMethod" ></span></p>
+        <p>调用路径：<span id="labPath"></span></p>
+        <p>接口描述：<span id="labInfo"></span></p>  
+        <p>输入实例：<span id="labInputParameterJSON"></span></p>  
+        <p>输出实例：<span id="labOutputParameterJSON"></span></p>  
+    </div>
+</div>
+
+<div class="row">
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+
+<div class="modal fade" id="PanelEditInterfaceItemInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label for="name">编辑接口信息</label>
+                </h4>
+            </div>
+            <!-- /.modal-header -->
+            <div class="modal-body">
+                <form id="FormEditInterfaceItemInfo" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">接口名称</label>
+                        <div class="col-sm-9">
+                            <input type="hidden" value="0" name="InterfaceID" />
+                            <input class="form-control" name="Title" type="text" value="0" >                      
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">接口编码</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="Code" type="text" value="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">调用方式</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="Method" type="text" value="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">调用路径</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="Path" type="text" value="0" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">接口描述</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" rows="3" name="Info"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">输入实例</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" rows="3" name="InputParameterJSON" ></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">输出实例</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" rows="3" name="OutputParameterJSON"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">排序</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="OrderIndex" type="text" value="0">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" onclick="submitPanelEditInterfaceItemInfo()">提交修改</button>
+            </div>
+            <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+
+<div class="modal fade" id="PanelAddInterfaceParamterInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label for="name">新增参数信息</label>
+                </h4>
+            </div>
+            <!-- /.modal-header -->
+            <div class="modal-body">
+                <form id="FormAddInfo" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参数类型</label>
+                        <div class="col-sm-9">
+                            <select name="ParameterType" class="select2me form-control">
+                                <option value="1">入参</option>
+                                <option value="2">出参</option>
+                            </select>
+                            <input type="hidden" value="0" name="ProgramID" />
+                            <input type="hidden" value="0" name="InterfaceID" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参数代码</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="ParameterCode" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参数名称</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="ParameterName" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参数数据类型</label>
+                        <div class="col-sm-9">
+                            <select name="DataType" class="select2me form-control">
+                                <option value="Object">Object</option>
+                                <option value="String">String</option>
+                                <option value="Int">Int</option>
+                                <option value="Decimal">Decimal</option>
+                                <option value="Bool">Bool</option>
+                                <option value="DateTime">DateTime</option>
+                                <option value="Long">Long</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">约束</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="CheckContent" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">备注说明</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="Remark" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">排序</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="OrderIndex" type="text" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" onclick="subminPanelAddInterfaceParamterInfo()" >提交修改</button>
+            </div>
+            <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+
+<div class="modal fade" id="PanelEditInterfaceParamterInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label for="name">编辑参数信息</label>
+                </h4>
+            </div>
+            <!-- /.modal-header -->
+            <div class="modal-body">
+                <form id="FormEditInterfaceParamterInfo" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参数类型</label>
+                        <div class="col-sm-9">
+                            <select name="ParameterType" class="select2me form-control">
+                                <option value="0">入参</option>
+                                <option value="1">出参</option>
+                            </select>
+                            <input type="hidden" value="0" name="ParameterID" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参数代码</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="ParameterCode" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参数名称</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="ParameterName" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参数数据类型</label>
+                        <div class="col-sm-9">
+                            <select name="DataType" class="select2me form-control">
+                                <option value="Object">Object</option>
+                                <option value="String">String</option>
+                                <option value="Int">Int</option>
+                                <option value="Decimal">Decimal</option>
+                                <option value="Bool">Bool</option>
+                                <option value="DateTime">DateTime</option>
+                                <option value="Long">Long</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">约束</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="CheckContent" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">备注说明</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="Remark" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">排序</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="OrderIndex" type="text" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" onclick="subminPanelEditInterfaceParamterInfo()">提交修改</button>
+            </div>
+            <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>

@@ -1,0 +1,2100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cn.Vcredit.Utils</name>
+    </assembly>
+    <members>
+        <member name="T:Cn.Vcredit.Utils.CacheHelper">
+            <summary>
+            HttpRuntime控制类
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CacheHelper.GetCache(System.String)">
+            <summary>
+            获取数据缓存
+            </summary>
+            <param name="CacheKey">键</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CacheHelper.SetCache(System.String,System.Object)">
+            <summary>
+            设置数据缓存
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CacheHelper.SetCache(System.String,System.Object,System.TimeSpan)">
+            <summary>
+            设置数据缓存
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CacheHelper.SetCache(System.String,System.Object,System.DateTime,System.TimeSpan)">
+            <summary>
+            设置数据缓存
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CacheHelper.RemoveAllCache(System.String)">
+            <summary>
+            移除指定数据缓存
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CacheHelper.RemoveAllCache">
+            <summary>
+            移除全部缓存
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.CookieHelper">
+            <summary>
+            Cookie操作类
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CookieHelper.ClearCookie(System.String)">
+            <summary>
+            清除指定Cookie
+            </summary>
+            <param name="cookiename">cookiename</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CookieHelper.GetCookieValue(System.String)">
+            <summary>
+            获取指定Cookie值
+            </summary>
+            <param name="cookiename">cookiename</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CookieHelper.SetCookie(System.String,System.String)">
+            <summary>
+            添加一个Cookie（24小时过期）
+            </summary>
+            <param name="cookiename"></param>
+            <param name="cookievalue"></param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.CookieHelper.SetCookie(System.String,System.String,System.DateTime)">
+            <summary>
+            添加一个Cookie
+            </summary>
+            <param name="cookiename">cookie名</param>
+            <param name="cookievalue">cookie值</param>
+            <param name="expires">过期时间 DateTime</param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.DesToJcBank">
+            <summary>
+            晋城银行DES专属加密解密
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.DesToJcBank.DESEnCode(System.String,System.String)">
+            <summary>
+            DES加密
+            </summary>
+            <param name="encryptString"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.DesToJcBank.DESDeCode(System.String,System.String)">
+            <summary>
+            DES解密
+            </summary>
+            <param name="decryptString"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.DosProcess">
+            <summary>
+            无窗口的DOS进程控制器
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.DosProcess.RunCmd(System.String)">
+            <summary>
+            执行一条DOS命令
+            </summary>
+            <param name="command">参数</param>
+            <returns>返回命令执行结果</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.DosProcess.RunCmd(System.Collections.Generic.List{System.String})">
+            <summary>
+            执行多条DOS命令
+            </summary>
+            <param name="commandlist">参数</param>
+            <returns>返回命令执行结果</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FtpClient">
+            <summary>
+            FTP传输服务    
+            </summary>
+            <remarks>Author:郑宏伟</remarks>
+            <remarks>
+            此版本一共有三种FTP传输方式，FTPClient,FTPUpLoad,FTPServerL
+            每种对FTP的操作方式都不一样，一般情况下，任意一种方式都可以操作常规的FTP服务器
+            如果遇到操作有问题的请更换其他的方式再次尝试，如果三种方式均未成功，那说明目标FTP服务器的安全性能很高，对来访的数据有拦截分析
+            未授权的，未提供身份的，未知应用来访的都不被接受，所以在这种情况下，我目前还未有很好的办法，你有兴趣可以去研究一下。
+            </remarks>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.Instance">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.FtpClientPram(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            带参数的构造函数
+            </summary>
+            <param name="remoteHost">主机地址</param>
+            <param name="remotePath">路径</param>
+            <param name="remoteUser">用户名</param>
+            <param name="remotePass">密码</param>
+            <param name="remotePort">端口</param>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpClient.RemoteHost">
+            <summary>
+            FTP服务器IP地址
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpClient.RemotePort">
+            <summary>
+            FTP服务器端口
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpClient.RemotePath">
+            <summary>
+            当前服务器目录
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpClient.RemoteUser">
+            <summary>
+            登录用户账号
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpClient.RemotePass">
+            <summary>
+            用户登录密码
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FtpClient._bConnected">
+            <summary>
+            是否登录
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpClient.Connected">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.Connect">
+            <summary>
+            建立连接
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.DisConnect">
+            <summary>
+            关闭连接
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FtpClient.TransferType">
+            <summary>
+            传输模式:二进制类型、ASCII类型
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FtpClient.TransferType.Binary">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FtpClient.TransferType.Ascii">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.SetTransferType(Cn.Vcredit.Utils.FtpClient.TransferType)">
+            <summary>
+            设置传输模式
+            </summary>
+            <param name="ttType">传输模式</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.GetTransferType">
+            <summary>
+            获得传输模式
+            </summary>
+            <returns>传输模式</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.Dir(System.String)">
+            <summary>
+            获得文件列表
+            </summary>
+            <param name="strMask">文件名的匹配字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.GetFileSize(System.String)">
+            <summary>
+            获取文件大小
+            </summary>
+            <param name="strFileName"></param>
+            <returns>文件名、文件大小</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.Delete(System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="strFileName">等删除文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.Rename(System.String,System.String)">
+            <summary>
+            重命名(如果新文件名与已有文件重名,将覆盖已有文件)
+            </summary>
+            <param name="strOldFileName">旧文件名</param>
+            <param name="strNewFileName">新文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.Put(System.String)">
+            <summary>
+            上传一个文件
+            </summary>
+            <param name="strFileName">本地文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.MkDir(System.String)">
+            <summary>
+            创建目录
+            </summary>
+            <param name="strDirName">目录名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.RmDir(System.String)">
+            <summary>
+            删除目录
+            </summary>
+            <param name="strDirName">目录名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.CheckDir(System.String)">
+            <summary>
+            验证远程的工作目录是否存在
+            </summary>
+            <param name="dirName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.ChDir(System.String)">
+            <summary>
+            改变目录
+            </summary>
+            <param name="strDirName">新的工作目录名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.ReadReply">
+            <summary>
+            将一行应答字符串记录在strReply和strMsg
+            应答码记录在iReplyCode
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.CreateDataSocket">
+            <summary>
+            建立进行数据连接的socket 
+            </summary>
+            <returns>数据连接socket</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.CloseSocketConnect">
+            <summary>
+            关闭socket连接(用于登录以前)
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.ReadLine">
+            <summary>
+            读取Socket返回的所有字符串
+            </summary>
+            <returns>包含应答码的字符串行</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpClient.SendCommand(System.String)">
+            <summary>
+            发送命令并获取应答码和最后一行应答字符串
+            </summary>
+            <param name="strCommand">命令</param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FileStruct">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileStruct.CreateTime">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileStruct.Flags">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileStruct.Group">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileStruct.IsDirectory">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileStruct.Name">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileStruct.Owner">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FileListStyle">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileListStyle.UnixStyle">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileListStyle.WindowsStyle">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FileListStyle.Unknown">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.TransmissionMode">
+            <summary>
+                传输模式
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.TransmissionMode.Pasv">
+            <summary>
+                被动模式
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.TransmissionMode.Port">
+            <summary>
+                主动模式
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FtpServerL">
+            <summary>
+                FTP传输服务
+            </summary>
+            <remarks>Author:郑宏伟</remarks>
+            <remarks>
+                此版本一共有三种FTP传输方式，FTPClient,FTPUpLoad,FTPServerL
+                每种对FTP的操作方式都不一样，一般情况下，任意一种方式都可以操作常规的FTP服务器
+                如果遇到操作有问题的请更换其他的方式再次尝试，如果三种方式均未成功，那说明目标FTP服务器的安全性能很高，对来访的数据有拦截分析
+                未授权的，未提供身份的，未知应用来访的都不被接受，所以在这种情况下，我目前还未有很好的办法，你有兴趣可以去研究一下。
+            </remarks>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FtpServerL._isDeleteTempFile">
+            <summary>
+                是否需要删除临时文件
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FtpServerL._request">
+            <summary>
+                FTP请求对象
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FtpServerL._response">
+            <summary>
+                FTP响应对象
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FtpServerL._uploadTempFile">
+            <summary>
+                异步上传所临时生成的文件
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.FtpServerL._uri">
+            <summary>
+                FTP服务器地址
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpServerL.Uri">
+            <summary>
+                FTP服务器地址
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpServerL.DirectoryPath">
+            <summary>
+                当前工作目录
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpServerL.UserName">
+            <summary>
+                FTP登录用户
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpServerL.ErrorMsg">
+            <summary>
+                错误信息
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpServerL.Password">
+            <summary>
+                FTP登录密码
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpServerL.Proxy">
+            <summary>
+                连接FTP服务器的代理服务
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FtpServerL.DeDownloadDataCompleted">
+            <summary>
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FtpServerL.DeDownloadProgressChanged">
+            <summary>
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FtpServerL.DeUploadFileCompleted">
+            <summary>
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FtpServerL.DeUploadProgressChanged">
+            <summary>
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Cn.Vcredit.Utils.FtpServerL.DownloadProgressChanged">
+            <summary>
+                异步下载进度发生改变触发的事件
+            </summary>
+        </member>
+        <member name="E:Cn.Vcredit.Utils.FtpServerL.DownloadDataCompleted">
+            <summary>
+                异步下载文件完成之后触发的事件
+            </summary>
+        </member>
+        <member name="E:Cn.Vcredit.Utils.FtpServerL.UploadProgressChanged">
+            <summary>
+                异步上传进度发生改变触发的事件
+            </summary>
+        </member>
+        <member name="E:Cn.Vcredit.Utils.FtpServerL.UploadFileCompleted">
+            <summary>
+                异步上传文件完成之后触发的事件
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.#ctor(System.Uri,System.String,System.String)">
+            <summary>
+                构造函数
+            </summary>
+            <param name="ftpUri">FTP地址</param>
+            <param name="strUserName">登录用户名</param>
+            <param name="strPassword">登录密码</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.#ctor(System.Uri,System.String,System.String,System.Net.WebProxy)">
+            <summary>
+                构造函数
+            </summary>
+            <param name="ftpUri">FTP地址</param>
+            <param name="strUserName">登录用户名</param>
+            <param name="strPassword">登录密码</param>
+            <param name="objProxy">连接代理</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.#ctor">
+            <summary>
+                构造函数
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.Finalize">
+            <summary>
+                析构函数
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.Open(System.Uri,System.String)">
+            <summary>
+                建立FTP链接,返回响应对象
+            </summary>
+            <param name="uri">FTP地址</param>
+            <param name="ftpMathod">操作命令</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.OpenRequest(System.Uri,System.String)">
+            <summary>
+                建立FTP链接,返回请求对象
+            </summary>
+            <param name="uri">FTP地址</param>
+            <param name="ftpMathod">操作命令</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.DownloadFile(System.String,System.String)">
+            <summary>
+                从FTP服务器下载文件，使用与远程文件同名的文件名来保存文件
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+            <param name="localPath">本地路径</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.DownloadFile(System.String,System.String,System.String)">
+            <summary>
+                从FTP服务器下载文件，指定本地路径和本地文件名
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+            <param name="localPath">本地路径</param>
+            <param name="localFileName">保存本地的文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.DownloadFile(System.String)">
+            <summary>
+                从FTP服务器下载文件，返回文件二进制数据
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.DownloadFileAsync(System.String,System.String,System.String)">
+            <summary>
+                从FTP服务器异步下载文件，指定本地路径和本地文件名
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+            <param name="localPath">保存文件的本地路径,后面带有"\"</param>
+            <param name="localFileName">保存本地的文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.DownloadFileAsync(System.String,System.String)">
+            <summary>
+                从FTP服务器异步下载文件，指定本地完整路径文件名
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+            <param name="localFullPath">本地完整路径文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.client_DownloadFileCompleted(System.Object,System.ComponentModel.AsyncCompletedEventArgs)">
+            <summary>
+                异步下载文件完成之后触发的事件
+            </summary>
+            <param name="sender">下载对象</param>
+            <param name="e">数据信息对象</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.client_DownloadProgressChanged(System.Object,System.Net.DownloadProgressChangedEventArgs)">
+            <summary>
+                异步下载进度发生改变触发的事件
+            </summary>
+            <param name="sender">下载对象</param>
+            <param name="e">进度信息对象</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFile(System.String)">
+            <summary>
+                上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFile(System.String,System.Boolean)">
+            <summary>
+                上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件</param>
+            <param name="overWriteRemoteFile">是否覆盖远程服务器上面同名的文件</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFile(System.String,System.String)">
+            <summary>
+                上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件</param>
+            <param name="remoteFileName">要在FTP服务器上面保存文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFile(System.String,System.String,System.Boolean)">
+            <summary>
+                上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件名</param>
+            <param name="remoteFileName">要在FTP服务器上面保存文件名</param>
+            <param name="overWriteRemoteFile">是否覆盖远程服务器上面同名的文件</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFile(System.Byte[],System.String)">
+            <summary>
+                上传文件到FTP服务器
+            </summary>
+            <param name="fileBytes">上传的二进制数据</param>
+            <param name="remoteFileName">要在FTP服务器上面保存文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFile(System.Byte[],System.String,System.Boolean)">
+            <summary>
+                上传文件到FTP服务器
+            </summary>
+            <param name="fileBytes">文件二进制内容</param>
+            <param name="remoteFileName">要在FTP服务器上面保存文件名</param>
+            <param name="overWriteRemoteFile">是否覆盖远程服务器上面同名的文件</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFileAsync(System.String)">
+            <summary>
+                异步上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFileAsync(System.String,System.Boolean)">
+            <summary>
+                异步上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件</param>
+            <param name="overWriteRemoteFile">是否覆盖远程服务器上面同名的文件</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFileAsync(System.String,System.String)">
+            <summary>
+                异步上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件</param>
+            <param name="remoteFileName">要在FTP服务器上面保存文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFileAsync(System.String,System.String,System.Boolean)">
+            <summary>
+                异步上传文件到FTP服务器
+            </summary>
+            <param name="localFullPath">本地带有完整路径的文件名</param>
+            <param name="remoteFileName">要在FTP服务器上面保存文件名</param>
+            <param name="overWriteRemoteFile">是否覆盖远程服务器上面同名的文件</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFileAsync(System.Byte[],System.String)">
+            <summary>
+                异步上传文件到FTP服务器
+            </summary>
+            <param name="fileBytes">上传的二进制数据</param>
+            <param name="remoteFileName">要在FTP服务器上面保存文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.UploadFileAsync(System.Byte[],System.String,System.Boolean)">
+            <summary>
+                异步上传文件到FTP服务器
+            </summary>
+            <param name="fileBytes">文件二进制内容</param>
+            <param name="remoteFileName">要在FTP服务器上面保存文件名</param>
+            <param name="overWriteRemoteFile">是否覆盖远程服务器上面同名的文件</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.client_UploadFileCompleted(System.Object,System.Net.UploadFileCompletedEventArgs)">
+            <summary>
+                异步上传文件完成之后触发的事件
+            </summary>
+            <param name="sender">下载对象</param>
+            <param name="e">数据信息对象</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.client_UploadProgressChanged(System.Object,System.Net.UploadProgressChangedEventArgs)">
+            <summary>
+                异步上传进度发生改变触发的事件
+            </summary>
+            <param name="sender">下载对象</param>
+            <param name="e">进度信息对象</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.ListFilesAndDirectories">
+            <summary>
+                列出FTP服务器上面当前目录的所有文件和目录
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.ListFiles">
+            <summary>
+                列出FTP服务器上面当前目录的所有文件
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.ListDirectories">
+            <summary>
+                列出FTP服务器上面当前目录的所有的目录
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.GetList(System.String)">
+            <summary>
+                获得文件和目录列表
+            </summary>
+            <param name="datastring">FTP返回的列表字符信息</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.ParseFileStructFromWindowsStyleRecord(System.String)">
+            <summary>
+                从Windows格式中返回文件信息
+            </summary>
+            <param name="record">文件信息</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.GuessFileListStyle(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                判断文件列表的方式Window方式还是Unix方式
+            </summary>
+            <param name="recordList">文件信息列表</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.ParseFileStructFromUnixStyleRecord(System.String)">
+            <summary>
+                从Unix格式中返回文件信息
+            </summary>
+            <param name="record">文件信息</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL._cutSubstringFromStringWithTrim(System.String@,System.Char,System.Int32)">
+            <summary>
+                按照一定的规则进行字符串截取
+            </summary>
+            <param name="s">截取的字符串</param>
+            <param name="c">查找的字符</param>
+            <param name="startIndex">查找的位置</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.DirectoryExist(System.String)">
+            <summary>
+                判断当前目录下指定的子目录是否存在
+            </summary>
+            <param name="remoteDirectoryName">指定的目录名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.FileExist(System.String)">
+            <summary>
+                判断一个远程文件是否存在服务器当前目录下面
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.DeleteFile(System.String)">
+            <summary>
+                从FTP服务器上面删除一个文件
+            </summary>
+            <param name="remoteFileName">远程文件名</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.ReName(System.String,System.String)">
+            <summary>
+                更改一个文件的名称或一个目录的名称
+            </summary>
+            <param name="remoteFileName">原始文件或目录名称</param>
+            <param name="newFileName">新的文件或目录的名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.CopyFileToAnotherDirectory(System.String,System.String)">
+            <summary>
+                把当前目录下面的一个文件拷贝到服务器上面另外的目录中，注意，拷贝文件之后，当前工作目录还是文件原来所在的目录
+            </summary>
+            <param name="remoteFile">当前目录下的文件名</param>
+            <param name="directoryName">
+                新目录名称。
+                说明：如果新目录是当前目录的子目录，则直接指定子目录。如: SubDirectory1/SubDirectory2 ；
+                如果新目录不是当前目录的子目录，则必须从根目录一级一级的指定。如： ./NewDirectory/SubDirectory1/SubDirectory2
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.MoveFileToAnotherDirectory(System.String,System.String)">
+            <summary>
+                把当前目录下面的一个文件移动到服务器上面另外的目录中，注意，移动文件之后，当前工作目录还是文件原来所在的目录
+            </summary>
+            <param name="remoteFile">当前目录下的文件名</param>
+            <param name="directoryName">
+                新目录名称。
+                说明：如果新目录是当前目录的子目录，则直接指定子目录。如: SubDirectory1/SubDirectory2 ；
+                如果新目录不是当前目录的子目录，则必须从根目录一级一级的指定。如： ./NewDirectory/SubDirectory1/SubDirectory2
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.MakeDirectory(System.String)">
+            <summary>
+                在FTP服务器上当前工作目录建立一个子目录
+            </summary>
+            <param name="directoryName">子目录名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.RemoveDirectory(System.String)">
+            <summary>
+                从当前工作目录中删除一个子目录
+            </summary>
+            <param name="directoryName">子目录名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.IsValidPathChars(System.String)">
+            <summary>
+                判断目录名中字符是否合法
+            </summary>
+            <param name="directoryName">目录名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.IsValidFileChars(System.String)">
+            <summary>
+                判断文件名中字符是否合法
+            </summary>
+            <param name="fileName">文件名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.GotoDirectory(System.String)">
+            <summary>
+                进入一个目录
+            </summary>
+            <param name="directoryName">
+                新目录的名字。
+                说明：如果新目录是当前目录的子目录，则直接指定子目录。如: SubDirectory1/SubDirectory2 ；
+                如果新目录不是当前目录的子目录，则必须从根目录一级一级的指定。如： ./NewDirectory/SubDirectory1/SubDirectory2
+            </param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.EnterOneSubDirectory(System.String)">
+            <summary>
+                从当前工作目录进入一个子目录
+            </summary>
+            <param name="directoryName">子目录名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpServerL.ComeoutDirectory">
+            <summary>
+                从当前工作目录往上一级目录
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.HttpHelper">
+            <summary>  
+            HTTP/HTTPS请求辅助类  
+            </summary>  
+        </member>
+        <member name="M:Cn.Vcredit.Utils.HttpHelper.CreateGetHttpResponse(System.String,System.Nullable{System.Int32},System.String,System.Net.CookieCollection)">
+            <summary>  
+            创建GET方式的HTTP请求  
+            </summary>  
+            <param name="url">请求的URL</param>  
+            <param name="timeout">请求的超时时间</param>  
+            <param name="userAgent">请求的客户端浏览器信息，可以为空</param>  
+            <param name="cookies">随同HTTP请求发送的Cookie信息，如果不需要身份验证可以为空</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Cn.Vcredit.Utils.HttpHelper.CreatePostHttpResponse(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{System.Int32},System.String,System.Text.Encoding,System.Net.CookieCollection)">
+            <summary>  
+            创建POST方式的HTTP请求  
+            </summary>  
+            <param name="url">请求的URL</param>  
+            <param name="parameters">随同请求POST的参数名称及参数值字典</param>  
+            <param name="timeout">请求的超时时间</param>  
+            <param name="userAgent">请求的客户端浏览器信息，可以为空</param>  
+            <param name="requestEncoding">发送HTTP请求时所用的编码</param>  
+            <param name="cookies">随同HTTP请求发送的Cookie信息，如果不需要身份验证可以为空</param>  
+            <returns></returns>  
+        </member>
+        <member name="T:Cn.Vcredit.Utils.JsonSerializerUtil">
+            <summary>
+            JsonConvert操作类
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.JsonSerializerUtil.ToObjectByJson``1(System.String)">
+            <summary>
+            Json串反序列化对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.LogHelper">
+            <summary>log4net日志记录类</summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.MemCacheManage">
+            <summary>
+            Memcache操作类
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.MemCacheManage.Get``1(System.String)">
+            <summary>
+            Retrieve cached item
+            </summary>
+            <typeparam name="T">Type of cached item</typeparam>
+            <param name="key">Name of cached item</param>
+            <returns>Cached item as type</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.MemCacheManage.Add``1(``0,System.String,System.Int32)">
+            <summary>
+            Insert value into the cache using
+            appropriate name/value pairs
+            </summary>
+            <typeparam name="T">Type of cached item</typeparam>
+            <param name="objectToCache">Item to be cached</param>
+            <param name="key">Name of item</param>
+            <param name="cacheDuration">Duration of the cache.</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.MemCacheManage.Add(System.Object,System.String,System.Int32)">
+            <summary>
+            Insert value into the cache using
+            appropriate name/value pairs
+            </summary>
+            <param name="objectToCache">Item to be cached</param>
+            <param name="key">Name of item</param>
+            <param name="cacheDuration">Duration of the cache.</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.MemCacheManage.Remove(System.String)">
+            <summary>
+            Remove item from cache
+            </summary>
+            <param name="key">Name of cached item</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.MemCacheManage.ClearAll">
+            <summary>
+            Clears all stored objects from memory.
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.MemCacheManage.Exists(System.String)">
+            <summary>
+            Check for item in cache
+            </summary>
+            <param name="key">Name of cached item</param>
+            <returns>A boolean if the object exists</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.RegexHelper">
+            <summary>
+            操作正则表达式的公共类
+            </summary>    
+        </member>
+        <member name="M:Cn.Vcredit.Utils.RegexHelper.IsMatch(System.String,System.String)">
+            <summary>
+            验证输入字符串是否与模式字符串匹配，匹配返回true
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="pattern">模式字符串</param>        
+        </member>
+        <member name="M:Cn.Vcredit.Utils.RegexHelper.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            验证输入字符串是否与模式字符串匹配，匹配返回true
+            </summary>
+            <param name="input">输入的字符串</param>
+            <param name="pattern">模式字符串</param>
+            <param name="options">筛选条件</param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.Stype">
+            <summary>
+                加密类型（16,32）
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.Stype.Digit16">
+            <summary>
+                16位加密
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.Stype.Digit32">
+            <summary>
+                32位加密
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.SecurityCode">
+            <summary>
+                文件与字符的加密解密操作类
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.#ctor">
+            <summary>
+                构造函数
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.GetFileContents(System.String)">
+            <summary>
+                读取加密或未加密文件的内容
+            </summary>
+            <param name="filePath">加密或解密文件的路径</param>
+            <returns>返还文件的内容</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.ReplaceFileContenrs(System.String,System.String)">
+            <summary>
+                替换加密或未加密文件的内容
+            </summary>
+            <param name="filePath">加密或未加密文件的路径</param>
+            <param name="fileContent">加密或未加密文件的内容</param>
+            <returns>是否替换成功</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.EncryptFile(System.String,System.String)">
+            <summary>
+                对指定的文件加密，并返回加密后的文件内容，并以字符串形式返回
+            </summary>
+            <param name="filePath">加密文件的路径</param>
+            <param name="key">MD5加密主键</param>
+            <returns>返还加密后的字符串</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.DecodeFile(System.String,System.String)">
+            <summary>
+                对指定的文件解密，并返回解密后的文件内容，并以字符串形式返回
+            </summary>
+            <param name="filePath">已被加密的文件路径</param>
+            <param name="key">MD5解密主键(与MD5加密主键相同)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.Encrypt(System.String,System.String)">
+            <summary>
+                对指定的字符串或文件加密，并返回加密后的字符串
+            </summary>
+            <param name="encryptString">要加密的字符串</param>
+            <param name="encryptKey">MD5加密主键</param>
+            <returns>返还加密后的字符串</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.Decode(System.String,System.String)">
+            <summary>
+                对指定的字符串或文件解密，并返回解密后的字符串
+            </summary>
+            <param name="decodeString">要解密的字符串</param>
+            <param name="decodeKey">MD5解密主键(与MD5加密主键相同)</param>
+            <returns>返还解密后的字符串</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.EncryptFileAndReplace(System.String,System.String)">
+            <summary>
+                对指定的文件加密，并替换原未加密文件
+            </summary>
+            <param name="filePath">加密文件的路径</param>
+            <param name="key">MD5加密主键</param>
+            <returns>是否替换成功 true/false</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.DecodeFileAndReplace(System.String,System.String)">
+            <summary>
+                对指定的文件解密，并替换原加密文件
+            </summary>
+            <param name="filePath">需解密文件的路径</param>
+            <param name="key">MD5解密主键(与加密主键相同)</param>
+            <returns>是否替换成功true/false</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.GetMacId(System.String)">
+            <summary>
+                获取机器识别指纹，用于验证注册码
+            </summary>
+            <returns>25位的注册码</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.GetMd5HashFromFile(System.String)">
+            <summary>
+                获取文件的MD5值
+            </summary>
+            <param name="filePath">文件地址</param>
+            <returns>返回MD5值</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.GetHas1FromFile(System.String)">
+            <summary>
+                获取文件的HAS1值
+            </summary>
+            <param name="filePath">文件地址</param>
+            <returns>返回HAS1值</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.GetCrc32FormFile(System.String)">
+            <summary>
+                获取文件的CRC32值
+            </summary>
+            <param name="filePath">文件地址</param>
+            <returns>返回CRC32值</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SecurityCode.EncryptToMd5(System.String,Cn.Vcredit.Utils.Stype)">
+            <summary>
+                MD5加密(16,32)
+            </summary>
+            <param name="sMessage">要加密的数据</param>
+            <param name="stype">加密位数</param>
+            <returns>加密后的数据</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FileConfig">
+            <summary>
+            ¶ÁÐ´ÅäÖÃÎÄ¼þ(²¢´´½¨)
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FileConfig.#ctor(System.String)">
+            <summary>
+            ¶ÁÐ´ÅäÖÃÎÄ¼þ(²¢´´½¨)
+            </summary>
+            <param name="filePath">ÅäÖÃÎÄ¼þµÄ´æ·ÅÂ·¾¶(°üº¬ÎÄ¼þÃû)</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FileConfig.WriteProfile(System.String,System.String,System.String)">
+            <summary>
+                ½«ÅäÖÃÐÅÏ¢Ð´ÈëÅäÖÃÎÄ¼þÖÐ£¨Í¬²¿ÃÅÍ¬¼üÖµ½«±»ÐÂÖµÌæ´ú£©
+            </summary>
+            <param name="departments">²¿ÃÅ Àý:¡¾µÇÂ½ÐÅÏ¢¡¿</param>
+            <param name="key">¼ü Àý:ÐÕÃû=</param>
+            <param name="value">Öµ Àý:Administrator</param>
+            <returns>µ±Ð´Èë³É¹¦Ê±Ôò·µ»Ø×Ö·û´®£º0£»µ±Ð´ÈëÊ§°ÜÊ±Ôò·µ»ØÒì³£×Ö·û´®</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FileConfig.ReadProfile(System.String,System.String)">
+            <summary>
+                ¶ÁÈ¡ÅäÖÃÐÅÏ¢ÖÐÄÚÈÝ£¨¸ù¾Ý²¿ÃÅÓë¼ü£©
+            </summary>
+            <param name="departments">ÒªÌáÈ¡ÖµµÄ²¿ÃÅ</param>
+            <param name="key">ÒªÌáÈ¡ÖµµÄ¶ÔÓ¦¼ü</param>
+            <returns>µ±ÌáÈ¥³É¹¦Ê±Ôò·µ»ØÌáÈ¡³öÀ´µÄÖµ£¬·ñÔò·µ»Ø¿ÕÖµnull</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.FtpUpLoad">
+            <summary>
+            FTP传输服务    
+            </summary>
+            <remarks>Author:郑宏伟</remarks>
+            <remarks>
+            此版本一共有三种FTP传输方式，FTPClient,FTPUpLoad,FTPServerL
+            每种对FTP的操作方式都不一样，一般情况下，任意一种方式都可以操作常规的FTP服务器
+            如果遇到操作有问题的请更换其他的方式再次尝试，如果三种方式均未成功，那说明目标FTP服务器的安全性能很高，对来访的数据有拦截分析
+            未授权的，未提供身份的，未知应用来访的都不被接受，所以在这种情况下，我目前还未有很好的办法，你有兴趣可以去研究一下。
+            </remarks>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpUpLoad.FtpUserName">
+            <summary>
+            FTP服务器用户名
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpUpLoad.FtpPassWord">
+            <summary>
+            FTP服务器密码
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.FtpUpLoad.HostUrl">
+            <summary>
+            FTP服务器地址
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.UpLoadFile(System.String,System.String,System.Int64)">
+            <summary>
+            上传文件（支持断点上传）
+            </summary>
+            <param name="serverPath">要上传的服务器文件夹地址</param>
+            <param name="localFilePath">待上传的文件全路径名称</param>
+            <param name="cruuent">服务器端相同文件的大小，0表示重新上传</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.UpLoadFile(System.String,System.IO.Stream)">
+            <summary>
+            上传文件（支持断点上传）
+            </summary>
+            <param name="serverPath">要上传的服务器文件夹地址</param>
+            <param name="fileStreamIo">待上传的文件全路径名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.Stop">
+            <summary>
+            停止正在进行的上传
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.CreatDir(System.String)">
+            <summary>
+            创建服务器文件夹
+            </summary>
+            <param name="dirName">要创建的文件夹名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.GetFtpFileList(System.String)">
+            <summary>
+            获取服务器文件夹信息
+            </summary>
+            <param name="hostfilename">要获取的文件</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.DeleteFtpFile(System.String)">
+            <summary>
+            删除服务器文件
+            </summary>
+            <param name="hostfilename">要删除的服务器文件名称</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.CopyFtpFile(System.String,System.String)">
+            <summary>
+            拷贝服务器文件
+            </summary>
+            <param name="sourceHostfilename">要复制的服务器文件路径</param>
+            <param name="destinationHostfilename">要复制到的目的地文件地址</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.GetRemoteFileLength(System.String)">
+             <summary>
+             获取远程服务器文件字节大小
+             </summary>
+            <param name="hostfilename">服务器文件名称</param>
+             <returns>远程文件大小</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.FtpUpLoad.DownLoadFile(System.String)">
+            <summary>
+            下载Ftp文件
+            </summary>
+            <param name="hostfilename">ftp服务器上的文件</param>
+            <returns>返回字节流</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.LogMessageType">
+            <summary>
+            日志信息类型
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.LogMessageType.ErrorMessage">
+            <summary>错误信息</summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.LogMessageType.SystemMessage">
+            <summary>系统信息</summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.LogMessageType.UserMessage">
+            <summary>用户信息</summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.LogEvent">
+            <summary>日志记录类</summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.LogEvent.WriteLog(System.String,Cn.Vcredit.Utils.LogMessageType,System.String)">
+            <summary>
+             记录日志
+            </summary>
+            <param name="fileContent">日志的记录内容（追加）</param>
+            <param name="type">日志的消息类型</param>
+            <param name="filePath">日志的文件路径(如果路径不存在就自动创建)</param>
+            <returns>如果成功写入值！返回True，否则返回False</returns>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.OpaqueLayer.CreateParams">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.OpaquelResource">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.OpaquelResource.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.OpaquelResource.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.OpaquelResource.Enter">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:Cn.Vcredit.Utils.OpaquelResource.Lever">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.OpaquelWaiting">
+            <summary>
+            半透明蒙套层
+            可添加GIF动态图片，可实现无背景色图片的加载
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.OpaquelWaiting.IsShowProgressBar">
+            <summary>
+            设置是否显示进度条
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.OpaquelWaiting.Progressbar">
+            <summary>
+            设置进度条控件MaxNum，Value值
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.OpaquelWaiting.Thread">
+            <summary>
+            设置动态控制进度条的线程
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.OpaquelWaiting.ShowOpaqueLayer(System.Windows.Forms.Control,System.Int32,System.Drawing.Color)">
+            <summary>
+            显示遮罩层
+            </summary>
+            <param name="control">要使用半透明层的控件</param>
+            <param name="alpha">透明度从0到255之间</param>
+            <param name="backcolor">半透明层的颜色</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.OpaquelWaiting.ShowOpaqueLayer(System.Windows.Forms.Control,System.Int32,System.Drawing.Color,System.Drawing.Image)">
+            <summary>
+            显示遮罩层并有的等待图片
+            </summary>
+            <param name="control">要使用半透明层的控件</param>
+            <param name="alpha">透明度从0到255之间</param>
+            <param name="backcolor">半透明层的颜色</param>
+            <param name="foceimg">要显示的等待图片建议为GIF图片</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.OpaquelWaiting.AddControl(System.Windows.Forms.Control,System.Int32,System.Drawing.Color,System.Windows.Forms.Control)">
+            <summary>
+            显示遮罩层并有的等待图片
+            </summary>
+            <param name="control">要使用半透明层的控件</param>
+            <param name="alpha">透明度从0到255之间</param>
+            <param name="backcolor">半透明层的颜色</param>
+            <param name="addcontrol">要添加的控件</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.OpaquelWaiting.HideOpaqueLayer">
+            <summary>
+            隐藏遮罩层
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.Painting">
+            <summary>
+            [·ñ¾öµÄ]»æÍ¼¹¤¾ß
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.Crop(System.Drawing.Bitmap,System.Windows.Forms.PictureBox)">
+            <summary>
+            »æ³öÍ¼ÐÎ
+            </summary>
+            <param name="bitmap">Í¼Æ¬</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.Redraw(System.Collections.Generic.List{System.Drawing.Rectangle},System.Windows.Forms.PictureBox,System.String)">
+            <summary>
+            ÖØ»æÍ¼
+            </summary>
+            <param name="listrec">ËùÓÐÈÈµãµÄÁÙÊ±´æ·ÅÇø</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.PictrueBoxMouseDown(System.Windows.Forms.MouseEventArgs,System.Windows.Forms.PictureBox)">
+            <summary>
+            °´ÏÂÊó±ê
+            </summary>
+            <param name="e"></param>
+            <param name="pointimage"></param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.PictureBoxMouseMove(System.Windows.Forms.MouseEventArgs,System.Windows.Forms.PictureBox)">
+            <summary>
+            ÒÆ¶¯Êó±ê
+            </summary>
+            <param name="e"></param>
+            <param name="pointimage"></param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.PictrueBoxMouseUp(System.Windows.Forms.MouseEventArgs,System.Windows.Forms.PictureBox)">
+            <summary>
+            ÊÍ·ÅÊó±ê
+            </summary>
+            <param name="e"></param>
+            <param name="pointimage"></param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.PictureBoxPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            »æÖÆÁÙÊ±Í¼ÐÎ
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.GenerateImage(System.Drawing.Image,System.Drawing.Rectangle)">
+            <summary>
+             ½ØÈ¡Ñ¡¶¨ÇøÓòµÄÍ¼Æ¬£¬²¢ÁÙÊ±±£´æ
+            </summary>
+            <param name="interceptedimage">ÐèÒª±»½ØµÄÍ¼Æ¬</param>
+            <param name="rectangle">¾ØÐÎÊý×é¶ÔÏó</param>
+            <returns>½ØÈ¡ºóµÄÍ¼Æ¬</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.GenerateImage(System.Drawing.Image,System.String)">
+            <summary>
+             ½ØÈ¡Ñ¡¶¨ÇøÓòµÄÍ¼Æ¬£¬²¢ÁÙÊ±±£´æ
+            </summary>
+            <param name="interceptedimage">ÐèÒª±»½ØµÄÍ¼Æ¬</param>
+            <param name="rectangle">¾ØÐÎµÄÆðµã×ø±êÓë¿í¶È¡¢¸ß¶È"x,y,width,height")</param>
+            <returns>½ØÈ¡ºóµÄÍ¼Æ¬</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.GenerateImage(System.Drawing.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             ½ØÈ¡Ñ¡¶¨ÇøÓòµÄÍ¼Æ¬£¬²¢ÁÙÊ±±£´æ
+            </summary>
+            <param name="interceptedimage">ÐèÒª±»½ØµÄÍ¼Æ¬</param>
+            <param name="X">Xºá×ø±ê</param>
+            <param name="Y">Y×Ý×ø±ê</param>
+            <param name="Width">¾ØÐÎµÄ¿í</param>
+            /// <param name="Height">¾ØÐÎµÄ¸ß</param>
+            <returns>½ØÈ¡ºóµÄÍ¼Æ¬</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Painting.GenerateImage(System.Drawing.Image,System.Drawing.Point,System.Drawing.Point)">
+             <summary>
+             ½ØÈ¡Ñ¡¶¨ÇøÓòµÄÍ¼Æ¬£¬²¢ÁÙÊ±±£´æ
+             </summary>
+             <param name="interceptedImage">ÐèÒª±»½ØµÄÍ¼Æ¬</param>
+            <param name="pointstart">ÆðÊ¼×ø±ê</param>
+             <param name="pointend">½áÊø×ø±ê</param>
+             <returns>½ØÈ¡ºóµÄÍ¼Æ¬</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.Reflection">
+            <summary>
+            反射（实例化+调用方法+属性Get、Set）
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Reflection.ReflectionActionMethod(System.String,System.String,System.Object[],System.String,System.Collections.Generic.Dictionary{System.Type,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+                反射-实例化，调用方法，返回
+            </summary>
+            <param name="assemblyFilePathOrString">程序集名称或程序集文件路径，引用空间名称，不包含类名</param>
+            <param name="assemblyFullNameString">类名，全名称，包含引用空间名</param>
+            <param name="objClassArgs">构造函数的参数</param>
+            <param name="methodName">方法名</param>
+            <param name="objMethodArgs">方法参数,包含type类型与对应的值</param>
+            <param name="objProperties">属性：获取属性并赋值，如果此值为空，则返回原先的属性</param>
+            <param name="isReturnProperties">是否需要返回属性</param>
+            <returns>返回的是结果集（Class,Method,Properties）</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.Reflection.GetEntityType(System.Reflection.PropertyInfo[],System.Object)">
+            <summary>
+                获取属性对象组合的SQL参数数组
+            </summary>
+            <param name="items">成员对象集合</param>
+            <param name="objclass">成员对象</param>
+            <returns>SQL参数数组</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.Reflection.ReflectionResult">
+            <summary>
+                反射返回结果集
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.Reflection.ReflectionResult.ClassResult">
+            <summary>
+                类返回结果（实例化后）
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.Reflection.ReflectionResult.MethodResult">
+            <summary>
+                方法返回结果
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.Reflection.ReflectionResult.PropertiesResult">
+            <summary>
+                属性返回结果
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.RegCode">
+            <summary>
+            常用DES操作类
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.RegCode.DesKeyStr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.RegCode.DesEncrypt(System.String,System.String)">
+            <summary>
+            DES加密
+            </summary>
+            <param name="pToEncrypt">需要加密的字符串</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.RegCode.DesDecrypt(System.String,System.String)">
+            <summary>
+            DES解密
+            </summary>
+            <param name="pToDecrypt">加密后的字符串</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.RegistryWork">
+            <summary>
+            文件关联操作类
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.RegistryWork.RegisterFileType(System.String,System.String,System.String,System.String)">
+            <summary>
+            设置文件关联
+            </summary>
+            <param name="extendName">目标类型文件的扩展名(.XX)</param>
+            <param name="description">目标文件类型说明</param>
+            <param name="icoPath">目标类型文件关联的图标</param>
+            <param name="exePath">打开目标类型文件的应用程序</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.RegistryWork.DeleteFileType(System.String,System.String,System.String,System.String)">
+            <summary>
+            删除文件关联
+            </summary>
+            <param name="extendName"></param>
+            <param name="description"></param>
+            <param name="icoPath"></param>
+            <param name="exePath"></param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.RegistryWork.OpenIe(System.String)">
+            <summary>
+            利用默认游览器打开指定的URI地址
+            </summary>
+            <param name="uri">指定的URI</param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.SerializeDatFile">
+            <summary>
+            序列化反序列化
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SerializeDatFile.Serialize(System.String,System.Collections.Hashtable)">
+            <summary>
+            序列化dat文件
+            </summary>
+            <param name="filepath">dat文件路径或要存放的路径</param>
+            <param name="datasource">需要序列化的数据</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SerializeDatFile.SerializeForList(System.String,System.Collections.Generic.List{System.Collections.Hashtable})">
+            <summary>
+            序列化dat文件
+            </summary>
+            <param name="filepath">dat文件路径或要存放的路径</param>
+            <param name="datasource">需要序列化的数据集</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SerializeDatFile.Serialize``1(System.String,``0)">
+            <summary>
+            序列化文件
+            </summary>
+            <typeparam name="T">匿名类</typeparam>
+            <param name="filepath">保存的文件路径</param>
+            <param name="datasource">数据源</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SerializeDatFile.Deserialize(System.String)">
+            <summary>
+            反序列化dat文件
+            </summary>
+            <param name="filepath">dat文件路径</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SerializeDatFile.DeserializeForList(System.String)">
+            <summary>
+            反序列化dat文件
+            </summary>
+            <param name="filepath">dat文件路径</param>
+            <returns>对象集</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SerializeDatFile.Deserialize``1(System.String)">
+            <summary>
+            反序列化文件（匿名类型）
+            </summary>
+            <typeparam name="T">匿名类，理论上支持任意类型</typeparam>
+            <param name="filepath">文件路径</param>
+            <returns>反序列化后的文件</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.SessionHelper">
+            <summary>
+            Session操作类
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SessionHelper.Add(System.String,System.String)">
+            <summary>
+            添加Session，调动有效期为20分钟
+            </summary>
+            <param name="strSessionName">Session对象名称</param>
+            <param name="strValue">Session值</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SessionHelper.Adds(System.String,System.String[])">
+            <summary>
+            添加Session，调动有效期为20分钟
+            </summary>
+            <param name="strSessionName">Session对象名称</param>
+            <param name="strValues">Session值数组</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SessionHelper.Add(System.String,System.String,System.Int32)">
+            <summary>
+            添加Session
+            </summary>
+            <param name="strSessionName">Session对象名称</param>
+            <param name="strValue">Session值</param>
+            <param name="iExpires">调动有效期（分钟）</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SessionHelper.Adds(System.String,System.String[],System.Int32)">
+            <summary>
+            添加Session
+            </summary>
+            <param name="strSessionName">Session对象名称</param>
+            <param name="strValues">Session值数组</param>
+            <param name="iExpires">调动有效期（分钟）</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SessionHelper.Get(System.String)">
+            <summary>
+            读取某个Session对象值
+            </summary>
+            <param name="strSessionName">Session对象名称</param>
+            <returns>Session对象值</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SessionHelper.Gets(System.String)">
+            <summary>
+            读取某个Session对象值数组
+            </summary>
+            <param name="strSessionName">Session对象名称</param>
+            <returns>Session对象值数组</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SessionHelper.Del(System.String)">
+            <summary>
+            删除某个Session对象
+            </summary>
+            <param name="strSessionName">Session对象名称</param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.SFTPProvider">
+            <summary>
+            SFTP操作类
+            </summary>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.SqlHelper">
+            <summary>
+            数据库的通用访问代码 郑宏伟修改
+            此类为抽象类，
+            不允许实例化，在应用时直接调用即可
+            </summary>
+        </member>
+        <member name="F:Cn.Vcredit.Utils.SqlHelper.connectionString">
+            <summary>
+            数据库连接字符串
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecteNonQuery(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+             <summary>
+            执行一个不需要返回值的SqlCommand命令，通过指定专用的连接字符串。
+             使用参数数组形式提供参数列表 
+             </summary>
+             <param name="connectionString">一个有效的数据库连接字符串</param>
+             <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+             <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+             <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+             <returns>返回一个数值表示此SqlCommand命令执行后影响的行数</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecteNonQuery(System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+             <summary>
+            执行一个不需要返回值的SqlCommand命令，通过指定专用的连接字符串。
+             使用参数数组形式提供参数列表 
+             </summary>
+             <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+             <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+             <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+             <returns>返回一个数值表示此SqlCommand命令执行后影响的行数</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecteNonQueryProducts(System.String,System.Data.SqlClient.SqlParameter[])">
+             <summary>
+            存储过程专用
+             </summary>
+             <param name="cmdText">存储过程的名字</param>
+             <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+             <returns>返回一个数值表示此SqlCommand命令执行后影响的行数</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecteNonQueryText(System.String,System.Data.SqlClient.SqlParameter[])">
+             <summary>
+            Sql语句专用
+             </summary>
+             <param name="cmdText">T_Sql语句</param>
+             <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+             <returns>返回一个数值表示此SqlCommand命令执行后影响的行数</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.GetTable(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行一条返回结果集的SqlCommand，通过一个已经存在的数据库连接
+            使用参数数组提供参数
+            </summary>
+            <param name="connecttionString">一个现有的数据库连接</param>
+            <param name="cmdTye">SqlCommand命令类型</param>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>返回一个表集合(DataTableCollection)表示查询得到的数据集</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.GetTable(System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            执行一条返回结果集的SqlCommand，通过一个已经存在的数据库连接
+            使用参数数组提供参数
+            </summary>
+            <param name="cmdTye">SqlCommand命令类型</param>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>返回一个表集合(DataTableCollection)表示查询得到的数据集</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.GetTableProducts(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            存储过程专用
+            </summary>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>返回一个表集合(DataTableCollection)表示查询得到的数据集</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.GetTableText(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Sql语句专用
+            </summary>
+            <param name="cmdText"> T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>返回一个表集合(DataTableCollection)表示查询得到的数据集</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.PrepareCommand(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            为执行命令准备参数
+            </summary>
+            <param name="cmd">SqlCommand 命令</param>
+            <param name="conn">已经存在的数据库连接</param>
+            <param name="trans">数据库事物处理</param>
+            <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+            <param name="cmdText">Command text，T-SQL语句 例如 Select * from Products</param>
+            <param name="cmdParms">返回带参数的命令</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand that returns a resultset against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <param name="connectionString">一个有效的数据库连接字符串</param>
+            <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>A SqlDataReader containing the results</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteDataSet(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            return a dataset
+            </summary>
+            <param name="connectionString">一个有效的数据库连接字符串</param>
+            <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>return a dataset</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteDataSet(System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            返回一个DataSet
+            </summary>
+            <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>return a dataset</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteDataSetProducts(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            返回一个DataSet
+            </summary>
+            <param name="cmdText">存储过程的名字</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>return a dataset</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteDataSetText(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            返回一个DataSet
+            </summary>
+            <param name="cmdText">T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>return a dataset</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteScalar(System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            返回第一行的第一列
+            </summary>
+            <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>返回一个对象</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteScalarProducts(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            返回第一行的第一列存储过程专用
+            </summary>
+            <param name="cmdText">存储过程的名字</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>返回一个对象</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteScalarText(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            返回第一行的第一列Sql语句专用
+            </summary>
+            <param name="cmdText">者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>返回一个对象</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand that returns the first column of the first record against the database specified in the connection string 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             Object obj = ExecuteScalar(connString, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">一个有效的数据库连接字符串</param>
+            <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>An object that should be converted to the expected type using Convert.To{Type}</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Execute a SqlCommand that returns the first column of the first record against an existing database connection 
+            using the provided parameters.
+            </summary>
+            <remarks>
+            e.g.:  
+             Object obj = ExecuteScalar(connString, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24));
+            </remarks>
+            <param name="connectionString">一个有效的数据库连接字符串</param>
+            <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+            <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+            <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+            <returns>An object that should be converted to the expected type using Convert.To{Type}</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.CacheParameters(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            add parameter array to the cache
+            </summary>
+            <param name="cacheKey">Key to the parameter cache</param>
+            <param name="cmdParms">an array of SqlParamters to be cached</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.GetCachedParameters(System.String)">
+            <summary>
+            Retrieve cached parameters
+            </summary>
+            <param name="cacheKey">key used to lookup parameters</param>
+            <returns>Cached SqlParamters array</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.SqlHelper.Exists(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            检查是否存在
+            </summary>
+            <param name="strSql">Sql语句</param>
+            <param name="cmdParms">参数</param>
+            <returns>bool结果</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.ThreadPool">
+            <summary>
+            多线程操作类
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.ThreadPool.SetMaxWorkThreadCount(System.Int32)">
+            <summary>
+            设定最大工作线程数
+            </summary>
+            <param name="maxThreadCount">数量</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.ThreadPool.SetMinWorkThreadCount(System.Int32)">
+            <summary>
+            设定最小工作线程数
+            </summary>
+            <param name="maxThreadCount">数量</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.ThreadPool.MyQueueUserWorkItem(System.Threading.ThreadStart[])">
+            <summary>
+            启动线程池工作
+            </summary>
+            <param name="threadStartArray">任务数组</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.ThreadPool.AddThreadToQueue(System.Threading.ThreadStart)">
+            <summary>
+            将单一任务加入队列中
+            </summary>
+            <param name="ts">单一任务对象</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.ThreadPool.AddAllThreadsToPool(System.Threading.ThreadStart[])">
+            <summary>
+            将多个任务加入到线程池的任务队列中
+            </summary>
+            <param name="threadStartArray">多个任务</param>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.ThreadPool.ExcuteTask">
+            <summary>
+            执行任务，判断队列中的任务数量是否大于0，如果是则判断当前正在使用的工作线程的
+            数量是否大于等于允许的最大工作线程数，如果一旦有线程空闲的话
+            就会执行ExcuteTaskInQueen方法处理任务
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.ThreadPool.ExcuteTaskInQueen">
+            <summary>
+            执行出对列的任务，加锁保护
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.ThreadPool.ExcuteTaskByThread(System.Threading.ThreadStart)">
+            <summary>
+            实现细节，这里使用BackGroudWork来实现后台线程
+            注册doWork和Completed事件，当执行一个任务前，前将任务加入到
+            工作任务集合（表示工作线程少了一个空闲），一旦RunWorkerCompleted事件被触发则将任务从工作
+            任务集合中移除（表示工作线程也空闲了一个）
+            </summary>
+            <param name="threadStart"></param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.VerificationCode">
+            <summary>
+            验证码生成（验证码为5位字母数字混合式，白底黑粗宋体，Size：97*35）
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.VerificationCode.GetVerification(System.Windows.Forms.Control,System.Drawing.Font,System.Drawing.Color,System.Drawing.Color,System.String@)">
+            <summary>
+            生成验证码
+            </summary>
+            <param name="frcolor"></param>
+            <param name="code">返回的验证码</param>
+            <param name="control">需要显示验证码的图片控件</param>
+            <param name="font"></param>
+            <param name="bgcolor"></param>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.WebAnalystics">
+            <summary>
+            网络资源分析器
+            </summary>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.WebAnalystics.GetWebResource(System.Net.HttpWebRequest@,System.Net.HttpWebResponse@,System.String)">
+            <summary>
+             链接指定站点
+             </summary>
+             <param name="httpWReq">创建空HttpWebRequest对象</param>
+             <param name="httpWResp">创建空HttpWebResponse对象</param>
+             <param name="uir">网址</param>
+             <returns>网站的信息</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.WebAnalystics.SetNowWebProxy(System.String,System.String)">
+            <summary>
+            设置当前网站的代理服务器
+            </summary>
+            <param name="url">当前的网站地址</param>
+            <param name="proxyserver">要设置的代理参数(url:http://xxxx ip:127.0.0.1:80)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.WebAnalystics.SetIeProxy(System.String)">
+            <summary>
+            设置整个IE浏览器的代理服务器
+            </summary>
+            <param name="proxyserver">要设置的代理参数(url:http://xxxx ip:127.0.0.1:80)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.WebAnalystics.UnEnableIeProxy">
+            <summary>
+            取消设置的代理
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.WebAnalystics.ClearCookie(System.String)">
+            <summary>
+            删除Cookie
+            </summary>
+            <param name="url">当前网站的网址</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.WebAnalystics.AddToIeToolBar(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            将程序添加到ie的工具栏中
+            </summary>
+            <param name="guid">程序的Guid号</param>
+            <param name="guidvalue">程序的Guid值</param>
+            <param name="appname">程序的名称</param>
+            <param name="activepath">当激活时现实的图片</param>
+            <param name="unactivepath">但没有激活时的图片</param>
+            <param name="tbexecute">程序的启动路径</param>
+            <returns>是否添加成功</returns>
+        </member>
+        <member name="M:Cn.Vcredit.Utils.WebAnalystics.DeleteIeToolBar">
+            <summary>
+             卸载本程序的工具栏
+            </summary>
+            <returns>是否卸载成功</returns>
+        </member>
+        <member name="T:Cn.Vcredit.Utils.XmlSerializerUtil">
+            <summary>
+            XML序列化和反序列化工具类
+            </summary>
+        </member>
+        <member name="T:DotNet.Utilities.HttpCookieHelper">
+            <summary>
+            Cookie操作帮助类
+            </summary>
+        </member>
+        <member name="M:DotNet.Utilities.HttpCookieHelper.GetCookieList(System.String)">
+            <summary>
+            根据字符生成Cookie列表
+            </summary>
+            <param name="cookie">Cookie字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNet.Utilities.HttpCookieHelper.GetCookieValue(System.String,System.String)">
+            <summary>
+            根据Key值得到Cookie值,Key不区分大小写
+            </summary>
+            <param name="Key">key</param>
+            <param name="cookie">字符串Cookie</param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNet.Utilities.HttpCookieHelper.CookieFormat(System.String,System.String)">
+            <summary>
+            格式化Cookie为标准格式
+            </summary>
+            <param name="key">Key值</param>
+            <param name="value">Value值</param>
+            <returns></returns>
+        </member>
+        <member name="T:DotNet.Utilities.CookieItem">
+            <summary>
+            Cookie对象
+            </summary>
+        </member>
+        <member name="P:DotNet.Utilities.CookieItem.Key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:DotNet.Utilities.CookieItem.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:DotNet.Utilities.MySecurity">
+            <summary>
+            MySecurity(安全类) 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.#ctor">
+            <summary>
+            初始化安全类
+            </summary>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.SEncryptString(System.String,System.String)">
+            <summary>
+            加密字符串
+            </summary>
+            <param name="inputStr">输入字符串</param>
+            <param name="keyStr">密码，可以为“”</param>
+            <returns>输出加密后字符串</returns>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.EncryptString(System.String,System.String)">
+            <summary>
+            加密字符串
+            </summary>
+            <param name="inputStr">输入字符串</param>
+            <param name="keyStr">密码，可以为“”</param>
+            <returns>输出加密后字符串</returns>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.SEncryptString(System.String)">
+            <summary>
+            加密字符串 密钥为系统默认
+            </summary>
+            <param name="inputStr">输入字符串</param>
+            <returns>输出加密后字符串</returns>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.EncryptFile(System.String,System.String,System.String)">
+            <summary>
+            加密文件
+            </summary>
+            <param name="filePath">输入文件路径</param>
+            <param name="savePath">加密后输出文件路径</param>
+            <param name="keyStr">密码，可以为“”</param>
+            <returns></returns>  
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.SDecryptString(System.String,System.String)">
+            <summary>
+            解密字符串
+            </summary>
+            <param name="inputStr">要解密的字符串</param>
+            <param name="keyStr">密钥</param>
+            <returns>解密后的结果</returns>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.SDecryptString(System.String)">
+            <summary>
+             解密字符串 密钥为系统默认
+            </summary>
+            <param name="inputStr">要解密的字符串</param>
+            <returns>解密后的结果</returns>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.DecryptString(System.String,System.String)">
+            <summary>
+            解密字符串
+            </summary>
+            <param name="inputStr">要解密的字符串</param>
+            <param name="keyStr">密钥</param>
+            <returns>解密后的结果</returns>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.DecryptFile(System.String,System.String,System.String)">
+            <summary>
+            解密文件
+            </summary>
+            <param name="filePath">输入文件路径</param>
+            <param name="savePath">解密后输出文件路径</param>
+            <param name="keyStr">密码，可以为“”</param>
+            <returns></returns>    
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.MD5(System.String)">
+            <summary>
+            128位MD5算法加密字符串
+            </summary>
+            <param name="text">要加密的字符串</param>    
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.MD5(System.Byte[])">
+            <summary>
+            128位MD5算法加密Byte数组
+            </summary>
+            <param name="data">要加密的Byte数组</param>    
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.EncodeBase64(System.String)">
+            <summary>
+            Base64加密
+            </summary>
+            <param name="text">要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DotNet.Utilities.MySecurity.DecodeBase64(System.String)">
+            <summary>
+            Base64解密
+            </summary>
+            <param name="text">要解密的字符串</param>
+        </member>
+        <member name="T:DotNet.Utilities.RandomHelper">
+            <summary>
+            使用Random类生成伪随机数
+            </summary>
+        </member>
+        <member name="M:DotNet.Utilities.RandomHelper.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:DotNet.Utilities.RandomHelper.GetRandomInt(System.Int32,System.Int32)">
+            <summary>
+            生成一个指定范围的随机整数，该随机数范围包括最小值，但不包括最大值
+            </summary>
+            <param name="minNum">最小值</param>
+            <param name="maxNum">最大值</param>
+        </member>
+        <member name="M:DotNet.Utilities.RandomHelper.GetRandomDouble">
+            <summary>
+            生成一个0.0到1.0的随机小数
+            </summary>
+        </member>
+        <member name="M:DotNet.Utilities.RandomHelper.GetRandomArray``1(``0[])">
+            <summary>
+            对一个数组进行随机排序
+            </summary>
+            <typeparam name="T">数组的类型</typeparam>
+            <param name="arr">需要随机排序的数组</param>
+        </member>
+        <member name="M:DotNet.Utilities.RandomHelper.GetRandomCode(System.String,System.Int32)">
+            <summary>
+            从字符串里随机得到，规定个数的字符串.
+            </summary>
+            <param name="allChar"></param>
+            <param name="CodeCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DotNet.Utilities.RSACryption">
+            <summary> 
+            RSA¼ÓÃÜ½âÃÜ¼°RSAÇ©ÃûºÍÑéÖ¤
+            </summary> 
+        </member>
+        <member name="M:DotNet.Utilities.RSACryption.RSAKey(System.String@,System.String@)">
+            <summary>
+            RSA µÄÃÜÔ¿²úÉú ²úÉúË½Ô¿ ºÍ¹«Ô¿ 
+            </summary>
+            <param name="xmlKeys"></param>
+            <param name="xmlPublicKey"></param>
+        </member>
+    </members>
+</doc>

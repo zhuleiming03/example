@@ -1,0 +1,8 @@
+D:\MyWork\Test\Doc\DocumentManageModel\bin\Release\DocumentManageModel.dll
+D:\MyWork\Test\Doc\DocumentManageModel\bin\Release\DocumentManageModel.pdb
+D:\MyWork\Test\Doc\DocumentManageModel\obj\Release\DocumentManageModel.dll
+D:\MyWork\Test\Doc\DocumentManageModel\obj\Release\DocumentManageModel.pdb
+D:\MyWork\Test\DocumentManage\DocumentManageModel\bin\Release\DocumentManageModel.dll
+D:\MyWork\Test\DocumentManage\DocumentManageModel\bin\Release\DocumentManageModel.pdb
+D:\MyWork\Test\DocumentManage\DocumentManageModel\obj\Release\DocumentManageModel.dll
+D:\MyWork\Test\DocumentManage\DocumentManageModel\obj\Release\DocumentManageModel.pdb

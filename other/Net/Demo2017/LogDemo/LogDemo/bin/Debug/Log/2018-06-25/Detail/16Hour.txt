@@ -1,0 +1,44 @@
+2018/6/25 16:08:07  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:08:08  Parameter-1 ：<1>
+2018/6/25 16:09:43  Method <demo1> Return Value Of This Method Is <2>
+2018/6/25 16:09:43  Method <demo4> Total of <1> Parameters Including:
+2018/6/25 16:09:43  Parameter-1 ：<{"BillID":11,"IsDelete":false,"Remark":"测试","BillItems":[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]}>
+2018/6/25 16:09:46  Method <demo4> Return Value Of This Method Is <[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]>
+2018/6/25 16:11:44  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:11:44  Parameter-1 ：<1>
+2018/6/25 16:11:47  Method <demo1> Return Value Of This Method Is <2>
+2018/6/25 16:11:47  Method <demo4> Total of <1> Parameters Including:
+2018/6/25 16:11:47  Parameter-1 ：<{"BillID":11,"IsDelete":false,"Remark":"测试","BillItems":[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]}>
+2018/6/25 16:11:48  Method <demo4> Return Value Of This Method Is <[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]>
+2018/6/25 16:38:31  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:38:31  Parameter-1 ：<1>
+2018/6/25 16:38:31  Method <demo1> Return Value Of This Method Is <2>
+2018/6/25 16:39:37  Method <demo4> Total of <1> Parameters Including:
+2018/6/25 16:39:37  Parameter-1 ：<{"BillID":11,"IsDelete":false,"Remark":"测试","BillItems":[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]}>
+2018/6/25 16:39:37  Method <demo4> Return Value Of This Method Is <[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]>
+2018/6/25 16:40:39  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:40:39  Parameter-1 ：<1>
+2018/6/25 16:41:00  Method <demo1> Return Value Of This Method Is <2>
+2018/6/25 16:41:47  Method <demo4> Total of <1> Parameters Including:
+2018/6/25 16:41:47  Parameter-1 ：<{"BillID":11,"IsDelete":false,"Remark":"测试","BillItems":[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]}>
+2018/6/25 16:41:55  Method <demo4> Return Value Of This Method Is <[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]>
+2018/6/25 16:54:53  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:54:53  Parameter-1 ：<1>
+2018/6/25 16:54:54  Method <demo1> Return Value Of This Method Is <2>
+2018/6/25 16:55:09  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:55:09  Parameter-1 ：<2>
+2018/6/25 16:55:09  Method <demo1> Return Value Of This Method Is <6>
+2018/6/25 16:58:08  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:58:08  Parameter-1 ：<1>
+2018/6/25 16:58:08  Method <demo1> Return Value Of This Method Is <2>
+2018/6/25 16:58:09  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:58:09  Parameter-1 ：<2>
+2018/6/25 16:58:09  Method <demo1> Return Value Of This Method Is <6>
+2018/6/25 16:58:09  Method <demo2> Total of <1> Parameters Including:
+2018/6/25 16:58:09  Parameter-1 ：<"zlm">
+2018/6/25 16:58:09  Method <demo2> Return Value Of This Method Is <"This string is :zlm">
+2018/6/25 16:59:48  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 16:59:48  Parameter-1 ：<1>
+2018/6/25 16:59:48  Method <demo1> Return Value Of This Method Is <2>
+2018/6/25 16:59:48  Method <demo3> Total of <0> Parameters Including:
+2018/6/25 16:59:48  Method <demo3> Return Value Of This Method Is <6>

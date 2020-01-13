@@ -1,0 +1,34 @@
+﻿<div id="updown" style="position: fixed;bottom: 10px;right: 30px;display: none;">
+    <span class="up" style="cursor: pointer;width: 45px;height: 45px;display: block;margin: 1px;"></span>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        //滚动条事件
+        //如果滚动偏移量scrollTop()大于100，则ICON图标显示
+        //如果滚动偏移量scrollTop()小于100，则ICON图标隐藏
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= 100) {
+                $('#updown').fadeIn(300);
+            } else {
+                $('#updown').fadeOut(300);
+            }
+        });
+        //页面置顶事件
+        $('#updown .up').click(function () {
+            $('html,body').animate({ scrollTop: '0px' }, 800);
+        });
+    });
+
+</script>
+
+<style type="text/css">
+    #updown .up:hover {
+        background: url(../../icon/uphover.png) no-repeat;
+    }
+
+    #updown .up {
+        background: url(../../icon/up.png) no-repeat;
+    }
+</style>

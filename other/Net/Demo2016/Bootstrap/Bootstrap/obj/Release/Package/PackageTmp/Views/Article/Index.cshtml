@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Page/_PageTop.cshtml";
+}
+
+<div class="row">
+    <h1>VMware设置桥接网络</h1>
+</div>
+
+<div class="row">
+    <h2><font>一、桥接网络的基本原理</font></h2>
+    <p> 配置成桥接网络连接模式的虚拟机就当作主机所在以太网的一部分， 虚拟系统和宿主机器的关系，
+        就像连接在同一个Hub上的两台电脑，可以像主机一样可以访问以太网中的所有共享资源和网络连接，
+        可以直接共享主机网络的互联 网接入线路访问互联网。主机与虚拟机之间，以及各虚拟机之间都可以互访。
+        对应虚拟机就被当成主机所在以太网上的一个独立物理机来看待，各虚拟机通过默认的 VMnet0网卡与主
+        机以太网连接，虚拟机间的虚拟网络为VMnet0。这时你的虚拟机就像局域网中的一个独立的物理机一样。
+        虚拟机中的操作系统可以 PING通别的主机，反过来别的主机也可以PING虚拟机。想让它们相互通讯，
+        你就需要为虚拟系统配置IP地址和子网掩码，否则就无法通信。</p>
+    <p>原理是从网上找的也没看太懂，先贴这里，以后再学习。</p>
+</div>
+
+
+<div class="row">
+    <h2><font>一、还原</font></h2>
+
+</div>
+
+<div class="row">
+    <h2><font>二、主机网络连接配置步骤</font></h2>
+    
+    <p>1.本地连接</p>
+    <p>1）右击本地连接-属性-勾选 Vmware Brige Protocol如下图 如果找不到本地连接或者在本地连接里找不到
+        VMware Bridge Protocol协议请查看补充说明</p>
+    <img src="~/assets/image/article/vmwarenet/1-1.jpg" />
+    <p>2）主机的IP设置如下图，要保证主机IP跟虚拟机IP是同一网段</p>
+    <img src="~/assets/image/article/vmwarenet/1-2.jpg" />
+    
+    <p>2.设置VMnet1</p>
+    <p>右键VMnet1>属性>选择IP4>属性>使用下面的IP地址</p>
+    <img src="~/assets/image/article/vmwarenet/1-3.jpg" />
+    
+    <p>3.设置vmnet8</p>
+    <p>右键VMnet8>属性>选择IP4>属性>自动获得IP地址</p>
+    <img src="~/assets/image/article/vmwarenet/1-4.jpg" />
+    <p>到这里主机网络就设置好了</p>
+</div>
+
+<div class="row">
+    <h2><font>三、虚拟机联网方式设置</font></h2>
+    <p>编辑>虚拟网络编辑器</p>
+    <p>1.虚拟机-设置-选择NetWork Adapter-网络连接-桥接</p>
+    <p>2.Edit-Virtual Network Editor</p>
+    <p>就这样虚拟机的桥接模式网络就设置好了，下面开始配置虚拟机debian 6系统的静态IP</p>
+</div>
+
+<div class="row">
+    <h2><font>四 补充说明</font></h2>
+
+    <h4><font style="color:red">*</font>本地连接</h4>
+    <p>这里演示的是Windows7环境下如何找到本地连接</p>
+    <p>1、单击菜单，选择控制面板</p>
+    <img src="~/assets/image/article/vmwarenet/0-1.jpg" />
+    <p>2、选择网络和Internet下的查看网络状态和任务，注意查看方式为类别</p>
+    <img src="~/assets/image/article/vmwarenet/0-2.jpg" />
+    <p>3、选择左侧的更改适配器设置</p>
+    <img src="~/assets/image/article/vmwarenet/0-3.jpg" />
+    <p>4、找到名为本地连接的适配器</p>
+    <img src="~/assets/image/article/vmwarenet/0-4.jpg" />
+
+    <h4><font style="color:red">*</font>本地连接VMware Bridge Protocol协议安装</h4>
+    <img src="~/assets/image/article/vmwarenet/0_1302835515kmre.gif" />
+    <p>精简版的VMware就很可能没有安装VMware Bridge Protocol协议，如果没有安装，通过以下方法安装：本地连接-属性-安装-服务-添加-从 磁盘安装，选择VMware安装目录下的netbridge.inf，确定安装，
+    过程如果提示vmnetBridge.dll和 vmnetBridge.sys文件找不到，可以在下一级目录中找到，拷贝到安装目录根路径。</p>
+
+</div>

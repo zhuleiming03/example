@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    @RenderSection("Header", required: false)
+}
+
+@*页眉 包含网站导航*@
+<div class="page-header">
+    <div class="container">
+        @RenderPage("~/Views/Shared/Partial/_Menu.cshtml")
+    </div>
+</div>
+
+@*页面内容*@
+<div class="page-container">
+    <div class="container">
+        <div class="row">
+            @*文章内容*@
+            <div class="col-xs-11">
+                @RenderBody()
+            </div>
+            @*置顶图标*@
+            <div class="col-xs-1">
+                @RenderPage("~/Views/Shared/Partial/_TopIcon.cshtml")
+            </div>
+        </div>
+    </div>
+</div> 

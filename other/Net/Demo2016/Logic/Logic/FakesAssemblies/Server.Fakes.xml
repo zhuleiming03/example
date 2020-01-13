@@ -1,0 +1,479 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Server.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.QualityTools.Testing.Fakes.Delegates.ServerDelegates">
+            <summary>包含用于 Server 的存根和填充码的自定义委托</summary>
+        </member>
+        <member name="T:Server.ConvertManager.Fakes.ShimModelToEntityServer">
+            <summary>Server.ConvertManager.ModelToEntityServer 的填充码类型</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimModelToEntityServer.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimModelToEntityServer.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimModelToEntityServer.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimModelToEntityServer.ModelToEntityOf2M0``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,``1})">
+            <summary>设置 ModelToEntityServer.ModelToEntity(!!0 model) 的 填充码</summary>
+        </member>
+        <member name="P:Server.ConvertManager.Fakes.ShimModelToEntityServer.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="T:Server.ConvertManager.Fakes.ShimToArrayListServer">
+            <summary>Server.ConvertManager.ToArrayListServer 的填充码类型</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToArrayListServer.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToArrayListServer.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToArrayListServer.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:Server.ConvertManager.Fakes.ShimToArrayListServer.AsDataTableDataTable">
+            <summary>设置 ToArrayListServer.AsDataTable(DataTable Table) 的 填充码</summary>
+        </member>
+        <member name="P:Server.ConvertManager.Fakes.ShimToArrayListServer.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="T:Server.ConvertManager.Fakes.ShimToDataTableServer">
+            <summary>Server.ConvertManager.ToDataTableServer 的填充码类型</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToDataTableServer.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToDataTableServer.AsListOf1ListOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Collections.Generic.List{``0},System.Data.DataTable})">
+            <summary>设置 ToDataTableServer.AsList(List`1&lt;!!0&gt; list) 的 填充码</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToDataTableServer.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToDataTableServer.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToDataTableServer.GetDataTableSchemaOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Data.DataTable})">
+            <summary>设置 ToDataTableServer.GetDataTableSchema(!!0 t) 的 填充码</summary>
+        </member>
+        <member name="P:Server.ConvertManager.Fakes.ShimToDataTableServer.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="T:Server.ConvertManager.Fakes.ShimToJsonServer">
+            <summary>Server.ConvertManager.ToJsonServer 的填充码类型</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToJsonServer.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToJsonServer.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToJsonServer.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:Server.ConvertManager.Fakes.ShimToJsonServer.AsDataTableDataTable">
+            <summary>设置 ToJsonServer.AsDataTable(DataTable Table) 的 填充码</summary>
+        </member>
+        <member name="P:Server.ConvertManager.Fakes.ShimToJsonServer.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="T:Server.ConvertManager.Fakes.ShimToListServer">
+            <summary>Server.ConvertManager.ToListServer 的填充码类型</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToListServer.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToListServer.AsDataTableOf1DataTable``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.Data.DataTable,System.Collections.Generic.List{``0}})">
+            <summary>设置 ToListServer.AsDataTable(DataTable Table) 的 填充码</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToListServer.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.ConvertManager.Fakes.ShimToListServer.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:Server.ConvertManager.Fakes.ShimToListServer.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="T:Server.DataBaseManager.Fakes.ShimDataBaseConfig">
+            <summary>Server.DataBaseManager.DataBaseConfig 的填充码类型</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimDataBaseConfig.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimDataBaseConfig.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimDataBaseConfig.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimDataBaseConfig.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimDataBaseConfig.ConnectStringGet">
+            <summary>设置 DataBaseConfig.get_ConnectString() 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimDataBaseConfig.ConnectStringNameGet">
+            <summary>设置 DataBaseConfig.get_ConnectStringName() 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimDataBaseConfig.ConnectStringNameSetString">
+            <summary>设置 DataBaseConfig.set_ConnectStringName(String value) 的 填充码</summary>
+        </member>
+        <member name="T:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer">
+            <summary>Server.DataBaseManager.MSSQLDataBaseServer 的填充码类型</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.#ctor(Server.DataBaseManager.MSSQLDataBaseServer)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.Bind(Server.DataBaseManager.IDataBaseServer)">
+            <summary>将接口的成员绑定到此填充码。</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AttachParametersSqlCommandIDataParameterArray">
+            <summary>设置 MSSQLDataBaseServer.AttachParameters(SqlCommand command, IDataParameter[] commandParameters) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.Constructor">
+            <summary>设置 MSSQLDataBaseServer.MSSQLDataBaseServer() 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.ExecuteDatasetStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteDataset(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.ExecuteDatatableStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteDatatable(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.ExecuteNonQueryStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteNonQuery(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.ExecuteScalarStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteScalar(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.PrepareCommandSqlConnectionCommandTypeStringIDataParameterArrayIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.PrepareCommand(SqlConnection connection, CommandType commandType, String commandText, IDataParameter[] commandParameters, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.SQLBulkCopyStringDataTableInt32Int32SqlBulkCopyOptions">
+            <summary>设置 MSSQLDataBaseServer.SQLBulkCopy(String connectionString, DataTable dataTable, Int32 BatchSize, Int32 BulkCopyTimeout, SqlBulkCopyOptions copyOptions) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.SQLBulkCopyStringDataTableSqlTransactionInt32Int32SqlBulkCopyOptions">
+            <summary>设置 MSSQLDataBaseServer.SQLBulkCopy(String connectionString, DataTable dataTable, SqlTransaction transaction, Int32 BatchSize, Int32 BulkCopyTimeout, SqlBulkCopyOptions copyOptions) 的 填充码</summary>
+        </member>
+        <member name="T:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances.ExecuteDatasetStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteDataset(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances.ExecuteDatatableStringStringDictionaryOfStringObjectOutIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteDatatable(String connectionString, String commandText, Dictionary`2&lt;String,Object&gt;&amp; outParameters, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances.ExecuteDatatableStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteDatatable(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances.ExecuteNonQueryStringStringDictionaryOfStringObjectOutIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteNonQuery(String connectionString, String commandText, Dictionary`2&lt;String,Object&gt;&amp; outParameters, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances.ExecuteNonQueryStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteNonQuery(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances.ExecuteScalarStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 MSSQLDataBaseServer.ExecuteScalar(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances.SQLBulkCopyStringDataTableInt32Int32SqlBulkCopyOptions">
+            <summary>设置 MSSQLDataBaseServer.SQLBulkCopy(String connectionString, DataTable dataTable, Int32 BatchSize, Int32 BulkCopyTimeout, SqlBulkCopyOptions copyOptions) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimMSSQLDataBaseServer.AllInstances.SQLBulkCopyStringDataTableSqlTransactionInt32Int32SqlBulkCopyOptions">
+            <summary>设置 MSSQLDataBaseServer.SQLBulkCopy(String connectionString, DataTable dataTable, SqlTransaction transaction, Int32 BatchSize, Int32 BulkCopyTimeout, SqlBulkCopyOptions copyOptions) 的 填充码</summary>
+        </member>
+        <member name="T:Server.DataBaseManager.Fakes.ShimSQLStringServer">
+            <summary>Server.DataBaseManager.SQLStringServer 的填充码类型</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimSQLStringServer.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimSQLStringServer.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimSQLStringServer.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimSQLStringServer.ConstructedInsertEntitySqlOf1StringStringBoolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String,System.String,System.Boolean,System.String})">
+            <summary>设置 SQLStringServer.ConstructedInsertEntitySql(String tableName, String idName, Boolean isIdentityAutoGrow) 的 填充码</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimSQLStringServer.ConstructedSqlParametersByEntityOf1M0StringBoolean``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.String,System.Boolean,System.Collections.Generic.List{System.Data.SqlClient.SqlParameter}})">
+            <summary>设置 SQLStringServer.ConstructedSqlParametersByEntity(!!0 t, String idName, Boolean isNeedIdNamePlaceHolder) 的 填充码</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.ShimSQLStringServer.ConstructedUpdatedEntitySqlByIdOf1StringString``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String,System.String,System.String})">
+            <summary>设置 SQLStringServer.ConstructedUpdatedEntitySqlById(String tableName, String idName) 的 填充码</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.ShimSQLStringServer.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="T:Server.DataBaseManager.Fakes.StubIDataBaseServer">
+            <summary>Server.DataBaseManager.IDataBaseServer 的存根类型</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.#ctor">
+            <summary>初始化 type StubIDataBaseServer 的新实例</summary>
+        </member>
+        <member name="F:Server.DataBaseManager.Fakes.StubIDataBaseServer.ExecuteDatasetStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 IDataBaseServer.ExecuteDataset(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 stub</summary>
+        </member>
+        <member name="F:Server.DataBaseManager.Fakes.StubIDataBaseServer.ExecuteDatatableStringStringDictionaryOfStringObjectOutIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 IDataBaseServer.ExecuteDatatable(String connectionString, String commandText, Dictionary`2&lt;String,Object&gt;&amp; outParameters, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 stub</summary>
+        </member>
+        <member name="F:Server.DataBaseManager.Fakes.StubIDataBaseServer.ExecuteDatatableStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 IDataBaseServer.ExecuteDatatable(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 stub</summary>
+        </member>
+        <member name="F:Server.DataBaseManager.Fakes.StubIDataBaseServer.ExecuteNonQueryStringStringDictionaryOfStringObjectOutIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 IDataBaseServer.ExecuteNonQuery(String connectionString, String commandText, Dictionary`2&lt;String,Object&gt;&amp; outParameters, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 stub</summary>
+        </member>
+        <member name="F:Server.DataBaseManager.Fakes.StubIDataBaseServer.ExecuteNonQueryStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 IDataBaseServer.ExecuteNonQuery(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 stub</summary>
+        </member>
+        <member name="F:Server.DataBaseManager.Fakes.StubIDataBaseServer.ExecuteScalarStringStringIDataParameterArrayCommandTypeIDbTransaction">
+            <summary>设置 IDataBaseServer.ExecuteScalar(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 stub</summary>
+        </member>
+        <member name="F:Server.DataBaseManager.Fakes.StubIDataBaseServer.SQLBulkCopyStringDataTableInt32Int32SqlBulkCopyOptions">
+            <summary>设置 IDataBaseServer.SQLBulkCopy(String connectionString, DataTable dataTable, Int32 BatchSize, Int32 BulkCopyTimeout, SqlBulkCopyOptions copyOptions) 的 stub</summary>
+        </member>
+        <member name="F:Server.DataBaseManager.Fakes.StubIDataBaseServer.SQLBulkCopyStringDataTableSqlTransactionInt32Int32SqlBulkCopyOptions">
+            <summary>设置 IDataBaseServer.SQLBulkCopy(String connectionString, DataTable dataTable, SqlTransaction transaction, Int32 BatchSize, Int32 BulkCopyTimeout, SqlBulkCopyOptions copyOptions) 的 stub</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.s::Server#DataBaseManager#IDataBaseServer#ExecuteDataset(System.String,System.String,System.Data.IDataParameter[],System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>设置 IDataBaseServer.ExecuteDataset(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 存根</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.s::Server#DataBaseManager#IDataBaseServer#ExecuteDatatable(System.String,System.String,System.Data.IDataParameter[],System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>设置 IDataBaseServer.ExecuteDatatable(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 存根</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.s::Server#DataBaseManager#IDataBaseServer#ExecuteDatatable(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object}@,System.Data.IDataParameter[],System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>设置 IDataBaseServer.ExecuteDatatable(String connectionString, String commandText, Dictionary`2&lt;String,Object&gt;&amp; outParameters, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 存根</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.s::Server#DataBaseManager#IDataBaseServer#ExecuteNonQuery(System.String,System.String,System.Data.IDataParameter[],System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>设置 IDataBaseServer.ExecuteNonQuery(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 存根</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.s::Server#DataBaseManager#IDataBaseServer#ExecuteNonQuery(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object}@,System.Data.IDataParameter[],System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>设置 IDataBaseServer.ExecuteNonQuery(String connectionString, String commandText, Dictionary`2&lt;String,Object&gt;&amp; outParameters, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 存根</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.s::Server#DataBaseManager#IDataBaseServer#ExecuteScalar(System.String,System.String,System.Data.IDataParameter[],System.Data.CommandType,System.Data.IDbTransaction)">
+            <summary>设置 IDataBaseServer.ExecuteScalar(String connectionString, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 的 存根</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.s::Server#DataBaseManager#IDataBaseServer#SQLBulkCopy(System.String,System.Data.DataTable,System.Int32,System.Int32,System.Data.SqlClient.SqlBulkCopyOptions)">
+            <summary>设置 IDataBaseServer.SQLBulkCopy(String connectionString, DataTable dataTable, Int32 BatchSize, Int32 BulkCopyTimeout, SqlBulkCopyOptions copyOptions) 的 存根</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubIDataBaseServer.s::Server#DataBaseManager#IDataBaseServer#SQLBulkCopy(System.String,System.Data.DataTable,System.Data.SqlClient.SqlTransaction,System.Int32,System.Int32,System.Data.SqlClient.SqlBulkCopyOptions)">
+            <summary>设置 IDataBaseServer.SQLBulkCopy(String connectionString, DataTable dataTable, SqlTransaction transaction, Int32 BatchSize, Int32 BulkCopyTimeout, SqlBulkCopyOptions copyOptions) 的 存根</summary>
+        </member>
+        <member name="T:Server.DataBaseManager.Fakes.StubMSSQLDataBaseServer">
+            <summary>Server.DataBaseManager.MSSQLDataBaseServer 的存根类型</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubMSSQLDataBaseServer.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:Server.DataBaseManager.Fakes.StubMSSQLDataBaseServer.InitializeStub">
+            <summary>初始化 type StubMSSQLDataBaseServer 的新实例</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.StubMSSQLDataBaseServer.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.StubMSSQLDataBaseServer.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:Server.DataBaseManager.Fakes.StubMSSQLDataBaseServer.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:Server.JQGridManager.Fakes.ShimJQGridEntity">
+            <summary>Server.JQGridManager.JQGridEntity 的填充码类型</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.ShimJQGridEntity.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.ShimJQGridEntity.#ctor(Server.JQGridManager.JQGridEntity)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.ShimJQGridEntity.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.ShimJQGridEntity.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.ColumnNameGet">
+            <summary>设置 JQGridEntity.get_ColumnName() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.ColumnNameSetString">
+            <summary>设置 JQGridEntity.set_ColumnName(String value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.ConditionGet">
+            <summary>设置 JQGridEntity.get_Condition() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.ConditionSetString">
+            <summary>设置 JQGridEntity.set_Condition(String value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.Constructor">
+            <summary>设置 JQGridEntity.JQGridEntity() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.PageGet">
+            <summary>设置 JQGridEntity.get_Page() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.PageSetInt32">
+            <summary>设置 JQGridEntity.set_Page(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.RowsGet">
+            <summary>设置 JQGridEntity.get_Rows() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.RowsSetInt32">
+            <summary>设置 JQGridEntity.set_Rows(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.SidxGet">
+            <summary>设置 JQGridEntity.get_Sidx() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.SidxSetString">
+            <summary>设置 JQGridEntity.set_Sidx(String value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.SordGet">
+            <summary>设置 JQGridEntity.get_Sord() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.SordSetString">
+            <summary>设置 JQGridEntity.set_Sord(String value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.TableNameGet">
+            <summary>设置 JQGridEntity.get_TableName() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.TableNameSetString">
+            <summary>设置 JQGridEntity.set_TableName(String value) 的 填充码</summary>
+        </member>
+        <member name="T:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.ColumnNameGet">
+            <summary>设置 JQGridEntity.get_ColumnName() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.ColumnNameSetString">
+            <summary>设置 JQGridEntity.set_ColumnName(String value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.ConditionGet">
+            <summary>设置 JQGridEntity.get_Condition() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.ConditionSetString">
+            <summary>设置 JQGridEntity.set_Condition(String value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.PageGet">
+            <summary>设置 JQGridEntity.get_Page() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.PageSetInt32">
+            <summary>设置 JQGridEntity.set_Page(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.RowsGet">
+            <summary>设置 JQGridEntity.get_Rows() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.RowsSetInt32">
+            <summary>设置 JQGridEntity.set_Rows(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.SidxGet">
+            <summary>设置 JQGridEntity.get_Sidx() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.SidxSetString">
+            <summary>设置 JQGridEntity.set_Sidx(String value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.SordGet">
+            <summary>设置 JQGridEntity.get_Sord() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.SordSetString">
+            <summary>设置 JQGridEntity.set_Sord(String value) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.TableNameGet">
+            <summary>设置 JQGridEntity.get_TableName() 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridEntity.AllInstances.TableNameSetString">
+            <summary>设置 JQGridEntity.set_TableName(String value) 的 填充码</summary>
+        </member>
+        <member name="T:Server.JQGridManager.Fakes.ShimJQGridServer">
+            <summary>Server.JQGridManager.JQGridServer 的填充码类型</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.ShimJQGridServer.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.ShimJQGridServer.#ctor(Server.JQGridManager.JQGridServer)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.ShimJQGridServer.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.ShimJQGridServer.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridServer.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridServer.ConstructorIDataBaseServerString">
+            <summary>设置 JQGridServer.JQGridServer(IDataBaseServer dataBaseServer, String connectString) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridServer.GetJQGridDataTableJQGridEntity">
+            <summary>设置 JQGridServer.GetJQGridDataTable(JQGridEntity entity) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridServer.GetJQGridJsonJQGridEntity">
+            <summary>设置 JQGridServer.GetJQGridJson(JQGridEntity entity) 的 填充码</summary>
+        </member>
+        <member name="T:Server.JQGridManager.Fakes.ShimJQGridServer.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridServer.AllInstances.GetJQGridDataTableJQGridEntity">
+            <summary>设置 JQGridServer.GetJQGridDataTable(JQGridEntity entity) 的 填充码</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.ShimJQGridServer.AllInstances.GetJQGridJsonJQGridEntity">
+            <summary>设置 JQGridServer.GetJQGridJson(JQGridEntity entity) 的 填充码</summary>
+        </member>
+        <member name="T:Server.JQGridManager.Fakes.StubJQGridEntity">
+            <summary>Server.JQGridManager.JQGridEntity 的存根类型</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.StubJQGridEntity.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.StubJQGridEntity.InitializeStub">
+            <summary>初始化 type StubJQGridEntity 的新实例</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.StubJQGridEntity.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.StubJQGridEntity.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.StubJQGridEntity.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:Server.JQGridManager.Fakes.StubJQGridServer">
+            <summary>Server.JQGridManager.JQGridServer 的存根类型</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.StubJQGridServer.#ctor(Server.DataBaseManager.IDataBaseServer,System.String)">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:Server.JQGridManager.Fakes.StubJQGridServer.InitializeStub">
+            <summary>初始化 type StubJQGridServer 的新实例</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.StubJQGridServer.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.StubJQGridServer.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:Server.JQGridManager.Fakes.StubJQGridServer.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+    </members>
+</doc>

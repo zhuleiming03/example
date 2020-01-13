@@ -1,0 +1,304 @@
+﻿@{
+    ViewBag.Title = "ArticleNav";
+    Layout = "~/Views/Shared/Page/_Page.cshtml";
+}
+
+@section Header{
+<style>
+    form span {
+        margin: 10px;
+        display: block;
+        font-weight: 400;
+        font-family: YouYuan;
+    }
+    .btn-default {
+        margin: 0 1px;
+    }
+    .th .col-xs-1 {
+        text-align: center;
+    }
+    .th .col-xs-2 {
+        text-align: center;
+    }
+    .th .col-xs-3 {
+        text-align: center;
+    }
+    .th span {
+        font-weight: 700;
+        font-size: 17px;
+    }
+    button, input, select, textarea {
+        font-family: YouYuan;
+        font-size: 14px;
+    }
+</style>
+<script type="text/javascript">
+    function isIE() { //ie? 
+        if (window.navigator.userAgent.toLowerCase().indexOf('msie') >= 1)
+            return true;
+        else
+            return false;
+    }
+    if (!isIE()) { //firefox innerText define 
+        HTMLElement.prototype.__defineGetter__('innerText',
+        function () {
+            var anyString = '';
+            var childS = this.childNodes;
+            for (var i = 0; i < childS.length; i++) {
+                if (childS[i].nodeType == 1)
+                    anyString += childS[i].tagName == 'BR' ? '\n' : childS[i].textContent;
+                else if (childS[i].nodeType == 3)
+                    anyString += childS[i].nodeValue;
+            }
+            return anyString;
+        }
+        );
+        HTMLElement.prototype.__defineSetter__('innerText',
+        function (sText) {
+            this.textContent = sText;
+        }
+        );
+    }   
+
+
+    function EditSuccess() {
+        var row = $(this).parent().parent();
+        var spanArry = row.find("span");
+        for (var i = 0; i < spanArry.length; i++) {
+            $(spanArry[i]).css('display', 'none');
+        }
+        var inputArry = row.find("input");
+        for (var i = 0; i < inputArry.length; i++) {
+            $(inputArry[i]).css('display', 'block');
+        }
+
+        var aArray = row.find("a");
+        $(aArray[0]).css('display', 'none');
+        $(aArray[1]).css('display', 'block');
+        $(aArray[2]).css('display', 'block');
+
+    }
+
+    function LoadData(data) {
+        //数据解析
+        var obj = eval('(' + data + ')');
+
+        //父节点
+        var Form = document.getElementById('Mylist');
+
+        //初始化数据
+        for (var i = 0; i < obj.length; i++) {
+
+            //span1
+            var span1 = document.createElement('span');
+            span1.title = 'ParameterCode';
+            span1.innerHTML = obj[i].ParameterCode;
+            span1.style.display = 'block';
+            var input1 = document.createElement('input');
+            input1.className = 'form-control';
+            input1.type = 'text';
+            input1.placeholder = '参数';
+            input1.name = 'ParameterCode';
+            input1.style.display = 'none';
+            input1.value = obj[i].ParameterCode;
+            var cell1 = document.createElement('div');
+            cell1.className = 'col-xs-2';
+            cell1.appendChild(span1);
+            cell1.appendChild(input1);
+
+            //span2
+            var span2 = document.createElement('span');
+            span2.title = 'ParameterName';
+            span2.innerHTML = obj[i].ParameterName;
+            var input2 = document.createElement('input');
+            input2.className = 'form-control';
+            input2.type = 'text';
+            input2.placeholder = '名称';
+            input2.name = 'ParameterName';
+            input2.style.display = 'none';
+            input2.value = obj[i].ParameterName;
+            var cell2 = document.createElement('div');
+            cell2.className = 'col-xs-2';
+            cell2.appendChild(span2);
+            cell2.appendChild(input2);
+
+            //span3
+            var span3 = document.createElement('span');
+            span3.title = 'ParameterType';
+            span3.innerHTML = obj[i].ParameterType;
+            var input3 = document.createElement('input');
+            input3.className = 'form-control';
+            input3.type = 'text';
+            input3.placeholder = '类型';
+            input3.name = 'ParameterType';
+            input3.style.display = 'none';
+            input3.value = obj[i].ParameterType;
+            var cell3 = document.createElement('div');
+            cell3.className = 'col-xs-2';
+            cell3.appendChild(span3);
+            cell3.appendChild(input3);
+
+            //span4
+            var span4 = document.createElement('span');
+            span4.title = 'CheckContent';
+            span4.innerHTML = obj[i].CheckContent;
+            var input4 = document.createElement('input');
+            input4.className = 'form-control';
+            input4.type = 'text';
+            input4.placeholder = '约束';
+            input4.name = 'CheckContent';
+            input4.style.display = 'none';
+            input4.value = obj[i].CheckContent;
+            var cell4 = document.createElement('div');
+            cell4.className = 'col-xs-1';
+            cell4.appendChild(span4);
+            cell4.appendChild(input4);
+
+            //span5
+            var span5 = document.createElement('span');
+            span5.title = 'Remark';
+            span5.innerHTML = obj[i].Remark;
+            var input5 = document.createElement('input');
+            input5.className = 'form-control';
+            input5.type = 'text';
+            input5.placeholder = '说明';
+            input5.name = 'Remark';
+            input5.style.display = 'none';
+            input5.value = obj[i].Remark;
+            var cell5 = document.createElement('div');
+            cell5.className = 'col-xs-3';
+            cell5.appendChild(span5);
+            cell5.appendChild(input5);
+
+            //span6
+            var input6 = document.createElement('a');
+            input6.innerText = "编辑";
+            input6.href = 'javascript:void(0)';
+            input6.style.display = 'block';
+            $(input6).on('click', EditSuccess);
+            var input7 = document.createElement('a');
+            input7.innerText = "确认";
+            input7.href = 'javascript:void(0)';
+            input7.style.display = 'none';
+            var input8 = document.createElement('a');
+            input8.innerText = "取消";
+            input8.href = 'javascript:void(0)';
+            input8.style.display = 'none';
+
+
+            var cell6 = document.createElement('div');
+            cell6.className = 'col-xs-2';
+            cell6.appendChild(input6);
+            cell6.appendChild(input7);
+            cell6.appendChild(input8);
+
+            var row = document.createElement('div');
+            row.className = 'row';
+            row.appendChild(cell1);
+            row.appendChild(cell2);
+            row.appendChild(cell3);
+            row.appendChild(cell4);
+            row.appendChild(cell5);
+            row.appendChild(cell6);
+
+            Form.appendChild(row);
+        }
+    }
+
+    function Edit() {
+        //数据解析
+        var dateObj = eval('(' + data + ')');
+
+        alert("success");
+    }
+
+    function init() {
+        var data = '[{"ParameterCode":"BillDate","ParameterName":"最后还款日","ParameterType":"datetime","CheckContent":"选填","Remark":""},{"ParameterCode":"BillType","ParameterName":"账单类型","ParameterType":"int","CheckContent":"枚举","Remark":"1-未还；2-部分还款；3-全部还款"},{"ParameterCode":"Index","ParameterName":"期数","ParameterType":"int","CheckContent":"必填","Remark":""}]';
+        LoadData(data);
+    }
+
+    function insertDate(obj) {
+        var row = $(obj).parent().parent();
+        var ParameterCode = row.find("input[name='ParameterCode']");
+        var ParameterName = row.find("input[name='ParameterName']");
+        var ParameterType = row.find("input[name='ParameterType']");
+        var CheckContent = row.find("input[name='CheckContent']");
+        var Remark = row.find("input[name='Remark']");
+
+        var data = '[{"ParameterCode":"' + ParameterCode.val()
+            + '","ParameterName":"' + ParameterName.val()
+            + '","ParameterType":"' + ParameterType.val()
+            + '","CheckContent":"' + CheckContent.val()
+            + '","Remark":"' + Remark.val()
+            + '"}]';
+        LoadData(data);
+
+        ParameterCode.val("");
+        ParameterName.val("");
+        ParameterType.val("");
+        CheckContent.val("");
+        Remark.val("");
+    }
+
+    function deleteData(){
+        var row = obj.parentNode.parentNode;
+        $(row).remove();
+    }
+
+    function editData(){
+        alert("success");
+    }
+
+    window.onload = init;
+    
+</script>
+
+}
+
+<div class="container">
+    <div class="row">
+        <form role="form" id="Mylist">
+            <div class="row th">
+                <div class="col-xs-2">
+                    <span>参数</span>                  
+                </div>
+                <div class="col-xs-2">
+                    <span>名称</span>
+                </div>
+                <div class="col-xs-2">
+                    <span>类型</span>
+                </div>
+                <div class="col-xs-1">
+                    <span>约束</span>
+                </div>
+                <div class="col-xs-3">
+                    <span>说明</span>
+                </div>
+                <div class="col-xs-2">
+                    <span>操作</span>
+                </div>
+            </div>
+
+            <div class="row tf">
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" name="ParameterCode" placeholder="参数">
+                </div>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" name="ParameterName" placeholder="名称">
+                </div>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" name="ParameterType" placeholder="类型">
+                </div>
+                <div class="col-xs-1">
+                    <input type="text" class="form-control" name="CheckContent" placeholder="约束">
+                </div>
+                <div class="col-xs-3">
+                    <input type="text" class="form-control" name="Remark" placeholder="说明">
+                </div>
+                <div class="col-xs-2">
+                    <button type="button" class="btn btn-default" onclick="insertDate(this)">新增</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

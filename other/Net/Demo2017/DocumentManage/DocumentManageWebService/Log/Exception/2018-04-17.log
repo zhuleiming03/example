@@ -1,0 +1,16 @@
+﻿[ERROR]:System.Data.SqlClient.SqlException (0x80131904): 列名 'QueryRepaySchedul' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Common.MSSQLDBServer.ExecuteNonQuery(String connectionstring, String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 位置 D:\Demo2017\DocumentManage\Common\DataBaseManager\MSSQLDBServer.cs:行号 106
+   在 Common.MSSQLDataBaseServer.ExecuteNonQuery(String commandText, IDataParameter[] commandParameters, CommandType commandType, IDbTransaction transaction) 位置 D:\Demo2017\DocumentManage\Common\DataBaseManager\MSSQLDataBaseServer.cs:行号 35
+   在 DocumentManageDAL.DocumentInterfaceDAL.UpdateSingleInterfaceItemModel(InterfaceItemModel model) 位置 D:\Demo2017\DocumentManage\DocumentManageDAL\DocumentInterfaceDAL.cs:行号 453
+   在 DocumentManageBLL.DocumentInterfaceBLL.UpdateInterfaceItem(InterfaceItemModel model) 位置 D:\Demo2017\DocumentManage\DocumentManageBLL\DocumentInterfaceBLL.cs:行号 250
+ClientConnectionId:b4c1d318-0a0d-46e0-83f7-946a691bd759
+Error Number:207,State:1,Class:16
+   2018-04-17 15:32:45,447 DocumentManageBLL.DocumentInterfaceBLL
+   

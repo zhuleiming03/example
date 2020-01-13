@@ -1,0 +1,6 @@
+2018/6/25 14:58:23  Method <demo1> Total of <1> Parameters Including:
+2018/6/25 14:58:23  Parameter-1 ：<1>
+2018/6/25 14:58:47  Method <demo1> Return Value Of This Method Is <2>
+2018/6/25 14:58:49  Method <demo4> Total of <1> Parameters Including:
+2018/6/25 14:58:49  Parameter-1 ：<{"BillID":11,"IsDelete":false,"Remark":"测试","BillItems":[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]}>
+2018/6/25 14:58:49  Method <demo4> Return Value Of This Method Is <[{"BillID":11,"BillItemID":0,"Amount":0.0},{"BillID":11,"BillItemID":1,"Amount":1.2},{"BillID":11,"BillItemID":2,"Amount":2.4}]>

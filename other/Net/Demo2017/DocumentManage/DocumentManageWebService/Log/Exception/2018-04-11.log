@@ -1,0 +1,51 @@
+﻿[ERROR]:System.ArgumentException: 类型“System.String”的对象无法转换为类型“System.Int32”。
+   在 System.RuntimeType.TryChangeType(Object value, Binder binder, CultureInfo culture, Boolean needsSpecialCast)
+   在 System.RuntimeType.CheckValue(Object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   在 System.Reflection.MethodBase.CheckArguments(Object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   在 System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   在 System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   在 Common.ToEntityServer.ToEntity[T](DataRow row) 位置 D:\Demo2017\DocumentManage\Common\ConvertManager\ToEntityServer.cs:行号 38
+   在 Common.ToListServer.ToList[T](DataTable Table) 位置 D:\Demo2017\DocumentManage\Common\ConvertManager\ToListServer.cs:行号 30
+   在 DocumentManageDAL.DocumentInterfaceDAL.SearchDocumentInterfaceItem(Int32 interfaceID) 位置 D:\Demo2017\DocumentManage\DocumentManageDAL\DocumentInterfaceDAL.cs:行号 208
+   在 DocumentManageBLL.DocumentInterfaceBLL.QueryInterfaceItem(Int32 interfaceID) 位置 D:\Demo2017\DocumentManage\DocumentManageBLL\DocumentInterfaceBLL.cs:行号 187
+   2018-04-11 14:57:10,074 DocumentManageBLL.DocumentInterfaceBLL
+   
+[ERROR]:类型“System.String”的对象无法转换为类型“System.Int32”。
+   2018-04-11 14:57:10,074 DocumentManageDAL.DocumentInterfaceDAL
+   
+[ERROR]:System.ArgumentException: 类型“System.String”的对象无法转换为类型“System.Int32”。
+   在 System.RuntimeType.TryChangeType(Object value, Binder binder, CultureInfo culture, Boolean needsSpecialCast)
+   在 System.RuntimeType.CheckValue(Object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   在 System.Reflection.MethodBase.CheckArguments(Object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   在 System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   在 System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   在 Common.ToEntityServer.ToEntity[T](DataRow row) 位置 D:\Demo2017\DocumentManage\Common\ConvertManager\ToEntityServer.cs:行号 38
+   在 Common.ToListServer.ToList[T](DataTable Table) 位置 D:\Demo2017\DocumentManage\Common\ConvertManager\ToListServer.cs:行号 30
+   在 DocumentManageDAL.DocumentInterfaceDAL.SearchDocumentInterfaceItem(Int32 interfaceID) 位置 D:\Demo2017\DocumentManage\DocumentManageDAL\DocumentInterfaceDAL.cs:行号 208
+   在 DocumentManageBLL.DocumentInterfaceBLL.QueryInterfaceItem(Int32 interfaceID) 位置 D:\Demo2017\DocumentManage\DocumentManageBLL\DocumentInterfaceBLL.cs:行号 187
+   2018-04-11 15:01:03,256 DocumentManageBLL.DocumentInterfaceBLL
+   
+[ERROR]:类型“System.String”的对象无法转换为类型“System.Int32”。
+   2018-04-11 15:01:39,238 DocumentManageDAL.DocumentInterfaceDAL
+   
+[ERROR]:System.ArgumentException: 类型“System.String”的对象无法转换为类型“System.Int32”。
+   在 System.RuntimeType.TryChangeType(Object value, Binder binder, CultureInfo culture, Boolean needsSpecialCast)
+   在 System.RuntimeType.CheckValue(Object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   在 System.Reflection.MethodBase.CheckArguments(Object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   在 System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   在 System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   在 Common.ToEntityServer.ToEntity[T](DataRow row) 位置 D:\Demo2017\DocumentManage\Common\ConvertManager\ToEntityServer.cs:行号 38
+   在 Common.ToListServer.ToList[T](DataTable Table) 位置 D:\Demo2017\DocumentManage\Common\ConvertManager\ToListServer.cs:行号 30
+   在 DocumentManageDAL.DocumentInterfaceDAL.SearchDocumentInterfaceItem(Int32 interfaceID) 位置 D:\Demo2017\DocumentManage\DocumentManageDAL\DocumentInterfaceDAL.cs:行号 208
+   在 DocumentManageBLL.DocumentInterfaceBLL.QueryInterfaceItem(Int32 interfaceID) 位置 D:\Demo2017\DocumentManage\DocumentManageBLL\DocumentInterfaceBLL.cs:行号 187
+   2018-04-11 15:03:07,126 DocumentManageBLL.DocumentInterfaceBLL
+   
+[ERROR]:类型“System.String”的对象无法转换为类型“System.Int32”。
+   2018-04-11 15:03:07,126 DocumentManageDAL.DocumentInterfaceDAL
+   
