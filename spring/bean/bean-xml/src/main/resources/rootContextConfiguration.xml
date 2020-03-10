@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="example.spring.domain.Student">
+        <property name="name" value="fairy"></property>
+        <property name="traffic" ref="bicycle"></property>
+    </bean>
+
+    <bean id="teacher" class="example.spring.domain.Teacher">
+        <constructor-arg type="example.spring.service.Traffic" ref="motorbike"></constructor-arg>
+    </bean>
+
+    <bean id="manager" class="example.spring.domain.Manager">
+        <property name="traffic" ref="car"></property>
+    </bean>
+
+    <bean id="visitor" class="example.spring.domain.Visitor">
+        <property name="traffic" ref="metro"></property>
+    </bean>
+
+    <bean id="bicycle" class="example.spring.service.impl.Bicycle"></bean>
+
+    <bean id="car" class="example.spring.service.factory.TrafficFactory"
+          factory-method="getStaticTraffic"></bean>
+
+    <bean id="metro" class="example.spring.service.factory.TrafficFactory"
+          factory-bean="trafficFactory" factory-method="getTraffic"></bean>
+
+    <bean id="motorbike" class="example.spring.service.impl.Motorbike"></bean>
+
+    <bean id="trafficFactory" class="example.spring.service.factory.TrafficFactory"></bean>
+
+</beans>
