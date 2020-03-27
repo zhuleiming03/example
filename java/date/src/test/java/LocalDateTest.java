@@ -40,12 +40,8 @@ public class LocalDateTest {
         LocalDate lastDayOfThisMonth = today.with(TemporalAdjusters.lastDayOfMonth());
         System.out.println(">>月尾:" + lastDayOfThisMonth);
 
-        // 取下一天：
-        LocalDate addDay = lastDayOfThisMonth.plusDays(1);
-        System.out.println(">>" + lastDayOfThisMonth + " 后一天：" + addDay);
-
-        // 取上一个月：
-        LocalDate subductionMonth = lastDayOfThisMonth.minusMonths(1);
-        System.out.println(">>" + lastDayOfThisMonth + " 前一月：" + subductionMonth);
+        //取当月天数
+        int MonthDay = today.lengthOfMonth();
+        System.out.println(String.format(">>本月合计:%d 天", MonthDay));
     }
 }
