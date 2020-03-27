@@ -1,8 +1,8 @@
 package example.java.collect;
 
+import example.java.collect.domain.UserPO;
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Test;
-import org.junit.rules.Stopwatch;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class ListAndMapTest {
+public class CapacityTest {
 
     @Test
-    public void ListAndMapLoopTest() {
+    public void listAndMapLoopTest() {
 
         List<Integer> idsList = new LinkedList<>();
         List<UserPO> userList = new LinkedList<>();

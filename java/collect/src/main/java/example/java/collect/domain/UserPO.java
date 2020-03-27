@@ -1,4 +1,4 @@
-package example.java.collect;
+package example.java.collect.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
