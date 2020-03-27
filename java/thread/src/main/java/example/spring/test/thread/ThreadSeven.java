@@ -1,5 +1,7 @@
-package example.spring.test;
+package example.spring.test.thread;
 
+
+import example.spring.service.Utils;
 
 public class ThreadSeven extends Thread {
 
@@ -13,9 +15,9 @@ public class ThreadSeven extends Thread {
      *
      * @param args
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         new ThreadSeven().start();
-        Thread.sleep(1_000L);
+        Utils.delay(1L);
         flag = true;
     }
 

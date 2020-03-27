@@ -1,5 +1,6 @@
-package example.spring.test;
+package example.spring.test.thread;
 
+import example.spring.service.Utils;
 import example.spring.thread.Dog;
 
 import java.time.LocalTime;
@@ -16,12 +17,8 @@ public class ThreadThree {
         System.out.println(LocalTime.now() + " : 启动一个后台进程");
         dog.start();
 
-        //主进程休眠3毫秒
-        try {
-            Thread.sleep(3L);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
+        //主进程休眠1秒
+        Utils.delay(1L);
 
         System.out.println(LocalTime.now() + " : 停止一个后台进程");
         dog.interrupt();

@@ -1,4 +1,4 @@
-package example.spring.test;
+package example.spring.test.thread;
 
 import example.spring.thread.Rabbit;
 import example.spring.thread.Tortoise;

@@ -1,4 +1,4 @@
-package example.spring.test;
+package example.spring.test.threadPool;
 
 import java.time.LocalTime;
 import java.util.concurrent.ScheduledExecutorService;

@@ -1,4 +1,6 @@
-package example.spring.test;
+package example.spring.test.threadPool;
+
+import example.spring.service.Utils;
 
 import java.util.concurrent.*;
 
@@ -22,16 +24,14 @@ public class ThreadPoolTwo {
             pool.execute(new Runnable() {
                 @Override
                 public void run() {
-                    try {
-                        // 打印正在执行的缓存线程信息
-                        System.out.println(Thread.currentThread().getName()
-                                + "正在被执行");
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    // 打印正在执行的缓存线程信息
+                    System.out.println(Thread.currentThread().getName()
+                            + "正在被执行");
+                    Utils.delay(1L);
                 }
             });
         }
+
+        pool.shutdown();
     }
 }
