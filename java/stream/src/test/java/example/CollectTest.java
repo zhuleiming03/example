@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
 
@@ -161,5 +162,31 @@ public class CollectTest {
         List<Dish> vegetarian = partition.get(true);
 
         vegetarian.forEach(System.out::println);
+    }
+
+    @Test
+    public void concat() {
+
+        List<String> strings = Arrays.asList("Hello", "World", "...");
+
+        String one = strings.stream()
+                .collect(StringBuilder::new,
+                        StringBuilder::append,
+                        StringBuilder::append)
+                .toString();
+        System.out.println(one);
+
+        String two = strings.stream()
+                .collect(() -> new StringBuilder(),
+                        (l, x) -> l.append(x),
+                        (r1, r2) -> r1.append(r2))
+                .toString();
+        System.out.println(two);
+
+        List<Dish> dishes = DishService.getMenu();
+        List<String> three = dishes.stream()
+                .map(Dish::getName)
+                .collect(LinkedList::new, List::add, List::addAll);
+        System.out.println(three);
     }
 }
