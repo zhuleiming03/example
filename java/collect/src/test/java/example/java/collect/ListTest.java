@@ -10,7 +10,7 @@ import java.util.List;
 public class ListTest {
 
     @Test
-    public void testArrarList() {
+    public void testArrayList() {
 
         List<Integer> a = Arrays.asList(1, 2, 3, 4, 5);
         List<Integer> a1 = new ArrayList<>();
@@ -28,7 +28,7 @@ public class ListTest {
     }
 
     @Test
-    public void testArrarListThread() throws InterruptedException {
+    public void testArrayListThread() throws InterruptedException {
 
         List<String> safe = new ArrayList<>();
         List<String> unSafe = new ArrayList<>();
