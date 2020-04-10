@@ -1,4 +1,0 @@
-# org.springframework.boot.autoconfigure.AutoConfigurationImportListener 配置
-org.springframework.boot.autoconfigure.AutoConfigurationImportListener=\
-example.spring.boot.show.service.DefaultAutoConfigurationImportListener
-
