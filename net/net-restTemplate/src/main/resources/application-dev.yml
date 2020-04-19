@@ -1,4 +1,0 @@
-server:
-  port: 8070
-
-TestAddress: http://localhost:8071/
